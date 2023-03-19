@@ -32,3 +32,17 @@ This python project is developed for a dental practice. A management system that
 * I want to be able to log in succesfully. 
 * I dont want to sign up again. 
 * I want to view, edit and find appointments, patient details and treatment prices. 
+
+## Features
+
+## Future implementation 
+
+## Technologies Used
+
+## Testing
+
+## Bugs 
+
+## Deployment 
+
+## Credits and Acknowledgements
