@@ -81,8 +81,27 @@ I decided to challenge myself with a trying to complete a command line python ap
 
 ## Deployment 
 ### Deployment to Heroku
+
 ### How To Fork
+
+To fork the Patient-Manager Repository:
+
+Log in or Sign up to github.
+Find the repository for this project, SooryaGeorge7/Patient-Manager
+Click the fork button on top right corner.
+How to Clone
+
 ### How To Clone
+
+To clone the Patient-Manager Repository:
+
+Log in or Sign up to github.
+Find the repository for this project, SooryaGeorge7/Patient-Manager.
+Click on Code button just left to the green gitpod button.
+Select what you would like to clone with (HTTPS/SSH/GitHub CLI) and copy the link shown below.
+Open the terminal in your code editor(eg. Gitpod) and change the current working directory to the location you want to use for cloned directory.
+In the terminal type in "git clone" and paste the link you copied in step 4 above. Press enter.
+Cloning is now completed.
 
 ## Credits and Acknowledgements
 
