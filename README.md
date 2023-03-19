@@ -8,7 +8,7 @@ This is a simple patient management system that would allow users(eg. admin) to 
 
 I decided to build this project for my 3rd portfolio project for code instutute having drawn inspiration from my current work life. 
 
-I decided to challenge myself with a trying to complete a command line python application that would allow me to manage patients similarly to the applications used in real private practices. 
+I decided to challenge myself with a trying to complete a command line python application that would allow me to manage patients similarly to the applications used in real dental private practices. 
 
 ## Table of contents
   - [Brief](#brief)
@@ -47,7 +47,6 @@ I decided to challenge myself with a trying to complete a command line python ap
 ### Returning visitor
 * I want to be able to log in succesfully. 
 * I dont want to sign up again. 
-* I want to view, edit and find appointments, patient details and treatment prices. 
 
 ## Features
 
