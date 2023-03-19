@@ -1,5 +1,15 @@
 # Dental Patient Manager
 
+## Brief 
+
+This python project is specifically developed for a dental or medical private practice. 
+
+This is a simple patient management system that would allow users(eg. admin) to add, view or edit  appointments, treatments and patient details. 
+
+I decided to build this project for my 3rd portfolio project for code instutute having drawn inspiration from my current work life. 
+
+I decided to challenge myself with a trying to complete a command line python application that would allow me to manage patients similarly to the applications used in real private practices. 
+
 ## Table of contents
   - [Brief](#brief)
   - [User Stories](#user-stories)
@@ -19,15 +29,7 @@
     - [How To Fork](#how-to-fork)
     - [How To Clone](#how-to-clone)
   - [Credits and Acknowledgements](#credits-and-acknowledgements)
-## Brief 
 
-This python project is specifically developed for a dental or medical private practice. 
-
-This is a simple patient management system that would allow users(eg. admin) to add, view or edit  appointments, treatments and patient details. 
-
-I decided to build this project for my 3rd portfolio project for code instutute having drawn inspiration from my current work life. 
-
-I decided to challenge myself with a trying to complete a command line python application that would allow me to manage patients similarly to the applications used in real private practices. 
 
 ## User Stories 
 
@@ -48,18 +50,20 @@ I decided to challenge myself with a trying to complete a command line python ap
 ## Future implementation 
 
 ## Technologies Used
+
 ### Languages Used
 
 * Python is predominently used, with the project template having javascript and html as well. 
 ### Frameworks, Libraries and Programs Used
 
-* [GitHub](https://github.com/)
-* [Gitpod](https://gitpod.io/workspaces)
-* [Git](https://git-scm.com/)
-* [Heroku](https://heroku.com)
-* [Google sheets API](https://developers.google.com/sheets/api)
-* [Diagrams.net](https://diagram.net)
-* [CI Python Linter](https://pep8ci.herokuapp.com/)
+* [GitHub](https://github.com/)- To save and store files
+* [Gitpod](https://gitpod.io/workspaces)- Code editor
+* [Git](https://git-scm.com/) - For Version control
+* [Heroku](https://heroku.com) - For deployment
+* [Google sheets API](https://developers.google.com/sheets/api) - To store and fetch data
+* [Diagrams.net](https://diagram.net) - Used to make flowchart 
+* [CI Python Linter](https://pep8ci.herokuapp.com/) - To validate code
+* [Ascii Art](https://www.asciiart.eu/) - For start of game art piece 
 ## Testing
 
 ## Bugs 
