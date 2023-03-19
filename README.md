@@ -8,6 +8,8 @@
   - [Features](#features)
   - [Future implementation](#features-left-to-implement)
   - [Technologies Used](#technology-used)
+    - [Languages Used](langues-used)
+    - [Frameworks, Libraries and Programs Used](#frameworks,-libraries-and-programs-used)
   - [Testing](#testing)
   - [Bugs](#bugs)
   - [Deployment](#deployment)
@@ -38,7 +40,18 @@ This python project is developed for a dental practice. A management system that
 ## Future implementation 
 
 ## Technologies Used
+### Languages Used
 
+* Python is predominently used, with the project template having javascript and html as well. 
+### Frameworks, Libraries and Programs Used
+
+* [GitHub](https://github.com/)
+* [Gitpod](https://gitpod.io/workspaces)
+* [Git](https://git-scm.com/)
+* [Heroku](https://heroku.com)
+* [Google sheets API](https://developers.google.com/sheets/api)
+* [Diagrams.net](https://diagram.net)
+* [CI Python Linter](https://pep8ci.herokuapp.com/)
 ## Testing
 
 ## Bugs 
