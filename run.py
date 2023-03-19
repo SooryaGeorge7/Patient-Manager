@@ -19,7 +19,9 @@ SHEET = GSPREAD_CLIENT.open('Patient_manager')
 users = SHEET.worksheet('users')
 
 data = users.get_all_values()
-
+for line in data:
+    correct_username = line[0]
+    print(correct_username)
 print(data)
 print("a : Login")
 print("b : signup")
