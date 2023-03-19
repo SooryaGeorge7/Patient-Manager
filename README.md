@@ -21,7 +21,13 @@
   - [Credits and Acknowledgements](#credits-and-acknowledgements)
 ## Brief 
 
-This python project is developed for a dental practice. A management system that would allow you to add, view or edit  appointments, treatments and patient details. 
+This python project is specifically developed for a dental or medical private practice. 
+
+This is a simple patient management system that would allow users(eg. admin) to add, view or edit  appointments, treatments and patient details. 
+
+I decided to build this project for my 3rd portfolio project for code instutute having drawn inspiration from my current work life. 
+
+I decided to challenge myself with a trying to complete a command line python application that would allow me to manage patients similarly to the applications used in real private practices. 
 
 ## User Stories 
 
