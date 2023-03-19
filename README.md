@@ -12,10 +12,12 @@
     - [Frameworks, Libraries and Programs Used](#frameworks,-libraries-and-programs-used)
   - [Testing](#testing)
   - [Bugs](#bugs)
+    - [Solved Bugs](#solved-bugs)
+    - [Known Bugs](#known-bugs)
   - [Deployment](#deployment)
-    - [Cloning and Forking](#cloning-and-forking)
-    - [Local Deployment](#local-deployment)
-    - [Remote Deployment](#remote-deployment)
+    - [Deployment to Heroku](#deployment-to-heroku)
+    - [How To Fork](#how-to-fork)
+    - [How To Clone](#how-to-clone)
   - [Credits and Acknowledgements](#credits-and-acknowledgements)
 ## Brief 
 
@@ -55,7 +57,17 @@ This python project is developed for a dental practice. A management system that
 ## Testing
 
 ## Bugs 
+### Solved Bugs
+### Known Bugs
 
 ## Deployment 
+### Deployment to Heroku
+### How To Fork
+### How To Clone
 
 ## Credits and Acknowledgements
+
+### Code Used
+### Content 
+### Media
+### Acknowledgements
