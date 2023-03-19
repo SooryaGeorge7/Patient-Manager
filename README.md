@@ -29,6 +29,10 @@ I decided to challenge myself with a trying to complete a command line python ap
     - [How To Fork](#how-to-fork)
     - [How To Clone](#how-to-clone)
   - [Credits and Acknowledgements](#credits-and-acknowledgements)
+    - [Code Used](#code-used)
+    - [Content](#content)
+    - [Media](#media)
+    - [Acknowledgements](#acknowledgements)
 
 
 ## User Stories 
@@ -38,7 +42,7 @@ I decided to challenge myself with a trying to complete a command line python ap
 * I want to view patient's details 
 * I want to add appointments for a patient.
 * I want to edit or view treatments. 
-* I want to find the price of treatments 
+* I want to find the price of treatments.
 
 ### Returning visitor
 * I want to be able to log in succesfully. 
@@ -48,6 +52,11 @@ I decided to challenge myself with a trying to complete a command line python ap
 ## Features
 
 ## Future implementation 
+* I want to add css styling to be able to mimick a real life application.  
+* Id want to give user more options such as adding and calculating treatments for each patient. 
+* An option to say if patient has paid for treatments or not.
+* An option to add notes for each patient.
+* Add much more details for patients information( taking in address etc)
 
 ## Technologies Used
 
