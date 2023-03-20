@@ -20,6 +20,10 @@ users = SHEET.worksheet('users')
 
 data = users.get_all_values()
 
+patients = SHEET.worksheet('patients')
+
+patient_data = patients.get_all_values()
+
 def sign_up():
     sign_in = False
     while sign_in == False:
@@ -45,6 +49,20 @@ def sign_up():
             print(new_row)
             users.append_row(new_row)
             break
+
+class Patient:
+    def __init__(self,file_number):
+        self.file_number = file_number
+        self.details = self.patient_details(file_number)
+    
+    def patient_details(self,file_number):
+        file_number_column = patients.col_values(5)
+        row = file_number_column.index(file_number) + 1
+
+        details = patients.row_values(row)
+
+        return details
+
 
 user_choice = input("Please choose from options below:(type in a or b)\n a) Log in \n b) Register \n Choice: ")
 
@@ -86,7 +104,9 @@ d - View Treatment Costs
 e - Exit
 : ''').lower()
     if menu == "a":
-        patient_details()
+        file_number = input("Enter patient's file number: ")
+        patient = Patient(file_number)
+        print(patient.details)
 
     elif menu == "b":
         add_patient()
@@ -103,3 +123,4 @@ e - Exit
 
     else:
         print("You have entered an invalid option, Please try again")
+
