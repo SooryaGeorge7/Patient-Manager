@@ -85,4 +85,21 @@ c - Add appointment
 d - View Treatment Costs
 e - Exit
 : ''').lower()
+    if menu == "a":
+        patient_details()
+
+    elif menu == "b":
+        add_patient()
     
+    elif menu == "c":
+        add_appointment()
+
+    elif menu == "d":
+        view_treatments()
+
+    elif menu == "e":
+        print("Goodbye")    
+        exit()
+
+    else:
+        print("You have entered an invalid option, Please try again")
