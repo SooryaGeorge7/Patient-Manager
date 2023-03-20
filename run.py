@@ -22,19 +22,23 @@ data = users.get_all_values()
 
 def sign_up():
     new_username = input("Please enter a new username:")
+    new_row = []
     for line in data:
         if new_username == line[0]:
             print("The username is already taken, please try again.")
             #allow user to enter username again  if its already been used.
             new_username = input("Please enter a new username:")
              #ask user for the neewpassword , and confirm password using input()             
-        new_password = input("Please enter a new password:")
-        confirm_password = input("Please reenter password to confirm:")
-        if confirm_password != new_password:
-            print("Passwords dont match, please try again!")
-            pass
-        else:
-            print("Sign Up Succesfull")
+    new_password = input("Please enter a new password:")
+    confirm_password = input("Please reenter password to confirm:")
+    if confirm_password != new_password:
+        print("Passwords dont match, please try again!")
+    else:
+        print("Sign Up Succesfull")
+        new_row.append(new_username)
+        new_row.append(new_password)
+        print(new_row)
+        users.append_row(new_row)
 
 user_choice = input("Please choose from options below:(type in a or b)\n a) Log in \n b) Register \n Choice: ")
 
