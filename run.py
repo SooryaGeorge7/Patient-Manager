@@ -77,3 +77,12 @@ while log_in == False:
             pass
 
 
+while log_in == True:
+    menu = input('''\n Please select one of the following Options below:\n
+a - View patient details
+b - Add new patient
+c - Add appointment
+d - View Treatment Costs
+e - Exit
+: ''').lower()
+    
