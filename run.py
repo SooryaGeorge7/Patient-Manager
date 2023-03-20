@@ -29,6 +29,23 @@ elif user_choice == "b":
 else:
     user_choice = input("Please choose from options below:(type in a or b)\n a) Log in \n b) Register \n Choice: ")
       
-
+while log_in == False:
+    login_username = input("Please enter username: ")
+    login_password = input("Please enter password: ")
+    for line in data:
+        correct_username = line[0]
+        correct_password = line[1]
+        if login_username == correct_username and login_password == correct_password :
+            log_in = True
+            print("Log in Successful!")
+        elif login_username != correct_username and login_password == correct_password :
+            print("You've entered an invalid username try again")
+            pass
+        elif login_username == correct_username and login_password != correct_password :
+            print("Your password is incorrect, try again")
+            pass
+        elif login_username == correct_username and login_password != correct_password :
+            print("Both your username and password is incorrect" )
+            pass
 
 
