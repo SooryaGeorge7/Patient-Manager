@@ -106,8 +106,8 @@ e - Exit
     if menu == "a":
         file_number = input("Enter patient's file number: ")
         patient = Patient(file_number)
-        print(patient.details)
-
+        print("Patient details are as follows")
+        print(f''' Patient Name:{patient.details[0]}\n Patient Surname:{patient.details[1]}\n Email:{patient.details[2]}\n Birthday:{patient.details[3]}\n File Number:{patient.details[4]}''')
     elif menu == "b":
         add_patient()
     
