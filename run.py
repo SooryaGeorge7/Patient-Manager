@@ -19,10 +19,16 @@ SHEET = GSPREAD_CLIENT.open('Patient_manager')
 users = SHEET.worksheet('users')
 
 data = users.get_all_values()
-for line in data:
-    correct_username = line[0]
-    print(correct_username)
-print(data)
-print("a : Login")
-print("b : signup")
-enter_system = input("Please choose the from options above:")
+
+user_choice = input("Please choose from options below:(type in a or b)\n a) Log in \n b) Register \n Choice: ")
+
+if user_choice == "a":
+    log_in = False
+elif user_choice == "b":
+    sign_up()
+else:
+    user_choice = input("Please choose from options below:(type in a or b)\n a) Log in \n b) Register \n Choice: ")
+      
+
+
+
