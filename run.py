@@ -61,8 +61,8 @@ class Patient:
         row = file_number_column.index(file_number) + 1
 
         details = patients.row_values(row)
-
-        return details
+        view_patient = print(f''' Patient Name:{details[0]}\n Patient Surname:{details[1]}\n Email:{details[2]}\n Birthday:{details[3]}\n File Number:{details[4]}''')
+        return view_patient
 
     def add_details(self,new_patient):
         patients.append_row(new_patient)
@@ -113,8 +113,8 @@ e - Exit
         file_number = input("Enter patient's file number: ")
         patient = Patient('Patient')
         patient.patient_details(file_number)
-        print("Patient details are as follows")
-        print(f''' Patient Name:{details[0]}\n Patient Surname:{details[1]}\n Email:{patient.details[2]}\n Birthday:{patient.details[3]}\n File Number:{patient.details[4]}''')
+        
+        
     elif menu == "b":
         patient_name = input("Please enter Patient's first name:")
         patient_surname = input("Please enter Patient's surname")
