@@ -63,6 +63,7 @@ class Patient:
 
         return details
 
+    
 
 user_choice = input("Please choose from options below:(type in a or b)\n a) Log in \n b) Register \n Choice: ")
 
@@ -109,7 +110,15 @@ e - Exit
         print("Patient details are as follows")
         print(f''' Patient Name:{patient.details[0]}\n Patient Surname:{patient.details[1]}\n Email:{patient.details[2]}\n Birthday:{patient.details[3]}\n File Number:{patient.details[4]}''')
     elif menu == "b":
-        add_patient()
+        
+        patient_name = input("Please enter Patient's first name:")
+        patient_surname = input("Please enter Patient's surname")
+        patient_email = input("Please enter patient's email")
+        patient_birthday = input("Please enter patient's birth date:")
+        patient_fileno = input("Please enter patient's file number:")
+        new_patient = [patient_name, patient_surname, patient_email, patient_birthday, patient_fileno]
+        print(new_patient)
+        
     
     elif menu == "c":
         add_appointment()
