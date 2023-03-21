@@ -53,8 +53,9 @@ def sign_up():
 class Patient:
     def __init__(self,file_number):
         self.file_number = file_number
-        self.details = self.patient_details(file_number)
-    
+        
+        
+
     def patient_details(self,file_number):
         file_number_column = patients.col_values(5)
         row = file_number_column.index(file_number) + 1
@@ -63,7 +64,11 @@ class Patient:
 
         return details
 
-    
+    def add_details(self,new_patient):
+        patients.append_row(new_patient)
+        added = print("You've successfully added a new patient")
+
+        return added
 
 user_choice = input("Please choose from options below:(type in a or b)\n a) Log in \n b) Register \n Choice: ")
 
@@ -106,11 +111,11 @@ e - Exit
 : ''').lower()
     if menu == "a":
         file_number = input("Enter patient's file number: ")
-        patient = Patient(file_number)
+        patient = Patient('Patient')
+        patient.patient_details(file_number)
         print("Patient details are as follows")
-        print(f''' Patient Name:{patient.details[0]}\n Patient Surname:{patient.details[1]}\n Email:{patient.details[2]}\n Birthday:{patient.details[3]}\n File Number:{patient.details[4]}''')
+        print(f''' Patient Name:{details[0]}\n Patient Surname:{details[1]}\n Email:{patient.details[2]}\n Birthday:{patient.details[3]}\n File Number:{patient.details[4]}''')
     elif menu == "b":
-        
         patient_name = input("Please enter Patient's first name:")
         patient_surname = input("Please enter Patient's surname")
         patient_email = input("Please enter patient's email")
@@ -118,7 +123,8 @@ e - Exit
         patient_fileno = input("Please enter patient's file number:")
         new_patient = [patient_name, patient_surname, patient_email, patient_birthday, patient_fileno]
         print(new_patient)
-        
+        patient = Patient('Patient')
+        patient.add_details(new_patient)
     
     elif menu == "c":
         add_appointment()
