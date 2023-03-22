@@ -27,6 +27,9 @@ patient_data = patients.get_all_values()
 appointments = SHEET.worksheet('appointments')
 appointement_data = appointments.get_all_values()
 
+treatments = SHEET.worksheet('treatments')
+treatments_data = treatments.get_all_values()
+
 def sign_up():
     sign_in = False
     while sign_in == False:
