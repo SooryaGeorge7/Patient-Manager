@@ -156,12 +156,12 @@ e - Exit
         patient.patient_details(file_number)
 
     elif menu == "b":
-        patient_name = input("Please enter Patient's first name:")
-        patient_surname = input("Please enter Patient's surname")
-        patient_email = input("Please enter patient's email")
-        patient_birthday = input("Please enter patient's birth date:")
-        patient_fileno = input("Please enter patient's file number:")
-        new_patient = [patient_name, patient_surname, patient_email, patient_birthday, patient_fileno]
+        name = input("Please enter Patient's first name:")
+        surname = input("Please enter Patient's surname")
+        email = input("Please enter patient's email")
+        birthday = input("Please enter patient's birth date:")
+        fileno = input("Please enter patient's file number:")
+        new_patient = [name, surname, email, birthday, fileno]
         print(new_patient)
         patient = Patient('Patient')
         patient.add_details(new_patient)
