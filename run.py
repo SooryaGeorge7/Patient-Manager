@@ -121,9 +121,9 @@ while log_in == False:
     print("You may log in!")
     login_username = input("Please enter username: ")
     login_password = input("Please enter password: ")
-    for line in data:
-        correct_username = line[0]
-        correct_password = line[1]
+    for x in data:
+        correct_username = x[0]
+        correct_password = x[1]
         if login_username == correct_username and login_password == correct_password:
             log_in = True
             print("Log in Successful!")
