@@ -24,6 +24,9 @@ patients = SHEET.worksheet('patients')
 
 patient_data = patients.get_all_values()
 
+appointments = SHEET.worksheet('appointments')
+appointement_data = appointments.get_all_values()
+
 def sign_up():
     sign_in = False
     while sign_in == False:
@@ -71,11 +74,25 @@ class Patient:
         return added
 
 class Scheduler: 
-    def __init__(self)
+    def __init__(self):
+        self.new_appointment = []
 
-    def is_available(self)
+    def is_available(self, date, time):
+        for line in appointement_data:
+            if date == line[1] and time == line[2]:
+                print("Sorry, that date and time is already booked")
+                return False
+        return True
 
-    def add_appointment(self)
+   
+    def add_appointment(self,file_number, date, time):
+        if self.is_available(date, time):
+            self.new_appointment.append(file_number)
+            self.new_appointment.append(date)
+            self.new_appointment.append(time)
+            new_appointment = self.new_appointment
+            print(new_appointment)
+            appointments.append_row(new_appointment)
 
 user_choice = input("Please choose from options below:(type in a or b)\n a) Log in \n b) Register \n Choice: ")
 
@@ -137,7 +154,7 @@ e - Exit
     
     elif menu == "c":
         scheduler = Scheduler()
-        scheduler.add_appointment()
+        scheduler.add_appointment(input("Please enter file number"), input("Please add date"), input("Please add time"))
 
     elif menu == "d":
         view_treatments()
