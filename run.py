@@ -95,6 +95,20 @@ class Scheduler:
             self.new_appointment.append(time)
             appointments.append_row(self.new_appointment)
 
+def view_treatments():
+    
+    headings = treatments.row_values(1)
+    costs = treatments.row_values(2)
+    i = 0
+    for i in range(len(headings)):
+        for i in range(len(costs)):
+            treatment_costs = print(f"{headings[i]}:{costs[i]}")
+            i += 1
+
+    return treatment_costs
+
+
+
 user_choice = input("Please choose from options below:(type in a or b)\n a) Log in \n b) Register \n Choice: ")
 
 if user_choice == "a":
