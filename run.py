@@ -90,15 +90,17 @@ while log_in == False:
         if login_username == correct_username and login_password == correct_password :
             log_in = True
             print("Log in Successful!")
+            break
         elif login_username != correct_username and login_password == correct_password :
             print("You've entered an invalid username try again")
             pass
         elif login_username == correct_username and login_password != correct_password :
             print("Your password is incorrect, try again")
             pass
-        elif login_username == correct_username and login_password != correct_password :
-            print("Both your username and password is incorrect" )
+        elif login_username != correct_username and login_password != correct_password :
+            
             pass
+            
 
 
 while log_in == True:
