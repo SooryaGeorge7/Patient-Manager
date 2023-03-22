@@ -168,7 +168,10 @@ e - Exit
 
     elif menu == "c":
         scheduler = Scheduler()
-        scheduler.add_appointment(input("Please enter file number"), input("Please add date"), input("Please add time"))
+        file_number = input("Please enter file number")
+        date = input("Please add date")
+        time = input("Please add time")
+        scheduler.add_appointment(file_number, date, time)
 
     elif menu == "d":
         view_treatments()
