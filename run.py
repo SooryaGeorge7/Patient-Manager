@@ -38,9 +38,9 @@ def sign_up():
         for line in data:
             if new_username == line[0]:
                 print("The username is already taken, please try again.")
-                #allow user to enter username again  if its already been used.
+                # allow user to enter username again  if its already been used.
                 new_username = input("Please enter a new username:")
-                #ask user for the neewpassword , and confirm password using input()             
+                # ask user for the neewpassword , and confirm password using input()             
         new_password = input("Please enter a new password:")
         confirm_password = input("Please reenter password to confirm:")
     
@@ -60,8 +60,6 @@ class Patient:
     def __init__(self,file_number):
         self.file_number = file_number
         
-        
-
     def patient_details(self,file_number):
         file_number_column = patients.col_values(5)
         row = file_number_column.index(file_number) + 1
@@ -102,13 +100,11 @@ def view_treatments():
     i = 0
     for i in range(len(headings)):
         treatment_costs = print(f"{headings[i]}:{costs[i]}")
-        
-
     return treatment_costs
 
 
-
-user_choice = input("Please choose from options below:(type in a or b)\n a) Log in \n b) Register \n Choice: ")
+user_choice = input('''Please choose from options below:(type in a or b)\n 
+a) Log in \n b) Register \n Choice: ''')
 
 if user_choice == "a":
     log_in = False
