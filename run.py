@@ -90,9 +90,7 @@ class Scheduler:
             self.new_appointment.append(file_number)
             self.new_appointment.append(date)
             self.new_appointment.append(time)
-            new_appointment = self.new_appointment
-            print(new_appointment)
-            appointments.append_row(new_appointment)
+            appointments.append_row(self.new_appointment)
 
 user_choice = input("Please choose from options below:(type in a or b)\n a) Log in \n b) Register \n Choice: ")
 
