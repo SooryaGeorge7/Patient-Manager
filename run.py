@@ -101,9 +101,8 @@ def view_treatments():
     costs = treatments.row_values(2)
     i = 0
     for i in range(len(headings)):
-        for i in range(len(costs)):
-            treatment_costs = print(f"{headings[i]}:{costs[i]}")
-            i += 1
+        treatment_costs = print(f"{headings[i]}:{costs[i]}")
+        
 
     return treatment_costs
 
