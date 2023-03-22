@@ -41,10 +41,10 @@ def sign_up():
                 print("The username is already taken, please try again.")
                 # allow user to enter username again  if its already been used.
                 new_username = input("Please enter a new username:")
-                # ask user for the neewpassword , and confirm using input()             
+                # ask user for the neewpassword , and confirm using input().
         new_password = input("Please enter a new password:")
         confirm_password = input("Please reenter password to confirm:")
-    
+
         if confirm_password != new_password:
             print("Passwords dont match, please try again!")
             pass
@@ -61,7 +61,7 @@ def sign_up():
 class Patient:
     def __init__(self, file_number):
         self.file_number = file_number
-        
+
     def patient_details(self, file_number):
         file_number_column = patients.col_values(5)
         row = file_number_column.index(file_number) + 1
@@ -77,7 +77,7 @@ class Patient:
         return added
 
 
-class Scheduler: 
+class Scheduler:
     def __init__(self):
         self.new_appointment = []
 
@@ -97,7 +97,7 @@ class Scheduler:
 
 
 def view_treatments():
-    
+
     headings = treatments.row_values(1)
     costs = treatments.row_values(2)
     i = 0
@@ -106,7 +106,7 @@ def view_treatments():
     return treatment_costs
 
 
-user_choice = input('''Please choose from options below:(type in a or b)\n 
+user_choice = input('''Please choose from options below:(type in a or b)\n
 a) Log in \n b) Register \n Choice: ''')
 
 if user_choice == "a":
@@ -116,7 +116,7 @@ elif user_choice == "b":
     log_in = False
 else:
     user_choice = input("Please choose from options below:(type in a or b)\n a) Log in \n b) Register \n Choice: ")
-      
+
 while log_in == False:
     print("You may log in!")
     login_username = input("Please enter username: ")
@@ -135,9 +135,9 @@ while log_in == False:
             print("Your password is incorrect, try again")
             pass
         elif login_username != correct_username and login_password != correct_password:
-            
+
             pass
-            
+
 
 while log_in == True:
     menu = input('''\n Please select one of the following Options below:\n
@@ -151,7 +151,7 @@ e - Exit
         file_number = input("Enter patient's file number: ")
         patient = Patient('Patient')
         patient.patient_details(file_number)
-        
+
     elif menu == "b":
         patient_name = input("Please enter Patient's first name:")
         patient_surname = input("Please enter Patient's surname")
@@ -162,7 +162,7 @@ e - Exit
         print(new_patient)
         patient = Patient('Patient')
         patient.add_details(new_patient)
-    
+
     elif menu == "c":
         scheduler = Scheduler()
         scheduler.add_appointment(input("Please enter file number"), input("Please add date"), input("Please add time"))
@@ -171,9 +171,8 @@ e - Exit
         view_treatments()
 
     elif menu == "e":
-        print("Goodbye")    
+        print("Goodbye")
         exit()
 
     else:
         print("You have entered an invalid option, Please try again")
-
