@@ -70,6 +70,13 @@ class Patient:
 
         return added
 
+class Scheduler: 
+    def __init__(self)
+
+    def is_available(self)
+
+    def add_appointment(self)
+
 user_choice = input("Please choose from options below:(type in a or b)\n a) Log in \n b) Register \n Choice: ")
 
 if user_choice == "a":
@@ -129,7 +136,8 @@ e - Exit
         patient.add_details(new_patient)
     
     elif menu == "c":
-        add_appointment()
+        scheduler = Scheduler()
+        scheduler.add_appointment()
 
     elif menu == "d":
         view_treatments()
