@@ -125,19 +125,19 @@ while log_in is False:
     login_username = input("Please enter username: ")
     login_password = input("Please enter password: ")
     for x in data:
-        correct_username = x[0]
-        correct_password = x[1]
-        if login_username == correct_username and login_password == correct_password:
+        username = x[0]
+        password = x[1]
+        if login_username == username and login_password == password:
             log_in = True
             print("Log in Successful!")
             break
-        elif login_username != correct_username and login_password == correct_password:
+        elif login_username != username and login_password == password:
             print("You've entered an invalid username try again")
             pass
-        elif login_username == correct_username and login_password != correct_password:
+        elif login_username == username and login_password != password:
             print("Your password is incorrect, try again")
             pass
-        elif login_username != correct_username and login_password != correct_password:
+        elif login_username != username and login_password != password:
 
             pass
 
