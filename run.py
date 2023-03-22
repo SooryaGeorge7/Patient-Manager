@@ -33,7 +33,7 @@ treatments_data = treatments.get_all_values()
 
 def sign_up():
     sign_in = False
-    while sign_in == False:
+    while sign_in is False:
         new_username = input("Please enter a new username:")
         new_row = []
         for line in data:
@@ -67,7 +67,9 @@ class Patient:
         row = file_number_column.index(file_number) + 1
 
         details = patients.row_values(row)
-        view_patient = print(f""" Patient Name:{details[0]}\n Patient Surname:{details[1]}\n Email:{details[2]}\n Birthday:{details[3]}\n File Number:{details[4]}""")
+        view_patient = print(f""" Patient Name:{details[0]}\n
+         Patient Surname:{details[1]}\n Email:{details[2]}\n 
+         Birthday:{details[3]}\n File Number:{details[4]}""")
         return view_patient
 
     def add_details(self, new_patient):
@@ -107,7 +109,7 @@ def view_treatments():
 
 
 user_choice = input('''Please choose from options below:(type in a or b)\n
-a) Log in \n b) Register \n Choice: ''')
+a) Log in \nb) Register \n Choice: ''')
 
 if user_choice == "a":
     log_in = False
@@ -115,9 +117,10 @@ elif user_choice == "b":
     sign_up()
     log_in = False
 else:
-    user_choice = input("Please choose from options below:(type in a or b)\n a) Log in \n b) Register \n Choice: ")
+    user_choice = input("""Please choose from options below:(type in a or b)\n
+     a) Log in \n b) Register \n Choice: """)
 
-while log_in == False:
+while log_in is False:
     print("You may log in!")
     login_username = input("Please enter username: ")
     login_password = input("Please enter password: ")
@@ -139,7 +142,7 @@ while log_in == False:
             pass
 
 
-while log_in == True:
+while log_in is True:
     menu = input('''\n Please select one of the following Options below:\n
 a - View patient details
 b - Add new patient
