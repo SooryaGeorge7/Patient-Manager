@@ -30,6 +30,7 @@ appointement_data = appointments.get_all_values()
 treatments = SHEET.worksheet('treatments')
 treatments_data = treatments.get_all_values()
 
+
 def sign_up():
     sign_in = False
     while sign_in == False:
@@ -40,7 +41,7 @@ def sign_up():
                 print("The username is already taken, please try again.")
                 # allow user to enter username again  if its already been used.
                 new_username = input("Please enter a new username:")
-                # ask user for the neewpassword , and confirm password using input()             
+                # ask user for the neewpassword , and confirm using input()             
         new_password = input("Please enter a new password:")
         confirm_password = input("Please reenter password to confirm:")
     
@@ -56,23 +57,25 @@ def sign_up():
             users.append_row(new_row)
             break
 
+
 class Patient:
-    def __init__(self,file_number):
+    def __init__(self, file_number):
         self.file_number = file_number
         
-    def patient_details(self,file_number):
+    def patient_details(self, file_number):
         file_number_column = patients.col_values(5)
         row = file_number_column.index(file_number) + 1
 
         details = patients.row_values(row)
-        view_patient = print(f''' Patient Name:{details[0]}\n Patient Surname:{details[1]}\n Email:{details[2]}\n Birthday:{details[3]}\n File Number:{details[4]}''')
+        view_patient = print(f""" Patient Name:{details[0]}\n Patient Surname:{details[1]}\n Email:{details[2]}\n Birthday:{details[3]}\n File Number:{details[4]}""")
         return view_patient
 
-    def add_details(self,new_patient):
+    def add_details(self, new_patient):
         patients.append_row(new_patient)
         added = print("You've successfully added a new patient")
 
         return added
+
 
 class Scheduler: 
     def __init__(self):
@@ -85,13 +88,13 @@ class Scheduler:
                 return False
         return True
 
-   
-    def add_appointment(self,file_number, date, time):
+    def add_appointment(self, file_number, date, time):
         if self.is_available(date, time):
             self.new_appointment.append(file_number)
             self.new_appointment.append(date)
             self.new_appointment.append(time)
             appointments.append_row(self.new_appointment)
+
 
 def view_treatments():
     
@@ -121,21 +124,20 @@ while log_in == False:
     for line in data:
         correct_username = line[0]
         correct_password = line[1]
-        if login_username == correct_username and login_password == correct_password :
+        if login_username == correct_username and login_password == correct_password:
             log_in = True
             print("Log in Successful!")
             break
-        elif login_username != correct_username and login_password == correct_password :
+        elif login_username != correct_username and login_password == correct_password:
             print("You've entered an invalid username try again")
             pass
-        elif login_username == correct_username and login_password != correct_password :
+        elif login_username == correct_username and login_password != correct_password:
             print("Your password is incorrect, try again")
             pass
-        elif login_username != correct_username and login_password != correct_password :
+        elif login_username != correct_username and login_password != correct_password:
             
             pass
             
-
 
 while log_in == True:
     menu = input('''\n Please select one of the following Options below:\n
@@ -149,7 +151,6 @@ e - Exit
         file_number = input("Enter patient's file number: ")
         patient = Patient('Patient')
         patient.patient_details(file_number)
-        
         
     elif menu == "b":
         patient_name = input("Please enter Patient's first name:")
