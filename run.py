@@ -98,6 +98,20 @@ class Scheduler:
             self.new_appointment.append(time)
             appointments.append_row(self.new_appointment)
 
+    def view_appointment(self, file_number):
+        file_num_column = patients.col_values(5)
+        pt_row = file_num_column.index(file_number) + 1
+        pt_details = patients.row_values(pt_row)
+        file_num = appointments.col_values(1)
+        appointment_row = file_num.index(file_number) + 1
+        appointment_details = appointments.row_values(appointment_row)
+        view_date = print(f""" Patient {pt_details[0]} {pt_details[1]}'s
+next appointment is on {appointment_details[1]}
+at {appointment_details[2]} hours""")
+
+        return view_date
+
+
 
 def view_treatments():
 
@@ -176,7 +190,9 @@ e - Exit
             time = input("Please add time")
             scheduler.add_appointment(file_number, date, time)
         elif choice == "b":
-            print("will view")
+            file_number = input("Enter patient's file number: ")
+            scheduler = Scheduler()
+            scheduler.view_appointment(file_number)
         else:
             print("invalid input!")
 
