@@ -113,6 +113,9 @@ at {appointment_details[2]} hours""")
 
 
 
+
+
+
 def view_treatments():
 
     headings = treatments.row_values(1)
@@ -197,9 +200,14 @@ e - Exit
             print("invalid input!")
 
         
-
     elif menu == "d":
-        view_treatments()
+        t_choice = input("Choose between \n a) View patient final cost \n b) View prices")
+        if t_choice == "a":
+            payment_due()
+        elif t_choice == "b":
+            view_treatments()
+        else:
+            print("invalid")
 
     elif menu == "e":
         print("Goodbye")
