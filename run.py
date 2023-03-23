@@ -112,7 +112,23 @@ at {appointment_details[2]} hours""")
         return view_date
 
 
-
+def payment_due():
+    payment = False 
+    treatments =[]
+    while payment is False:
+        pt_treatment = input("Please enter a treatment for patient")
+        u_choice = input("""Choose between \n a) add another b) done""")
+        if u_choice == "a":
+            treatments.append(pt_treatment)
+            pass
+        elif u_choice == "b":
+            payment = True
+            treatments.append(pt_treatment)
+            print(treatments)
+        else:
+            print("invalid reponse!")
+            break
+    
 
 
 
