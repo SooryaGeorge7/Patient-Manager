@@ -168,11 +168,19 @@ e - Exit
         patient.add_details(new_patient)
 
     elif menu == "c":
-        scheduler = Scheduler()
-        file_number = input("Please enter file number")
-        date = input("Please add date")
-        time = input("Please add time")
-        scheduler.add_appointment(file_number, date, time)
+        choice = input("Choose between \n a) Add Appointment \n b) View Appointment")
+        if choice == "a":
+            scheduler = Scheduler()
+            file_number = input("Please enter file number")
+            date = input("Please add date")
+            time = input("Please add time")
+            scheduler.add_appointment(file_number, date, time)
+        elif choice == "b":
+            print("will view")
+        else:
+            print("invalid input!")
+
+        
 
     elif menu == "d":
         view_treatments()
