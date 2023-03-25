@@ -157,18 +157,19 @@ def view_treatments():
     return treatment_costs
 
 
-user_choice = input('''Please choose from options below:(type in a or b)\n
+def choice():
+    user_choice = input('''Please choose from options below:(type in a or b)\n
 a) Log in \nb) Register \n Choice: ''')
-
-if user_choice == "a":
-    log_in = False
-elif user_choice == "b":
-    sign_up()
-    log_in = False
-else:
-    user_choice = input("""Please choose from options below:(type in a or b)\n
+    if user_choice == "a":
+        log_in = False
+    elif user_choice == "b":
+        sign_up()
+        log_in = False
+    else:
+        user_choice = input("""Please choose from options below:(type in a or b)\n
      a) Log in \n b) Register \n Choice: """)
 
+choice()
 while log_in is False:
     print("You may log in!")
     login_username = input("Please enter username: ")
