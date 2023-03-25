@@ -196,12 +196,12 @@ def user_login():
         menu = input('''\n Please select one of the following Options below:\n
 a - View patient details
 b - Add new patient
-c - Add appointment
-d - View Treatment Costs
+c - Appointment
+d - Treatment Costs
 e - Exit
 : ''').lower()
         if menu == "a":
-            file_number = input("Enter patient's file number: ")
+            file_number = input("Enter patient's file number(eg:#76654): ")
             patient = Patient('Patient')
             patient.patient_details(file_number)
 
@@ -212,7 +212,7 @@ e - Exit
             birthday = input("Please enter patient's birth date:")
             fileno = input("Please enter patient's file number:")
             new_patient = [name, surname, email, birthday, fileno]
-            print(new_patient)
+            
             patient = Patient('Patient')
             patient.add_details(new_patient)
 
