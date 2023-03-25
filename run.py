@@ -124,34 +124,37 @@ def payment_due():
     payment = False 
     prices =[]
     while payment is False:
+        headings = treatments.row_values(1)
+        costs = treatments.row_values(2)
         pt_treatment = input("Please enter a treatment for patient")
-        u_choice = input("""Choose between \n a) add another b) done""")
-        if u_choice == "a":
-            prices.append(pt_treatment)
-            pass
-        elif u_choice == "b":
-            payment = True
-            prices.append(pt_treatment)
-            print(prices)
-            headings = treatments.row_values(1)
-            costs = treatments.row_values(2)
+        for a in headings:
+            if pt_treatment == a:
+                u_choice = input("""Choose between \n a) add another b) done""")
+                if u_choice == "a":
+                    prices.append(pt_treatment)
+                    pass
+                elif u_choice == "b":
+                    payment = True
+                    prices.append(pt_treatment)
+                    print(prices)
+                    headings = treatments.row_values(1)
+                    costs = treatments.row_values(2)
             
-            int_costs = [int(x) for x in costs]
-            print(int_costs)
-            i = 0
-            final_list =[]
-            for i in prices:
-                if i in headings:
-                    ##print(i)
-                    
-                    final_list.append(int_costs[headings.index(i)])
-            print(f"""Total payment due is {sum(final_list)}""")
+                    int_costs = [int(x) for x in costs]
+                    print(int_costs)
+                    i = 0
+                    final_list =[]
+                    for i in prices:
+                        if i in headings:
+                            final_list.append(int_costs[headings.index(i)])
+                    print(f"""Total payment due is {sum(final_list)}""")
                     ##print(sum(int_costs))
+                    break
 
+                
         else:
-            print("invalid reponse!")
-            break
-    
+            print("invalid")
+            
 
 
 
