@@ -105,17 +105,19 @@ class Scheduler:
             print("Added appointment succesfully!")
 
     def view_appointment(self, file_number):
-        file_num_column = patients.col_values(5)
-        pt_row = file_num_column.index(file_number) + 1
-        pt_details = patients.row_values(pt_row)
-        file_num = appointments.col_values(1)
-        appointment_row = file_num.index(file_number) + 1
-        appointment_details = appointments.row_values(appointment_row)
-        view_date = print(f""" Patient {pt_details[0]} {pt_details[1]}'s
+        try:
+            file_num_column = patients.col_values(5)
+            pt_row = file_num_column.index(file_number) + 1
+            pt_details = patients.row_values(pt_row)
+            file_num = appointments.col_values(1)
+            appointment_row = file_num.index(file_number) + 1
+            appointment_details = appointments.row_values(appointment_row)
+            view_date = print(f""" Patient {pt_details[0]} {pt_details[1]}'s
 next appointment is on {appointment_details[1]}
 at {appointment_details[2]} hours""")
-
-        return view_date
+            return view_date
+        except ValueError:
+            print("File number does'nt exist")
 
 
 def payment_due():
