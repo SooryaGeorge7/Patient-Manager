@@ -64,14 +64,19 @@ class Patient:
         self.file_number = file_number
 
     def patient_details(self, file_number):
-        file_number_column = patients.col_values(5)
-        row = file_number_column.index(file_number) + 1
+        try:
+            file_number_column = patients.col_values(5)
+            row = file_number_column.index(file_number) + 1
 
-        details = patients.row_values(row)
-        view_patient = print(f""" Patient Name:{details[0]}\n
-         Patient Surname:{details[1]}\n Email:{details[2]}\n 
-         Birthday:{details[3]}\n File Number:{details[4]}""")
-        return view_patient
+            details = patients.row_values(row)
+            view_patient = print(f"""
+---Patient Details---
+Patient Name:{details[0]}
+Patient Surname:{details[1]}\nEmail:{details[2]}
+Birthday:{details[3]}\nFile Number:{details[4]}""")
+            return view_patient
+        except ValueError:
+            print("File does'nt exist")
 
     def add_details(self, new_patient):
         patients.append_row(new_patient)
@@ -176,15 +181,15 @@ def user_login():
                     print("Log in Successful!")
                     break
                 elif login_username != username and login_password == password:
-                    print("You've entered an invalid username try again")
+                    print("You've entered an invalid username ")
                     pass
                 elif login_username == username and login_password != password:
-                    print("Your password is incorrect, try again")
+                    print("Your password is incorrect ")
                     pass
             else:
                 raise ValueError
         except ValueError:
-            print("invalid")
+            print("try again")
 
 
     while log_in is True:
