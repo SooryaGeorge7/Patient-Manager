@@ -114,17 +114,32 @@ at {appointment_details[2]} hours""")
 
 def payment_due():
     payment = False 
-    treatments =[]
+    prices =[]
     while payment is False:
         pt_treatment = input("Please enter a treatment for patient")
         u_choice = input("""Choose between \n a) add another b) done""")
         if u_choice == "a":
-            treatments.append(pt_treatment)
+            prices.append(pt_treatment)
             pass
         elif u_choice == "b":
             payment = True
-            treatments.append(pt_treatment)
-            print(treatments)
+            prices.append(pt_treatment)
+            print(prices)
+            headings = treatments.row_values(1)
+            costs = treatments.row_values(2)
+            
+            int_costs = [int(x) for x in costs]
+            print(int_costs)
+            i = 0
+            final_list =[]
+            for i in prices:
+                if i in headings:
+                    ##print(i)
+                    
+                    final_list.append(int_costs[headings.index(i)])
+            print(f"""Total payment due is {sum(final_list)}""")
+                    ##print(sum(int_costs))
+
         else:
             print("invalid reponse!")
             break
