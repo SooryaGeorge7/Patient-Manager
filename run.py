@@ -166,22 +166,25 @@ def user_login():
         print("You may log in!")
         login_username = input("Please enter username: ")
         login_password = input("Please enter password: ")
-        for x in data:
-            username = x[0]
-            password = x[1]
-            if login_username == username and login_password == password:
-                log_in = True
-                print("Log in Successful!")
-                break
-            elif login_username != username and login_password == password:
-                print("You've entered an invalid username try again")
-                pass
-            elif login_username == username and login_password != password:
-                print("Your password is incorrect, try again")
-                pass
-            elif login_username != username and login_password != password:
-
-                pass
+        try:
+            for x in data:
+                username = x[0]
+                password = x[1]
+            
+                if login_username == username and login_password == password:
+                    log_in = True
+                    print("Log in Successful!")
+                    break
+                elif login_username != username and login_password == password:
+                    print("You've entered an invalid username try again")
+                    pass
+                elif login_username == username and login_password != password:
+                    print("Your password is incorrect, try again")
+                    pass
+            else:
+                raise ValueError
+        except ValueError:
+            print("invalid")
 
 
     while log_in is True:
