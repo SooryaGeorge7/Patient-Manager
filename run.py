@@ -169,7 +169,14 @@ a) Log in \nb) Register \n Choice: ''')
         user_choice = input("""Please choose from options below:(type in a or b)\n
      a) Log in \n b) Register \n Choice: """)
 
-choice()
+
+def main():
+    choice()
+
+
+main()
+
+
 while log_in is False:
     print("You may log in!")
     login_username = input("Please enter username: ")
