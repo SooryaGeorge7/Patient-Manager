@@ -55,7 +55,7 @@ def sign_up():
                 new_row.append(new_password)
                 print(new_row)
                 users.append_row(new_row)
-                break
+                user_login()
         except ValueError as error:
             print(error)
 
@@ -157,54 +157,31 @@ def view_treatments():
     return treatment_costs
 
 
-def choice():
-    
-    choice = False 
-    while choice is False:
-        user_choice = input('''Please choose from options below:(type in a or b)\n
-a) Log in \nb) Register \n Choice: ''')
-        if user_choice == "a":
-            choice = True
-            log_in = False
-            print("chose")
-        elif user_choice == "b":
-            print("chose b")
-            sign_up()
-
-            choice = True
-            log_in = False
-        else:
-            print("Invalid option")
-            
 
 
-def main():
-    choice()
 
+def user_login():
+    log_in = False
+    while log_in is False:
+        print("You may log in!")
+        login_username = input("Please enter username: ")
+        login_password = input("Please enter password: ")
+        for x in data:
+            username = x[0]
+            password = x[1]
+            if login_username == username and login_password == password:
+                log_in = True
+                print("Log in Successful!")
+                break
+            elif login_username != username and login_password == password:
+                print("You've entered an invalid username try again")
+                pass
+            elif login_username == username and login_password != password:
+                print("Your password is incorrect, try again")
+                pass
+            elif login_username != username and login_password != password:
 
-main()
-
-
-while log_in is False:
-    print("You may log in!")
-    login_username = input("Please enter username: ")
-    login_password = input("Please enter password: ")
-    for x in data:
-        username = x[0]
-        password = x[1]
-        if login_username == username and login_password == password:
-            log_in = True
-            print("Log in Successful!")
-            break
-        elif login_username != username and login_password == password:
-            print("You've entered an invalid username try again")
-            pass
-        elif login_username == username and login_password != password:
-            print("Your password is incorrect, try again")
-            pass
-        elif login_username != username and login_password != password:
-
-            pass
+                pass
 
 
 while log_in is True:
@@ -262,3 +239,29 @@ e - Exit
 
     else:
         print("You have entered an invalid option, Please try again")
+
+def choice():
+    
+    choice = False 
+    while choice is False:
+        user_choice = input('''Please choose from options below:(type in a or b)\n
+a) Log in \nb) Register \n Choice: ''')
+        if user_choice == "a":
+            choice = True
+            user_login()
+            print("chose")
+        elif user_choice == "b":
+            print("chose b")
+            sign_up()
+            choice = True
+            
+        else:
+            print("Invalid option")
+            
+
+
+def main():
+    choice()
+
+
+main()
