@@ -184,61 +184,61 @@ def user_login():
                 pass
 
 
-while log_in is True:
-    menu = input('''\n Please select one of the following Options below:\n
+    while log_in is True:
+        menu = input('''\n Please select one of the following Options below:\n
 a - View patient details
 b - Add new patient
 c - Add appointment
 d - View Treatment Costs
 e - Exit
 : ''').lower()
-    if menu == "a":
-        file_number = input("Enter patient's file number: ")
-        patient = Patient('Patient')
-        patient.patient_details(file_number)
-
-    elif menu == "b":
-        name = input("Please enter Patient's first name:")
-        surname = input("Please enter Patient's surname")
-        email = input("Please enter patient's email")
-        birthday = input("Please enter patient's birth date:")
-        fileno = input("Please enter patient's file number:")
-        new_patient = [name, surname, email, birthday, fileno]
-        print(new_patient)
-        patient = Patient('Patient')
-        patient.add_details(new_patient)
-
-    elif menu == "c":
-        choice = input("Choose between \n a) Add Appointment \n b) View Appointment")
-        if choice == "a":
-            scheduler = Scheduler()
-            file_number = input("Please enter file number")
-            date = input("Please add date")
-            time = input("Please add time")
-            scheduler.add_appointment(file_number, date, time)
-        elif choice == "b":
+        if menu == "a":
             file_number = input("Enter patient's file number: ")
-            scheduler = Scheduler()
-            scheduler.view_appointment(file_number)
-        else:
-            print("invalid input!")
+            patient = Patient('Patient')
+            patient.patient_details(file_number)
+
+        elif menu == "b":
+            name = input("Please enter Patient's first name:")
+            surname = input("Please enter Patient's surname")
+            email = input("Please enter patient's email")
+            birthday = input("Please enter patient's birth date:")
+            fileno = input("Please enter patient's file number:")
+            new_patient = [name, surname, email, birthday, fileno]
+            print(new_patient)
+            patient = Patient('Patient')
+            patient.add_details(new_patient)
+
+        elif menu == "c":
+            choice = input("Choose between \n a) Add Appointment \n b) View Appointment")
+            if choice == "a":
+                scheduler = Scheduler()
+                file_number = input("Please enter file number")
+                date = input("Please add date")
+                time = input("Please add time")
+                scheduler.add_appointment(file_number, date, time)
+            elif choice == "b":
+                file_number = input("Enter patient's file number: ")
+                scheduler = Scheduler()
+                scheduler.view_appointment(file_number)
+            else:
+                print("invalid input!")
 
         
-    elif menu == "d":
-        t_choice = input("Choose between \n a) View patient final cost \n b) View prices")
-        if t_choice == "a":
-            payment_due()
-        elif t_choice == "b":
-            view_treatments()
+        elif menu == "d":
+            t_choice = input("Choose between \n a) View patient final cost \n b) View prices")
+            if t_choice == "a":
+                payment_due()
+            elif t_choice == "b":
+                view_treatments()
+            else:
+                print("invalid")
+
+        elif menu == "e":
+            print("Goodbye")
+            exit()
+        
         else:
-            print("invalid")
-
-    elif menu == "e":
-        print("Goodbye")
-        exit()
-
-    else:
-        print("You have entered an invalid option, Please try again")
+            print("You have entered an invalid option, Please try again")
 
 def choice():
     
