@@ -102,6 +102,7 @@ class Scheduler:
             self.new_appointment.append(date)
             self.new_appointment.append(time)
             appointments.append_row(self.new_appointment)
+            print("Added appointment succesfully!")
 
     def view_appointment(self, file_number):
         file_num_column = patients.col_values(5)
@@ -217,7 +218,10 @@ e - Exit
             patient.add_details(new_patient)
 
         elif menu == "c":
-            choice = input("Choose between \n a) Add Appointment \n b) View Appointment")
+            choice = input('''Choose between 
+ a) Add Appointment
+ b) View Appointment
+ :''')
             if choice == "a":
                 scheduler = Scheduler()
                 file_number = input("Please enter file number")
