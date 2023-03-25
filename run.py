@@ -158,16 +158,24 @@ def view_treatments():
 
 
 def choice():
-    user_choice = input('''Please choose from options below:(type in a or b)\n
+    
+    choice = False 
+    while choice is False:
+        user_choice = input('''Please choose from options below:(type in a or b)\n
 a) Log in \nb) Register \n Choice: ''')
-    if user_choice == "a":
-        log_in = False
-    elif user_choice == "b":
-        sign_up()
-        log_in = False
-    else:
-        user_choice = input("""Please choose from options below:(type in a or b)\n
-     a) Log in \n b) Register \n Choice: """)
+        if user_choice == "a":
+            choice = True
+            log_in = False
+            print("chose")
+        elif user_choice == "b":
+            print("chose b")
+            sign_up()
+
+            choice = True
+            log_in = False
+        else:
+            print("Invalid option")
+            
 
 
 def main():
