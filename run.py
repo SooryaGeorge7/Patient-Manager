@@ -77,7 +77,7 @@ Patient Surname:{details[1]}\nEmail:{details[2]}
 Birthday:{details[3]}\nFile Number:{details[4]}""")
             return view_patient
         except ValueError:
-            print("File does'nt exist")
+            print("File does'nt exist, Try again")
 
     def add_details(self, new_patient):
         patients.append_row(new_patient)
@@ -128,12 +128,23 @@ def payment_due():
         headings = treatments.row_values(1)
         costs = treatments.row_values(2)
         addition = False
-        pt_treatment = input("Please enter a treatment for patient")
+        pt_treatment = input('''Please a choose treatment for patient
+from the following options:
+Specific Exam
+Full Oral Exam
+Filling
+Extraction
+Denture
+Cleaning
+Xray
+Root Canal
+:''').lower
         for a in headings:
             if pt_treatment == a:
                 u_choice = input('''Choose between
-a) add another
-b) done''')
+a) Add another treatment
+b) Total Payment Due
+:''')
                 if u_choice == "a":
                     prices.append(pt_treatment)
                     addition = True
@@ -158,10 +169,10 @@ b) done''')
                     break
 
                 else:
-                    print("invalid")
+                    print("invalid option")
 
         if addition is False:
-            print("invalid resp")
+            print("We dont have that treatment option, try again")
 
 
 def view_treatments():
@@ -170,14 +181,15 @@ def view_treatments():
     costs = treatments.row_values(2)
     i = 0
     for i in range(len(headings)):
-        treatment_costs = print(f"{headings[i]}:{costs[i]}")
+        treatment_costs = print(f'''Treatments with Prices:
+{headings[i]}:{costs[i]}''')
     return treatment_costs
 
 
 def user_login():
     log_in = False
+    print("You may log in!")
     while log_in is False:
-        print("You may log in!")
         login_username = input("Please enter username: ")
         login_password = input("Please enter password: ")
         try:
@@ -231,9 +243,9 @@ e - Exit
  :''')
             if appointment_choice == "a":
                 scheduler = Scheduler()
-                file_number = input("Please enter file number")
-                date = input("Please add date")
-                time = input("Please add time")
+                file_number = input("Please enter file number:")
+                date = input("Please add date:")
+                time = input("Please add time:")
                 scheduler.add_appointment(file_number, date, time)
             elif appointment_choice == "b":
                 file_number = input("Enter patient's file number: ")
@@ -245,13 +257,14 @@ e - Exit
         elif menu == "d":
             t_choice = input('''Please Choose between
 a) Calculate Total Cost
-b) View prices''')
+b) View prices
+:''')
             if t_choice == "a":
                 payment_due()
             elif t_choice == "b":
                 view_treatments()
             else:
-                print("invalid")
+                print("invalid input")
 
         elif menu == "e":
             print("Goodbye")
@@ -271,14 +284,12 @@ Choice: ''')
         if user_choice == "a":
             option = True
             user_login()
-            print("chose")
         elif user_choice == "b":
-            print("chose b")
             sign_up()
             option = True
 
         else:
-            print("Invalid option")
+            print("Invalid option, try again")
 
 
 def main():
