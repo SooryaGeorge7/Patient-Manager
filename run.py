@@ -51,7 +51,6 @@ def sign_up():
                 print("Sign Up Succesfull")
                 new_row.append(new_username)
                 new_row.append(new_password)
-                print(new_row)
                 users.append_row(new_row)
                 user_login()
         except ValueError as error:
@@ -240,17 +239,25 @@ e - Exit
  b) View Appointment
  :\n''')
             if appointment_choice == "a":
-                scheduler = Scheduler()
                 file_number = input("Please enter file number:\n")
-                date = input("Please add date:\n")
-                time = input("Please add time:\n")
-                scheduler.add_appointment(file_number, date, time)
+                
+                try:
+                    for num in patient_data:
+                        if file_number == num[4]:
+                            date = input("Please add date:\n")
+                            time = input("Please add time:\n")
+                            scheduler = Scheduler()
+                            scheduler.add_appointment(file_number, date, time)
+                            break
+                    else:
+                        raise ValueError
+                except ValueError:
+                    print("We dont have that file no, Please add patients details first")
+
             elif appointment_choice == "b":
                 file_number = input("Enter patient's file number: \n")
                 try:
                     for item in patient_data:
-                        print(item)
-                        print(item[4])
                         if file_number == item[4]:
                             scheduler = Scheduler()
                             scheduler.view_appointment(file_number)
@@ -258,7 +265,7 @@ e - Exit
                     else:
                         raise ValueError
                 except ValueError:
-                    print("Please add patients details first")
+                    print("We dont have that file no, Please add patients details first")
             else:
                 print("invalid input!")
 
