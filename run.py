@@ -40,9 +40,9 @@ def sign_up():
             for line in data:
                 if new_username == line[0]:
                     print("The username is already taken, please try again.")
-                    # allow user to enter username again  if its already been used.
+                    # allow user to enter username again.
                     new_username = input("Please enter a new username:")
-                    # ask user for the neewpassword , and confirm using input().
+                    # ask user for the newpassword ,and confirm using input().
             new_password = input("Please enter a new password:")
             confirm_password = input("Please reenter password to confirm:")
 
@@ -130,7 +130,9 @@ def payment_due():
         pt_treatment = input("Please enter a treatment for patient")
         for a in headings:
             if pt_treatment == a:
-                u_choice = input("""Choose between \n a) add another b) done""")
+                u_choice = input('''Choose between
+a) add another 
+b) done''')
                 if u_choice == "a":
                     prices.append(pt_treatment)
                     addition = True
@@ -151,7 +153,7 @@ def payment_due():
                         if i in headings:
                             final_list.append(int_costs[headings.index(i)])
                     print(f"""Total payment due is {sum(final_list)}""")
-                    ##print(sum(int_costs))
+                    #print(sum(int_costs))
                     break
 
                 else:
@@ -245,7 +247,9 @@ e - Exit
 
         
         elif menu == "d":
-            t_choice = input("Choose between \n a) View patient final cost \n b) View prices")
+            t_choice = input('''Please Choose between
+a) Calculate Total Cost
+b) View prices''')
             if t_choice == "a":
                 payment_due()
             elif t_choice == "b":
@@ -264,8 +268,10 @@ def choice():
     
     choice = False 
     while choice is False:
-        user_choice = input('''Please choose from options below:(type in a or b)\n
-a) Log in \nb) Register \n Choice: ''')
+        user_choice = input('''Please choose from options below:
+a) Log in
+b) Register
+Choice: ''')
         if user_choice == "a":
             choice = True
             user_login()
