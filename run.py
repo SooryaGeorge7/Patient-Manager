@@ -59,6 +59,7 @@ def sign_up():
         except ValueError as error:
             print(error)
 
+
 class Patient:
     def __init__(self, file_number):
         self.file_number = file_number
@@ -144,7 +145,7 @@ b) done''')
                     headings = treatments.row_values(1)
                     costs = treatments.row_values(2)
                     addition = True
-            
+
                     int_costs = [int(x) for x in costs]
                     print(int_costs)
                     i = 0
@@ -158,7 +159,7 @@ b) done''')
 
                 else:
                     print("invalid")
-            
+
         if addition is False:
             print("invalid resp")    
 
@@ -173,9 +174,6 @@ def view_treatments():
     return treatment_costs
 
 
-
-
-
 def user_login():
     log_in = False
     while log_in is False:
@@ -186,7 +184,7 @@ def user_login():
             for x in data:
                 username = x[0]
                 password = x[1]
-            
+
                 if login_username == username and login_password == password:
                     log_in = True
                     print("Log in Successful!")
@@ -201,7 +199,6 @@ def user_login():
                 raise ValueError
         except ValueError:
             print("try again")
-
 
     while log_in is True:
         menu = input('''\n Please select one of the following Options below:\n
@@ -223,7 +220,7 @@ e - Exit
             birthday = input("Please enter patient's birth date:")
             fileno = input("Please enter patient's file number:")
             new_patient = [name, surname, email, birthday, fileno]
-            
+
             patient = Patient('Patient')
             patient.add_details(new_patient)
 
@@ -245,7 +242,6 @@ e - Exit
             else:
                 print("invalid input!")
 
-        
         elif menu == "d":
             t_choice = input('''Please Choose between
 a) Calculate Total Cost
@@ -260,12 +256,12 @@ b) View prices''')
         elif menu == "e":
             print("Goodbye")
             exit()
-        
+
         else:
             print("You have entered an invalid option, Please try again")
 
+
 def choice():
-    
     choice = False 
     while choice is False:
         user_choice = input('''Please choose from options below:
@@ -280,10 +276,9 @@ Choice: ''')
             print("chose b")
             sign_up()
             choice = True
-            
+
         else:
             print("Invalid option")
-            
 
 
 def main():
