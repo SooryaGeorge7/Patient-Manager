@@ -1,6 +1,4 @@
-# Your code goes here.
-# You can delete these comments, but do not change the name of this file
-# Write your code to expect a terminal of 80 characters wide and 24 rows high
+
 import gspread
 from google.oauth2.service_account import Credentials
 
@@ -35,7 +33,7 @@ def sign_up():
     sign_in = False
     while sign_in is False:
         try:
-            new_username = input("Please enter a new username:")
+            new_username = input("Please enter a new username:\n")
             new_row = []
             for line in data:
                 if new_username == line[0]:
@@ -43,8 +41,8 @@ def sign_up():
                     # allow user to enter username again.
                     new_username = input("Please enter a new username:")
                     # ask user for the newpassword ,and confirm using input().
-            new_password = input("Please enter a new password:")
-            confirm_password = input("Please reenter password to confirm:")
+            new_password = input("Please enter a new password:\n")
+            confirm_password = input("Please reenter password to confirm:\n")
 
             if confirm_password != new_password:
                 raise ValueError("Passwords dont match, please try again!")
@@ -138,13 +136,13 @@ Denture
 Cleaning
 Xray
 Root Canal
-:''').lower()
+:\n''').lower()
         for a in headings:
             if pt_treatment == a:
                 u_choice = input('''Choose between
 a) Add another treatment
 b) Total Payment Due
-:''')
+:\n''')
                 if u_choice == "a":
                     prices.append(pt_treatment)
                     addition = True
@@ -190,12 +188,10 @@ def user_login():
     log_in = False
     print("You may log in!")
     while log_in is False:
-        login_username = input("Please enter username: ")
-        login_password = input("Please enter password: ")
+        login_username = input("Please enter username: \n")
+        login_password = input("Please enter password: \n")
         try:
             for x in data:
-                print(x)
-                print(x[1])
                 username = x[0]
                 password = x[1]
 
@@ -221,18 +217,18 @@ b - Add new patient
 c - Appointment
 d - Treatment Costs
 e - Exit
-: ''').lower()
+: \n''').lower()
         if menu == "a":
-            file_number = input("Enter patient's file number(eg:#76654): ")
+            file_number = input("Enter patient's file number(eg:#76654): \n")
             patient = Patient('Patient')
             patient.patient_details(file_number)
 
         elif menu == "b":
-            name = input("Please enter Patient's first name:")
-            surname = input("Please enter Patient's surname")
-            email = input("Please enter patient's email")
-            birthday = input("Please enter patient's birth date:")
-            fileno = input("Please enter patient's file number:")
+            name = input("Please enter Patient's first name:\n")
+            surname = input("Please enter Patient's surname:\n")
+            email = input("Please enter patient's email:\n")
+            birthday = input("Please enter patient's birth date:\n")
+            fileno = input("Please enter patient's file number:\n")
             new_patient = [name, surname, email, birthday, fileno]
 
             patient = Patient('Patient')
@@ -242,15 +238,15 @@ e - Exit
             appointment_choice = input('''Choose between
  a) Add Appointment
  b) View Appointment
- :''')
+ :\n''')
             if appointment_choice == "a":
                 scheduler = Scheduler()
-                file_number = input("Please enter file number:")
-                date = input("Please add date:")
-                time = input("Please add time:")
+                file_number = input("Please enter file number:\n")
+                date = input("Please add date:\n")
+                time = input("Please add time:\n")
                 scheduler.add_appointment(file_number, date, time)
             elif appointment_choice == "b":
-                file_number = input("Enter patient's file number: ")
+                file_number = input("Enter patient's file number: \n")
                 try:
                     for item in patient_data:
                         print(item)
@@ -270,7 +266,7 @@ e - Exit
             t_choice = input('''Please Choose between
 a) Calculate Total Cost
 b) View prices
-:''')
+:\n''')
             if t_choice == "a":
                 payment_due()
             elif t_choice == "b":
@@ -292,7 +288,7 @@ def choice():
         user_choice = input('''Please choose from options below:
 a) Log in
 b) Register
-Choice: ''')
+Choice: \n''')
         if user_choice == "a":
             option = True
             user_login()
