@@ -122,8 +122,8 @@ at {appointment_details[2]} hours""")
 
 
 def payment_due():
-    payment = False 
-    prices =[]
+    payment = False
+    prices = []
     while payment is False:
         headings = treatments.row_values(1)
         costs = treatments.row_values(2)
@@ -132,7 +132,7 @@ def payment_due():
         for a in headings:
             if pt_treatment == a:
                 u_choice = input('''Choose between
-a) add another 
+a) add another
 b) done''')
                 if u_choice == "a":
                     prices.append(pt_treatment)
@@ -149,7 +149,7 @@ b) done''')
                     int_costs = [int(x) for x in costs]
                     print(int_costs)
                     i = 0
-                    final_list =[]
+                    final_list = []
                     for i in prices:
                         if i in headings:
                             final_list.append(int_costs[headings.index(i)])
@@ -161,7 +161,7 @@ b) done''')
                     print("invalid")
 
         if addition is False:
-            print("invalid resp")    
+            print("invalid resp")
 
 
 def view_treatments():
@@ -225,7 +225,7 @@ e - Exit
             patient.add_details(new_patient)
 
         elif menu == "c":
-            choice = input('''Choose between 
+            choice = input('''Choose between
  a) Add Appointment
  b) View Appointment
  :''')
@@ -262,7 +262,7 @@ b) View prices''')
 
 
 def choice():
-    choice = False 
+    choice = False
     while choice is False:
         user_choice = input('''Please choose from options below:
 a) Log in
