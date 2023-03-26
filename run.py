@@ -194,6 +194,8 @@ def user_login():
         login_password = input("Please enter password: ")
         try:
             for x in data:
+                print(x)
+                print(x[1])
                 username = x[0]
                 password = x[1]
 
@@ -249,8 +251,18 @@ e - Exit
                 scheduler.add_appointment(file_number, date, time)
             elif appointment_choice == "b":
                 file_number = input("Enter patient's file number: ")
-                scheduler = Scheduler()
-                scheduler.view_appointment(file_number)
+                try:
+                    for item in patient_data:
+                        print(item)
+                        print(item[4])
+                        if file_number == item[4]:
+                            scheduler = Scheduler()
+                            scheduler.view_appointment(file_number)
+                            break
+                    else:
+                        raise ValueError
+                except ValueError:
+                    print("Please add patients details first")
             else:
                 print("invalid input!")
 
