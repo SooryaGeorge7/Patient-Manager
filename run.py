@@ -138,7 +138,7 @@ Denture
 Cleaning
 Xray
 Root Canal
-:''').lower
+:''').lower()
         for a in headings:
             if pt_treatment == a:
                 u_choice = input('''Choose between
@@ -180,9 +180,9 @@ def view_treatments():
     headings = treatments.row_values(1)
     costs = treatments.row_values(2)
     i = 0
+    print("Treatment Prices")
     for i in range(len(headings)):
-        treatment_costs = print(f'''Treatments with Prices:
-{headings[i]}:{costs[i]}''')
+        treatment_costs = print(f"{headings[i]}:{costs[i]}")
     return treatment_costs
 
 
