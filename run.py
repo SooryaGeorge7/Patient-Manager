@@ -137,7 +137,7 @@ b) done''')
                 if u_choice == "a":
                     prices.append(pt_treatment)
                     addition = True
-                    pass
+
                 elif u_choice == "b":
                     payment = True
                     prices.append(pt_treatment)
@@ -154,7 +154,7 @@ b) done''')
                         if i in headings:
                             final_list.append(int_costs[headings.index(i)])
                     print(f"""Total payment due is {sum(final_list)}""")
-                    #print(sum(int_costs))
+                    # print(sum(int_costs))
                     break
 
                 else:
@@ -191,10 +191,10 @@ def user_login():
                     break
                 elif login_username != username and login_password == password:
                     print("You've entered an invalid username ")
-                    pass
+
                 elif login_username == username and login_password != password:
                     print("Your password is incorrect ")
-                    pass
+
             else:
                 raise ValueError
         except ValueError:
@@ -225,17 +225,17 @@ e - Exit
             patient.add_details(new_patient)
 
         elif menu == "c":
-            choice = input('''Choose between
+            appointment_choice = input('''Choose between
  a) Add Appointment
  b) View Appointment
  :''')
-            if choice == "a":
+            if appointment_choice == "a":
                 scheduler = Scheduler()
                 file_number = input("Please enter file number")
                 date = input("Please add date")
                 time = input("Please add time")
                 scheduler.add_appointment(file_number, date, time)
-            elif choice == "b":
+            elif appointment_choice == "b":
                 file_number = input("Enter patient's file number: ")
                 scheduler = Scheduler()
                 scheduler.view_appointment(file_number)
@@ -262,20 +262,20 @@ b) View prices''')
 
 
 def choice():
-    choice = False
-    while choice is False:
+    option = False
+    while option is False:
         user_choice = input('''Please choose from options below:
 a) Log in
 b) Register
 Choice: ''')
         if user_choice == "a":
-            choice = True
+            option = True
             user_login()
             print("chose")
         elif user_choice == "b":
             print("chose b")
             sign_up()
-            choice = True
+            option = True
 
         else:
             print("Invalid option")
