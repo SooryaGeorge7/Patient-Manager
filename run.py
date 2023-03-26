@@ -126,12 +126,14 @@ def payment_due():
     while payment is False:
         headings = treatments.row_values(1)
         costs = treatments.row_values(2)
+        addition = False
         pt_treatment = input("Please enter a treatment for patient")
         for a in headings:
             if pt_treatment == a:
                 u_choice = input("""Choose between \n a) add another b) done""")
                 if u_choice == "a":
                     prices.append(pt_treatment)
+                    addition = True
                     pass
                 elif u_choice == "b":
                     payment = True
@@ -139,6 +141,7 @@ def payment_due():
                     print(prices)
                     headings = treatments.row_values(1)
                     costs = treatments.row_values(2)
+                    addition = True
             
                     int_costs = [int(x) for x in costs]
                     print(int_costs)
@@ -151,11 +154,11 @@ def payment_due():
                     ##print(sum(int_costs))
                     break
 
-                
-        else:
-            print("invalid")
+                else:
+                    print("invalid")
             
-
+        if addition is False:
+            print("invalid resp")    
 
 
 def view_treatments():
