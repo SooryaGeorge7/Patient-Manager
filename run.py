@@ -194,7 +194,7 @@ def validate_email():
             print("Invalid email, try again")
     return u_email   
 
-def validate_app_time():
+def validate_app_date():
     while True:
         u_date = input("Please add appointment date")
         date_obj = datetime.datetime.strptime(u_date, '%d-%m-%Y')
@@ -206,6 +206,14 @@ def validate_app_time():
             print("That date is not in the future, try again")
     return u_date
 
+def validate_time():
+    while True:
+        u_time = input("Please enter time")
+        try:
+            time_item = datetime.datetime.strptime(u_time, '%H:%M')
+            return u_time
+        except ValueError:
+            print("invalid time")
 def user_login():
     log_in = False
     print("You may log in!")
@@ -267,8 +275,8 @@ e - Exit
                 try:
                     for num in patient_data:
                         if file_number == num[4]:
-                            date = validate_app_time()
-                            time = input("Please add time:\n")
+                            date = validate_app_date()
+                            time = validate_time()
                             scheduler = Scheduler()
                             scheduler.add_appointment(file_number, date, time)
                             break
