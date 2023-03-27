@@ -1,4 +1,4 @@
-
+import re
 import gspread
 from google.oauth2.service_account import Credentials
 
@@ -182,6 +182,16 @@ def view_treatments():
         treatment_costs = print(f"{headings[i]}:{costs[i]}")
     return treatment_costs
 
+def validate_email():
+    while True:
+        u_email = input("Please enter email")
+        v_email = r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+        if re.match(v_email, u_email):
+            print("Valid Email")
+            break
+        else:
+            print("Invalid email, try again")
+    return u_email   
 
 def user_login():
     log_in = False
@@ -225,7 +235,7 @@ e - Exit
         elif menu == "b":
             name = input("Please enter Patient's first name:\n")
             surname = input("Please enter Patient's surname:\n")
-            email = input("Please enter patient's email:\n")
+            email = validate_email()
             birthday = input("Please enter patient's birth date:\n")
             fileno = input("Please enter patient's file number:\n")
             new_patient = [name, surname, email, birthday, fileno]
