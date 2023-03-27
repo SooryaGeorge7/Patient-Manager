@@ -1,4 +1,5 @@
 import re
+import datetime
 import gspread
 from google.oauth2.service_account import Credentials
 
@@ -193,6 +194,18 @@ def validate_email():
             print("Invalid email, try again")
     return u_email   
 
+def validate_app_time():
+    while True:
+        u_date = input("Please add appointment date")
+        date_obj = datetime.datetime.strptime(u_date, '%d-%m-%Y')
+        current_date = datetime.datetime.now()
+        if date_obj > current_date:
+            print("Valid date entry")
+            break
+        else:
+            print("That date is not in the future, try again")
+    return u_date
+
 def user_login():
     log_in = False
     print("You may log in!")
@@ -254,7 +267,7 @@ e - Exit
                 try:
                     for num in patient_data:
                         if file_number == num[4]:
-                            date = input("Please add date:\n")
+                            date = validate_app_time()
                             time = input("Please add time:\n")
                             scheduler = Scheduler()
                             scheduler.add_appointment(file_number, date, time)
