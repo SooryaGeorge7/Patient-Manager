@@ -39,7 +39,7 @@ def sign_up():
                 if new_username == line[0]:
                     print("The username is already taken, please try again.")
                     # allow user to enter username again.
-                    new_username = input("Please enter a new username:")
+                    new_username = input("Please enter a new username:\n")
                     # ask user for the newpassword ,and confirm using input().
             new_password = input("Please enter a new password:\n")
             confirm_password = input("Please reenter password to confirm:\n")
