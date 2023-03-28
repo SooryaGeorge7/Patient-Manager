@@ -46,7 +46,7 @@ def sign_up():
             confirm_password = input("Please reenter password to confirm:\n")
 
             if confirm_password != new_password:
-                raise ValueError("Passwords dont match, please try again!")
+                raise ValueError("Passwords dont match, please start again!")
             else:
                 sign_in = True
                 print("Sign Up Succesfull")
@@ -260,7 +260,7 @@ def user_login():
             else:
                 raise ValueError
         except ValueError:
-            print("try again")
+            print("You've entered invalid credentials, Please try again")
 
     while log_in is True:
         menu = input('''\n Please select one of the following Options below:\n
