@@ -201,25 +201,31 @@ def validate_email():
 
 def validate_app_date():
     while True:
-        u_date = input("Please add appointment in the format DD-MM-YYYY:\n")
-        date_obj = datetime.datetime.strptime(u_date, '%d-%m-%Y')
-        current_date = datetime.datetime.now()
-        if date_obj > current_date:
-            break
-        else:
-            print("That date is not in the future, try again")
+        try:
+            u_date = input("Please add appointment in the format DD-MM-YYYY:\n")
+            date_obj = datetime.datetime.strptime(u_date, '%d-%m-%Y')
+            current_date = datetime.datetime.now()
+            if date_obj > current_date:
+                break
+            else:
+                print("That date is not in the future, try again")
+        except ValueError:
+            print("That is not a valid date,try again")
     return u_date
 
 
 def validate_birthdate():
     while True:
-        b_date = input("Please add patient's DOB in the format DD-MM-YYYY:\n")
-        date_item = datetime.datetime.strptime(b_date, '%d-%m-%Y')
-        today_date = datetime.datetime.now()
-        if date_item < today_date:
-            break
-        else:
-            print("This is not a valid birthdate, try again")
+        try:
+            b_date = input("Please add patient's DOB in the format DD-MM-YYYY:\n")
+            date_item = datetime.datetime.strptime(b_date, '%d-%m-%Y')
+            today_date = datetime.datetime.now()
+            if date_item < today_date:
+                break
+            else:
+                print("This is not a valid birthdate, try again")
+        except ValueError:
+            print("That is not a valid entry, try again")
     return b_date
 
 
