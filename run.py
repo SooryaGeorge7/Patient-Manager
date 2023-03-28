@@ -75,7 +75,7 @@ Patient Surname:{details[1]}\nEmail:{details[2]}
 Birthday:{details[3]}\nFile Number:{details[4]}""")
             return view_patient
         except ValueError:
-            print("File does'nt exist, Try again")
+            print("File does'nt exist")
 
     def add_details(self, new_patient):
         patients.append_row(new_patient)
@@ -190,10 +190,9 @@ def view_treatments():
 
 def validate_email():
     while True:
-        u_email = input("Please enter email")
+        u_email = input("Please enter email:\n")
         v_email = r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
         if re.match(v_email, u_email):
-            print("Valid Email")
             break
         else:
             print("Invalid email, try again")
@@ -202,11 +201,10 @@ def validate_email():
 
 def validate_app_date():
     while True:
-        u_date = input("Please add appointment date")
+        u_date = input("Please add appointment in the format DD-MM-YYYY:\n")
         date_obj = datetime.datetime.strptime(u_date, '%d-%m-%Y')
         current_date = datetime.datetime.now()
         if date_obj > current_date:
-            print("Valid date entry")
             break
         else:
             print("That date is not in the future, try again")
@@ -215,11 +213,10 @@ def validate_app_date():
 
 def validate_birthdate():
     while True:
-        b_date = input("Please enter patient's Birthdate")
+        b_date = input("Please add patient's DOB in the format DD-MM-YYYY:\n")
         date_item = datetime.datetime.strptime(b_date, '%d-%m-%Y')
         today_date = datetime.datetime.now()
         if date_item < today_date:
-            print("valid birthdate")
             break
         else:
             print("This is not a valid birthdate, try again")
@@ -228,7 +225,7 @@ def validate_birthdate():
 
 def validate_time():
     while True:
-        u_time = input("Please enter time")
+        u_time = input("Please enter time in the format HH:MM:\n")
         try:
             datetime.datetime.strptime(u_time, '%H:%M')
             return u_time
@@ -251,11 +248,6 @@ def user_login():
                     log_in = True
                     print("Log in Successful!")
                     break
-                elif login_username != username and login_password == password:
-                    print("You've entered an invalid username ")
-
-                elif login_username == username and login_password != password:
-                    print("Your password is incorrect ")
 
             else:
                 raise ValueError
@@ -302,8 +294,8 @@ e - Exit
                                 scheduler = Scheduler()
                                 scheduler.add_appntmnt(file_number, date, time)
                                 break
-                            else:
-                                raise ValueError
+                        else:
+                            raise ValueError
                     except ValueError:
                         print('''
 We dont have that file no, Please add patients details first''')
@@ -315,7 +307,7 @@ We dont have that file no, Please add patients details first''')
                     scheduler.view_appointment(file_number)
                     break
                 else:
-                    print("invalid input!")
+                    print("invalid option!")
 
         elif menu == "d":
             while True:
