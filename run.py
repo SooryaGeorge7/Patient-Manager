@@ -109,14 +109,18 @@ class Scheduler:
             pt_row = file_num_column.index(file_number) + 1
             pt_details = patients.row_values(pt_row)
             file_num = appointments.col_values(1)
-            appointment_row = file_num.index(file_number) + 1
-            appointment_details = appointments.row_values(appointment_row)
-            view_date = print(f""" Patient {pt_details[0]} {pt_details[1]}'s
-next appointment is on {appointment_details[1]}
-at {appointment_details[2]} hours""")
+            print(f"""Patient {pt_details[0]} {pt_details[1]}'s appointments""")
+            
+            appointment_date = appointments.col_values(2)
+            appointment_time = appointments.col_values(3)
+            for value in range(len(file_num)):
+                if file_number == file_num[value]:
+                    view_date = print(f""" 
+{appointment_date[value]}at {appointment_time[value]} hours
+""")
             return view_date
         except ValueError:
-            print("File number does'nt exist")
+            print("We dont have an appointment with that file number")
 
 
 def payment_due():
@@ -299,16 +303,9 @@ e - Exit
 
             elif appointment_choice == "b":
                 file_number = input("Enter patient's file number: \n")
-                try:
-                    for item in patient_data:
-                        if file_number == item[4]:
-                            scheduler = Scheduler()
-                            scheduler.view_appointment(file_number)
-                            break
-                    else:
-                        raise ValueError
-                except ValueError:
-                    print("We dont have that file no, Please add patients details first")
+                scheduler = Scheduler()
+                scheduler.view_appointment(file_number)
+                
             else:
                 print("invalid input!")
 
