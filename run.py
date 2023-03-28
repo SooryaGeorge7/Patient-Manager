@@ -109,7 +109,8 @@ class Scheduler:
             pt_row = file_num_column.index(file_number) + 1
             pt_details = patients.row_values(pt_row)
             file_num = appointments.col_values(1)
-            print(f"""Patient {pt_details[0]} {pt_details[1]}'s appointments""")
+            print(f"""
+Patient {pt_details[0]} {pt_details[1]}'s appointments""")
             
             appointment_date = appointments.col_values(2)
             appointment_time = appointments.col_values(3)
@@ -187,6 +188,7 @@ def view_treatments():
         treatment_costs = print(f"{headings[i]}:{costs[i]}")
     return treatment_costs
 
+
 def validate_email():
     while True:
         u_email = input("Please enter email")
@@ -197,6 +199,7 @@ def validate_email():
         else:
             print("Invalid email, try again")
     return u_email   
+
 
 def validate_app_date():
     while True:
@@ -210,6 +213,7 @@ def validate_app_date():
             print("That date is not in the future, try again")
     return u_date
 
+
 def validate_birthdate():
     while True:
         b_date = input("Please enter patient's Birthdate")
@@ -222,14 +226,17 @@ def validate_birthdate():
             print("This is not a valid birthdate, try again")
     return b_date
 
+
 def validate_time():
     while True:
         u_time = input("Please enter time")
         try:
-            time_item = datetime.datetime.strptime(u_time, '%H:%M')
+            datetime.datetime.strptime(u_time, '%H:%M')
             return u_time
         except ValueError:
             print("invalid time")
+
+
 def user_login():
     log_in = False
     print("You may log in!")
@@ -299,7 +306,8 @@ e - Exit
                     else:
                         raise ValueError
                 except ValueError:
-                    print("We dont have that file no, Please add patients details first")
+                    print('''
+We dont have that file no, Please add patients details first''')
 
             elif appointment_choice == "b":
                 file_number = input("Enter patient's file number: \n")
