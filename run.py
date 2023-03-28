@@ -111,12 +111,11 @@ class Scheduler:
             file_num = appointments.col_values(1)
             print(f"""
 Patient {pt_details[0]} {pt_details[1]}'s appointments""")
-            
             appointment_date = appointments.col_values(2)
             appointment_time = appointments.col_values(3)
             for value in range(len(file_num)):
                 if file_number == file_num[value]:
-                    view_date = print(f""" 
+                    view_date = print(f"""
 {appointment_date[value]}at {appointment_time[value]} hours
 """)
             return view_date
@@ -198,7 +197,7 @@ def validate_email():
             break
         else:
             print("Invalid email, try again")
-    return u_email   
+    return u_email
 
 
 def validate_app_date():
@@ -294,7 +293,6 @@ e - Exit
  :\n''')
             if appointment_choice == "a":
                 file_number = input("Please enter file number:\n")
-                
                 try:
                     for num in patient_data:
                         if file_number == num[4]:
@@ -313,7 +311,6 @@ We dont have that file no, Please add patients details first''')
                 file_number = input("Enter patient's file number: \n")
                 scheduler = Scheduler()
                 scheduler.view_appointment(file_number)
-                
             else:
                 print("invalid input!")
 
