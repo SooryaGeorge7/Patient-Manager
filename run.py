@@ -206,6 +206,18 @@ def validate_app_date():
             print("That date is not in the future, try again")
     return u_date
 
+def validate_birthdate():
+    while True:
+        b_date = input("Please enter patient's Birthdate")
+        date_item = datetime.datetime.strptime(b_date, '%d-%m-%Y')
+        today_date = datetime.datetime.now()
+        if date_item < today_date:
+            print("valid birthdate")
+            break
+        else:
+            print("This is not a valid birthdate, try again")
+    return b_date
+
 def validate_time():
     while True:
         u_time = input("Please enter time")
@@ -257,7 +269,7 @@ e - Exit
             name = input("Please enter Patient's first name:\n")
             surname = input("Please enter Patient's surname:\n")
             email = validate_email()
-            birthday = input("Please enter patient's birth date:\n")
+            birthday = validate_birthdate()
             fileno = input("Please enter patient's file number:\n")
             new_patient = [name, surname, email, birthday, fileno]
 
