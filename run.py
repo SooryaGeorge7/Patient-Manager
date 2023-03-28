@@ -95,7 +95,7 @@ class Scheduler:
                 return False
         return True
 
-    def add_appointment(self, file_number, date, time):
+    def add_appntmnt(self, file_number, date, time):
         if self.is_available(date, time):
             self.new_appointment.append(file_number)
             self.new_appointment.append(date)
@@ -300,7 +300,7 @@ e - Exit
                                 date = validate_app_date()
                                 time = validate_time()
                                 scheduler = Scheduler()
-                                scheduler.add_appointment(file_number, date, time)
+                                scheduler.add_appntmnt(file_number, date, time)
                                 break
                             else:
                                 raise ValueError
