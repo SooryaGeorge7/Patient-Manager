@@ -154,13 +154,13 @@ b) Total Payment Due
                 elif u_choice == "b":
                     payment = True
                     prices.append(pt_treatment)
-                    print(prices)
+                    
                     headings = treatments.row_values(1)
                     costs = treatments.row_values(2)
                     addition = True
 
                     int_costs = [int(x) for x in costs]
-                    print(int_costs)
+                    
                     i = 0
                     final_list = []
                     for i in prices:
@@ -171,7 +171,8 @@ b) Total Payment Due
                     break
 
                 else:
-                    print("invalid option")
+                    print("invalid option,start again")
+                    addition = True
 
         if addition is False:
             print("We dont have that treatment option, try again")
