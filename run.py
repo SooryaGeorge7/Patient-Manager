@@ -239,6 +239,17 @@ def validate_time():
         except ValueError:
             print("invalid time")
 
+def validate_fileno():
+    while True:
+        file_no = input("Please enter patient's file number:\n")
+        for number in patient_data:
+            if file_no == number[4]:
+                print("This file number is already added")
+                break
+        else:
+            return file_no
+        
+
 
 def user_login():
     log_in = False
@@ -279,7 +290,7 @@ e - Exit
             surname = input("Please enter Patient's surname:\n")
             email = validate_email()
             birthday = validate_birthdate()
-            fileno = input("Please enter patient's file number:\n")
+            fileno = validate_fileno()
             new_patient = [name, surname, email, birthday, fileno]
 
             patient = Patient('Patient')
