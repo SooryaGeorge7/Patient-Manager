@@ -287,44 +287,50 @@ e - Exit
             patient.add_details(new_patient)
 
         elif menu == "c":
-            appointment_choice = input('''Choose between
+            while True:
+                appointment_choice = input('''Choose between
  a) Add Appointment
  b) View Appointment
  :\n''')
-            if appointment_choice == "a":
-                file_number = input("Please enter file number:\n")
-                try:
-                    for num in patient_data:
-                        if file_number == num[4]:
-                            date = validate_app_date()
-                            time = validate_time()
-                            scheduler = Scheduler()
-                            scheduler.add_appointment(file_number, date, time)
-                            break
-                    else:
-                        raise ValueError
-                except ValueError:
-                    print('''
+                if appointment_choice == "a":
+                    file_number = input("Please enter file number:\n")
+                    try:
+                        for num in patient_data:
+                            if file_number == num[4]:
+                                date = validate_app_date()
+                                time = validate_time()
+                                scheduler = Scheduler()
+                                scheduler.add_appointment(file_number, date, time)
+                                break
+                            else:
+                                raise ValueError
+                    except ValueError:
+                        print('''
 We dont have that file no, Please add patients details first''')
+                        break
 
-            elif appointment_choice == "b":
-                file_number = input("Enter patient's file number: \n")
-                scheduler = Scheduler()
-                scheduler.view_appointment(file_number)
-            else:
-                print("invalid input!")
+                elif appointment_choice == "b":
+                    file_number = input("Enter patient's file number: \n")
+                    scheduler = Scheduler()
+                    scheduler.view_appointment(file_number)
+                    break
+                else:
+                    print("invalid input!")
 
         elif menu == "d":
-            t_choice = input('''Please Choose between
+            while True:
+                t_choice = input('''Please Choose between
 a) Calculate Total Cost
 b) View prices
 :\n''')
-            if t_choice == "a":
-                payment_due()
-            elif t_choice == "b":
-                view_treatments()
-            else:
-                print("invalid input")
+                if t_choice == "a":
+                    payment_due()
+                    break
+                elif t_choice == "b":
+                    view_treatments()
+                    break
+                else:
+                    print("invalid input")
 
         elif menu == "e":
             print("Goodbye")
