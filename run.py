@@ -1,4 +1,5 @@
 import re
+import os
 import datetime
 import gspread
 from google.oauth2.service_account import Credentials
@@ -29,7 +30,10 @@ appointement_data = appointments.get_all_values()
 treatments = SHEET.worksheet('treatments')
 treatments_data = treatments.get_all_values()
 
+def clear_terminal():
+    os.system('cls' if os.name == 'nt' else 'clear')
 
+    
 def sign_up():
     data = users.get_all_values()
     sign_in = False
@@ -143,6 +147,7 @@ Xray
 Root Canal
 :\n''').lower()
         for a in headings:
+            
             if pt_treatment == a:
                 u_choice = input('''Choose between
 a) Add another treatment
@@ -168,12 +173,14 @@ b) Total Payment Due
                         if i in headings:
                             final_list.append(int_costs[headings.index(i)])
                     print(f"""Total payment due is {sum(final_list)}""")
-                    # print(sum(int_costs))
+                    
                     break
 
                 else:
                     print("invalid option,start again")
+                    
                     addition = True
+                       
 
         if addition is False:
             print("We dont have that treatment option, try again")
@@ -318,6 +325,7 @@ e - Exit
                                 time = validate_time()
                                 scheduler = Scheduler()
                                 scheduler.add_appntmnt(file_number, date, time)
+                                menu_choice()
                                 break
                         else:
                             raise ValueError
