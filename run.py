@@ -246,7 +246,9 @@ def validate_fileno():
         file_no = input("Please enter patient's file number:\n")
         for number in patient_data:
             if file_no == number[4]:
-                print("This file number is already added")
+                print("This patient is already added")
+                menu_choice()
+                
                 break
         else:
             return file_no
@@ -265,8 +267,9 @@ def user_login():
                 password = x[1]
 
                 if login_username == username and login_password == password:
-                    log_in = True
                     print("Log in Successful!")
+                    menu_choice()
+                    
                     break
 
             else:
@@ -274,7 +277,8 @@ def user_login():
         except ValueError:
             print("You've entered invalid credentials, Please try again")
 
-    while log_in is True:
+def menu_choice():
+    while True:
         menu = input('''\n Please select one of the following Options below:\n
 a - View patient details
 b - Add new patient
