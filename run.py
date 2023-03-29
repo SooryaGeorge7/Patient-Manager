@@ -33,7 +33,7 @@ treatments_data = treatments.get_all_values()
 def clear_terminal():
     os.system('cls' if os.name == 'nt' else 'clear')
 
-    
+
 def sign_up():
     data = users.get_all_values()
     sign_in = False
@@ -49,7 +49,7 @@ def sign_up():
                     # ask user for the newpassword ,and confirm using input().
             new_password = input("Please enter a new password:\n")
             confirm_password = input("Please reenter password to confirm:\n")
-
+            clear_terminal()
             if confirm_password != new_password:
                 raise ValueError("Passwords dont match, please start again!")
             else:
@@ -146,6 +146,7 @@ Cleaning
 Xray
 Root Canal
 :\n''').lower()
+        clear_terminal()
         for a in headings:
             
             if pt_treatment == a:
@@ -153,6 +154,7 @@ Root Canal
 a) Add another treatment
 b) Total Payment Due
 :\n''')
+                clear_terminal()
                 if u_choice == "a":
                     prices.append(pt_treatment)
                     addition = True
@@ -268,6 +270,7 @@ def user_login():
     while log_in is False:
         login_username = input("Please enter username: \n")
         login_password = input("Please enter password: \n")
+        clear_terminal()
         try:
             for x in data:
                 username = x[0]
@@ -293,10 +296,12 @@ c - Appointment
 d - Treatment Costs
 e - Exit
 : \n''').lower()
+        clear_terminal()
         if menu == "a":
             file_number = input("Enter patient's file number(eg:#76654): \n")
             patient = Patient('Patient')
             patient.patient_details(file_number)
+            
 
         elif menu == "b":
             name = input("Please enter Patient's first name:\n")
@@ -304,10 +309,12 @@ e - Exit
             email = validate_email()
             birthday = validate_birthdate()
             fileno = validate_fileno()
+            clear_terminal()
             new_patient = [name, surname, email, birthday, fileno]
 
             patient = Patient('Patient')
             patient.add_details(new_patient)
+            
 
         elif menu == "c":
             while True:
@@ -315,6 +322,7 @@ e - Exit
  a) Add Appointment
  b) View Appointment
  :\n''')
+                clear_terminal()
                 if appointment_choice == "a":
                     patient_data = patients.get_all_values()
                     file_number = input("Please enter file number:\n")
@@ -348,6 +356,7 @@ We dont have that file no, Please add patients details first''')
 a) Calculate Total Cost
 b) View prices
 :\n''')
+                clear_terminal()
                 if t_choice == "a":
                     payment_due()
                     break
@@ -372,6 +381,7 @@ def choice():
 a) Log in
 b) Register
 Choice: \n''')
+        clear_terminal()
         if user_choice == "a":
             option = True
             user_login()
