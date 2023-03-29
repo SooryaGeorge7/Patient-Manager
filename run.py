@@ -21,7 +21,7 @@ users = SHEET.worksheet('users')
 
 patients = SHEET.worksheet('patients')
 
-patient_data = patients.get_all_values()
+
 
 appointments = SHEET.worksheet('appointments')
 appointement_data = appointments.get_all_values()
@@ -241,6 +241,7 @@ def validate_time():
             print("invalid time")
 
 def validate_fileno():
+    patient_data = patients.get_all_values()
     while True:
         file_no = input("Please enter patient's file number:\n")
         for number in patient_data:
@@ -304,6 +305,7 @@ e - Exit
  b) View Appointment
  :\n''')
                 if appointment_choice == "a":
+                    patient_data = patients.get_all_values()
                     file_number = input("Please enter file number:\n")
                     try:
                         for num in patient_data:
