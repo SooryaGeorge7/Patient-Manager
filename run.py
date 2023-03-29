@@ -17,7 +17,7 @@ SHEET = GSPREAD_CLIENT.open('Patient_manager')
 
 users = SHEET.worksheet('users')
 
-data = users.get_all_values()
+
 
 patients = SHEET.worksheet('patients')
 
@@ -31,6 +31,7 @@ treatments_data = treatments.get_all_values()
 
 
 def sign_up():
+    data = users.get_all_values()
     sign_in = False
     while sign_in is False:
         try:
@@ -251,6 +252,7 @@ def validate_fileno():
 
 
 def user_login():
+    data = users.get_all_values()
     log_in = False
     print("You may log in!")
     while log_in is False:
