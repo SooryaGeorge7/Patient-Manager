@@ -3,6 +3,7 @@ import os
 import datetime
 import gspread
 from google.oauth2.service_account import Credentials
+from colorama import Fore, Style
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -375,7 +376,7 @@ b) View prices
 
 def logo():
 
-    print("""
+    print(f"""{Fore.MAGENTA}
     _______         _    _                  _                  
    |_   __ \       / |_ (_)                / |_                
      | |__) |,--. `| |-'__  .---.  _ .--. `| |-'               
@@ -390,7 +391,7 @@ def logo():
    |_____||_____|\'-;__/[___||__]\'-;__/.',__`  '.__.'[___]    
                                        ( ( __))                
     """)
-    print("""
+    print(f"""{Fore.LIGHTRED_EX}
     Welcome to Patient Manager.
     The system to manage patients in your practice.
     """)
