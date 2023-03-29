@@ -248,7 +248,6 @@ def validate_fileno():
                 break
         else:
             return file_no
-        
 
 
 def user_login():
