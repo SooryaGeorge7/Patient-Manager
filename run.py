@@ -44,7 +44,8 @@ def sign_up():
             new_row = []
             for line in data:
                 if new_username == line[0]:
-                    print("The username is already taken, please try again.")
+                    print(f""""
+                    {Fore.RED}The username is already taken, please try again.""")
                     # allow user to enter username again.
                     new_username = input("Please enter a new username:\n")
                     # ask user for the newpassword ,and confirm using input().
@@ -52,10 +53,11 @@ def sign_up():
             confirm_password = input("Please reenter password to confirm:\n")
             clear_terminal()
             if confirm_password != new_password:
-                raise ValueError("Passwords dont match, please start again!")
+                raise ValueError(f"""
+                {Fore.RED}Passwords dont match, please start again!""")
             else:
                 sign_in = True
-                print("Sign Up Succesfull")
+                print(f"{Fore.GREEN}Sign Up Succesfull")
                 new_row.append(new_username)
                 new_row.append(new_password)
                 users.append_row(new_row)
@@ -376,7 +378,7 @@ b) View prices
 
 def logo():
 
-    print(f"""{Fore.BLUE}
+    print(f"""{Fore.CYAN}
     _______         _    _                  _                  
    |_   __ \       / |_ (_)                / |_                
      | |__) |,--. `| |-'__  .---.  _ .--. `| |-'               
@@ -391,7 +393,7 @@ def logo():
    |_____||_____|\'-;__/[___||__]\'-;__/.',__`  '.__.'[___]    
                                        ( ( __))                
     """)
-    print(f"""{Fore.CYAN}
+    print(f"""{Fore.BLUE}
     Welcome to Patient Manager.
     The system to manage patients in your practice.
     {Style.RESET_ALL}""")
@@ -401,7 +403,7 @@ def logo():
 def choice():
     option = False
     while option is False:
-        user_choice = input('''Please choose from options below:
+        user_choice = input(f'''{Fore.YELLOW}Please choose from options below:
 a) Log in
 b) Register
 Choice: \n''')
@@ -414,7 +416,7 @@ Choice: \n''')
             option = True
 
         else:
-            print("Invalid option, try again")
+            print(f"{Fore.RED}Invalid option, try again")
 
 
 def main():
