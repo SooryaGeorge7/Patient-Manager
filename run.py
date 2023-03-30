@@ -376,7 +376,7 @@ b) View prices
 
 def logo():
 
-    print(f"""{Fore.MAGENTA}
+    print(f"""{Fore.BLUE}
     _______         _    _                  _                  
    |_   __ \       / |_ (_)                / |_                
      | |__) |,--. `| |-'__  .---.  _ .--. `| |-'               
@@ -391,10 +391,10 @@ def logo():
    |_____||_____|\'-;__/[___||__]\'-;__/.',__`  '.__.'[___]    
                                        ( ( __))                
     """)
-    print(f"""{Fore.LIGHTRED_EX}
+    print(f"""{Fore.CYAN}
     Welcome to Patient Manager.
     The system to manage patients in your practice.
-    """)
+    {Style.RESET_ALL}""")
 
 
 
