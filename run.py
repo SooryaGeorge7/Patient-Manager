@@ -153,7 +153,7 @@ Root Canal
 :\n''').lower()
         clear_terminal()
         for a in headings:
-            
+
             if pt_treatment == a:
                 u_choice = input('''Choose between
 a) Add another treatment
@@ -167,13 +167,11 @@ b) Total Payment Due
                 elif u_choice == "b":
                     payment = True
                     prices.append(pt_treatment)
-                    
                     headings = treatments.row_values(1)
                     costs = treatments.row_values(2)
                     addition = True
 
                     int_costs = [int(x) for x in costs]
-                    
                     i = 0
                     final_list = []
                     for i in prices:
@@ -182,13 +180,11 @@ b) Total Payment Due
                     print(f"""{Fore.LIGHTYELLOW_EX}
 Total payment due is {sum(final_list)}
 """)
-                    
                     break
 
                 else:
                     print(f"{Fore.RED}invalid option,start again")
                     addition = True
-                       
         if addition is False:
             print(f"{Fore.RED}We dont have that treatment option, try again")
 
@@ -268,7 +264,6 @@ def validate_fileno():
             if file_no == number[4]:
                 print(f"{Fore.RED}This patient is already added")
                 menu_choice()
-                
                 break
         else:
             return file_no
@@ -292,7 +287,7 @@ def user_login():
                 if login_username == username and login_password == password:
                     print(f"{Fore.GREEN}Log in Successful!")
                     menu_choice()
-                    
+
                     break
 
             else:
@@ -318,7 +313,7 @@ e - Exit
             file_number = input("Enter patient's file number(eg:#76654): \n")
             patient = Patient('Patient')
             patient.patient_details(file_number)
-            
+
         elif menu == "b":
             name = input("Please enter Patient's first name:\n")
             surname = input("Please enter Patient's surname:\n")
@@ -330,7 +325,7 @@ e - Exit
 
             patient = Patient('Patient')
             patient.add_details(new_patient)
-            
+
         elif menu == "c":
             while True:
                 appointment_choice = input('''Choose between
@@ -394,19 +389,19 @@ b) View prices
 def logo():
 
     print(f"""{Fore.CYAN}
-    _______         _    _                  _                  
-   |_   __ \       / |_ (_)                / |_                
-     | |__) |,--. `| |-'__  .---.  _ .--. `| |-'               
-     |  ___/`'_\ : | | [  |/ /__\\[ `.-. | | |                 
-    _| |_   // | |,| |, | || \__., | | | | | |,                
-   |_____|  \'-;__/\__/[___]'.__.'[___||__]\__/                
-    ____    ____                                               
-   |_   \  /   _|                                              
-     |   \/   |   ,--.   _ .--.   ,--.   .--./) .---.  _ .--.  
-     | |\  /| |  `'_\ : [ `.-. | `'_\ : / /'`\;/ /__\\[ `/'`\] 
-    _| |_\/_| |_ // | |, | | | | // | |,\ \._//| \__., | |     
-   |_____||_____|\'-;__/[___||__]\'-;__/.',__`  '.__.'[___]    
-                                       ( ( __))                
+    _______         _    _                  _
+   |_   __ \       / |_ (_)                / |_
+     | |__) |,--. `| |-'__  .---.  _ .--. `| |-'
+     |  ___/`'_\ : | | [  |/ /__\\[ `.-. | | |
+    _| |_   // | |,| |, | || \__., | | | | | |,
+   |_____|  \'-;__/\__/[___]'.__.'[___||__]\__/
+    ____    ____
+   |_   \  /   _|
+     |   \/   |   ,--.   _ .--.   ,--.   .--./) .---.  _ .--.
+     | |\  /| |  `'_\ : [ `.-. | `'_\ : / /'`\;/ /__\\[ `/'`\]
+    _| |_\/_| |_ // | |, | | | | // | |,\ \._//| \__., | |
+   |_____||_____|\'-;__/[___||__]\'-;__/.',__`  '.__.'[___]
+                                       ( ( __))
     """)
     print(f"""{Fore.LIGHTWHITE_EX}
     Welcome to Patient Manager.
