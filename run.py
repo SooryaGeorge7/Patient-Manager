@@ -19,11 +19,7 @@ SHEET = GSPREAD_CLIENT.open('Patient_manager')
 
 users = SHEET.worksheet('users')
 
-
-
 patients = SHEET.worksheet('patients')
-
-
 
 appointments = SHEET.worksheet('appointments')
 appointement_data = appointments.get_all_values()
@@ -40,12 +36,15 @@ def sign_up():
     sign_in = False
     while sign_in is False:
         try:
-            new_username = input("Please enter a new username:\n")
+            new_username = input(f"""
+{Fore.LIGHTYELLOW_EX}Please enter a new username:\n
+""")
             new_row = []
             for line in data:
                 if new_username == line[0]:
                     print(f""""
-                    {Fore.RED}The username is already taken, please try again.""")
+                    {Fore.RED}The username is already taken, please try again.
+                    """)
                     # allow user to enter username again.
                     new_username = input("Please enter a new username:\n")
                     # ask user for the newpassword ,and confirm using input().
@@ -54,7 +53,7 @@ def sign_up():
             clear_terminal()
             if confirm_password != new_password:
                 raise ValueError(f"""
-                {Fore.RED}Passwords dont match, please start again!""")
+{Fore.RED}Passwords dont match, please start again!""")
             else:
                 sign_in = True
                 print(f"{Fore.GREEN}Sign Up Succesfull{Style.RESET_ALL}")
@@ -128,7 +127,9 @@ Patient {pt_details[0]} {pt_details[1]}'s appointments""")
 """)
             return view_date
         except ValueError:
-            print(f"{Fore.RED}We dont have an appointment with that file number")
+            print(f"""{Fore.RED}
+            We dont have an appointment with that file number
+            """)
 
 
 def payment_due():
@@ -138,8 +139,8 @@ def payment_due():
         headings = treatments.row_values(1)
         costs = treatments.row_values(2)
         addition = False
-        pt_treatment = input(f'''{Fore.YELLOW}Please a choose treatment for patient
-from the following options:
+        pt_treatment = input(f'''{Fore.YELLOW}
+Please a choose treatment for patient from the following options:
 Specific Exam
 Full Oral Exam
 Filling
@@ -177,7 +178,9 @@ b) Total Payment Due
                     for i in prices:
                         if i in headings:
                             final_list.append(int_costs[headings.index(i)])
-                    print(f"""{Fore.YELLOW}Total payment due is {sum(final_list)}""")
+                    print(f"""{Fore.LIGHTYELLOW_EX}
+Total payment due is {sum(final_list)}
+""")
                     
                     break
 
@@ -204,7 +207,7 @@ def view_treatments():
 
 def validate_email():
     while True:
-        u_email = input("Please enter email:\n")
+        u_email = input(f"{Fore.LIGHTYELLOW_EX}Please enter email:\n")
         v_email = r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
         if re.match(v_email, u_email):
             break
@@ -216,7 +219,9 @@ def validate_email():
 def validate_app_date():
     while True:
         try:
-            u_date = input("Please add appointment in the format DD-MM-YYYY:\n")
+            u_date = input(f"""{Fore.LIGHTYELLOW_EX}
+Please add appointment in the format DD-MM-YYYY:\n
+""")
             date_obj = datetime.datetime.strptime(u_date, '%d-%m-%Y')
             current_date = datetime.datetime.now()
             if date_obj > current_date:
@@ -231,7 +236,8 @@ def validate_app_date():
 def validate_birthdate():
     while True:
         try:
-            b_date = input("Please add patient's DOB in the format DD-MM-YYYY:\n")
+            b_date = input(f"""{Fore.LIGHTYELLOW_EX}
+Please add patient's DOB in the format DD-MM-YYYY:\n""")
             date_item = datetime.datetime.strptime(b_date, '%d-%m-%Y')
             today_date = datetime.datetime.now()
             if date_item < today_date:
@@ -245,7 +251,9 @@ def validate_birthdate():
 
 def validate_time():
     while True:
-        u_time = input("Please enter time in the format HH:MM:\n")
+        u_time = input(f"""{Fore.LIGHTYELLOW_EX}
+Please enter time in the format HH:MM:\n
+""")
         try:
             datetime.datetime.strptime(u_time, '%H:%M')
             return u_time
@@ -258,7 +266,7 @@ def validate_fileno():
         file_no = input("Please enter patient's file number:\n")
         for number in patient_data:
             if file_no == number[4]:
-                print("This patient is already added")
+                print(f"{Fore.RED}This patient is already added")
                 menu_choice()
                 
                 break
@@ -271,7 +279,9 @@ def user_login():
     log_in = False
     print(f"{Fore.LIGHTYELLOW_EX}You may log in!")
     while log_in is False:
-        login_username = input("Please enter username: \n")
+        login_username = input(f"""
+{Fore.LIGHTYELLOW_EX}Please enter username:\n
+""")
         login_password = input("Please enter password: \n")
         clear_terminal()
         try:
@@ -398,7 +408,7 @@ def logo():
    |_____||_____|\'-;__/[___||__]\'-;__/.',__`  '.__.'[___]    
                                        ( ( __))                
     """)
-    print(f"""{Fore.BLUE}
+    print(f"""{Fore.LIGHTWHITE_EX}
     Welcome to Patient Manager.
     The system to manage patients in your practice.
     {Style.RESET_ALL}""")
@@ -408,7 +418,8 @@ def logo():
 def choice():
     option = False
     while option is False:
-        user_choice = input(f'''{Fore.LIGHTYELLOW_EX}Please choose from options below:
+        user_choice = input(f'''{Fore.LIGHTYELLOW_EX}
+Please choose from options below:
 a) Log in
 b) Register
 Choice: \n''')
