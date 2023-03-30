@@ -57,7 +57,7 @@ def sign_up():
                 {Fore.RED}Passwords dont match, please start again!""")
             else:
                 sign_in = True
-                print(f"{Fore.GREEN}Sign Up Succesfull")
+                print(f"{Fore.GREEN}Sign Up Succesfull{Style.RESET_ALL}")
                 new_row.append(new_username)
                 new_row.append(new_password)
                 users.append_row(new_row)
@@ -76,18 +76,18 @@ class Patient:
             row = file_number_column.index(file_number) + 1
 
             details = patients.row_values(row)
-            view_patient = print(f"""
+            view_patient = print(f"""{Fore.YELLOW}
 ---Patient Details---
 Patient Name:{details[0]}
 Patient Surname:{details[1]}\nEmail:{details[2]}
 Birthday:{details[3]}\nFile Number:{details[4]}""")
             return view_patient
         except ValueError:
-            print("File does'nt exist")
+            print(f"{Fore.RED}File does'nt exist")
 
     def add_details(self, new_patient):
         patients.append_row(new_patient)
-        added = print("You've successfully added a new patient")
+        added = print(f"{Fore.GREEN}You've successfully added a new patient")
 
         return added
 
@@ -99,7 +99,7 @@ class Scheduler:
     def is_available(self, date, time):
         for line in appointement_data:
             if date == line[1] and time == line[2]:
-                print("Sorry, that date and time is already booked")
+                print(f"{Fore.RED}Sorry, that date and time is already booked")
                 return False
         return True
 
@@ -109,7 +109,7 @@ class Scheduler:
             self.new_appointment.append(date)
             self.new_appointment.append(time)
             appointments.append_row(self.new_appointment)
-            print("Added appointment succesfully!")
+            print(f"{Fore.GREEN}Added appointment succesfully!")
 
     def view_appointment(self, file_number):
         try:
@@ -123,12 +123,12 @@ Patient {pt_details[0]} {pt_details[1]}'s appointments""")
             appointment_time = appointments.col_values(3)
             for value in range(len(file_num)):
                 if file_number == file_num[value]:
-                    view_date = print(f"""
+                    view_date = print(f"""{Fore.YELLOW}
 {appointment_date[value]}at {appointment_time[value]} hours
 """)
             return view_date
         except ValueError:
-            print("We dont have an appointment with that file number")
+            print(f"{Fore.RED}We dont have an appointment with that file number")
 
 
 def payment_due():
@@ -138,7 +138,7 @@ def payment_due():
         headings = treatments.row_values(1)
         costs = treatments.row_values(2)
         addition = False
-        pt_treatment = input('''Please a choose treatment for patient
+        pt_treatment = input(f'''{Fore.YELLOW}Please a choose treatment for patient
 from the following options:
 Specific Exam
 Full Oral Exam
@@ -177,18 +177,18 @@ b) Total Payment Due
                     for i in prices:
                         if i in headings:
                             final_list.append(int_costs[headings.index(i)])
-                    print(f"""Total payment due is {sum(final_list)}""")
+                    print(f"""{Fore.YELLOW}Total payment due is {sum(final_list)}""")
                     
                     break
 
                 else:
-                    print("invalid option,start again")
+                    print(f"{Fore.RED}invalid option,start again")
                     
                     addition = True
                        
 
         if addition is False:
-            print("We dont have that treatment option, try again")
+            print(f"{Fore.RED}We dont have that treatment option, try again")
 
 
 def view_treatments():
@@ -198,7 +198,7 @@ def view_treatments():
     i = 0
     print("Treatment Prices")
     for i in range(len(headings)):
-        treatment_costs = print(f"{headings[i]}:{costs[i]}")
+        treatment_costs = print(f"{Fore.YELLOW}{headings[i]}:{costs[i]}")
     return treatment_costs
 
 
@@ -209,7 +209,7 @@ def validate_email():
         if re.match(v_email, u_email):
             break
         else:
-            print("Invalid email, try again")
+            print(f"{Fore.RED}Invalid email, try again")
     return u_email
 
 
@@ -222,9 +222,9 @@ def validate_app_date():
             if date_obj > current_date:
                 break
             else:
-                print("That date is not in the future, try again")
+                print(f"{Fore.RED}That date is not in the future, try again")
         except ValueError:
-            print("That is not a valid date,try again")
+            print(f"{Fore.RED}That is not a valid date,try again")
     return u_date
 
 
@@ -237,9 +237,9 @@ def validate_birthdate():
             if date_item < today_date:
                 break
             else:
-                print("This is not a valid birthdate, try again")
+                print(f"{Fore.RED}This is not a valid birthdate, try again")
         except ValueError:
-            print("That is not a valid entry, try again")
+            print(f"{Fore.RED}That is not a valid entry, try again")
     return b_date
 
 
@@ -250,7 +250,7 @@ def validate_time():
             datetime.datetime.strptime(u_time, '%H:%M')
             return u_time
         except ValueError:
-            print("invalid time")
+            print(f"{Fore.RED}invalid time")
 
 def validate_fileno():
     patient_data = patients.get_all_values()
@@ -269,7 +269,7 @@ def validate_fileno():
 def user_login():
     data = users.get_all_values()
     log_in = False
-    print("You may log in!")
+    print(f"{Fore.LIGHTYELLOW_EX}You may log in!")
     while log_in is False:
         login_username = input("Please enter username: \n")
         login_password = input("Please enter password: \n")
@@ -280,7 +280,7 @@ def user_login():
                 password = x[1]
 
                 if login_username == username and login_password == password:
-                    print("Log in Successful!")
+                    print(f"{Fore.GREEN}Log in Successful!")
                     menu_choice()
                     
                     break
@@ -288,11 +288,14 @@ def user_login():
             else:
                 raise ValueError
         except ValueError:
-            print("You've entered invalid credentials, Please try again")
+            print(f"""
+{Fore.RED}You've entered invalid credentials,Please try again
+""")
 
 def menu_choice():
     while True:
-        menu = input('''\n Please select one of the following Options below:\n
+        menu = input(f'''{Fore.LIGHTYELLOW_EX}
+Please select one of the following Options below:\n
 a - View patient details
 b - Add new patient
 c - Appointment
@@ -341,7 +344,7 @@ e - Exit
                         else:
                             raise ValueError
                     except ValueError:
-                        print('''
+                        print(f'''{Fore.RED}
 We dont have that file no, Please add patients details first''')
                         break
 
@@ -351,7 +354,7 @@ We dont have that file no, Please add patients details first''')
                     scheduler.view_appointment(file_number)
                     break
                 else:
-                    print("invalid option!")
+                    print(f"{Fore.RED}invalid option!")
 
         elif menu == "d":
             while True:
@@ -367,14 +370,16 @@ b) View prices
                     view_treatments()
                     break
                 else:
-                    print("invalid input")
+                    print(f"{Fore.RED}invalid input")
 
         elif menu == "e":
-            print("Goodbye")
+            print(f"{Fore.BLUE}Goodbye")
             exit()
 
         else:
-            print("You have entered an invalid option, Please try again")
+            print(f"""
+{Fore.RED}You have entered an invalid option, Please try again
+""")
 
 def logo():
 
@@ -403,7 +408,7 @@ def logo():
 def choice():
     option = False
     while option is False:
-        user_choice = input(f'''{Fore.YELLOW}Please choose from options below:
+        user_choice = input(f'''{Fore.LIGHTYELLOW_EX}Please choose from options below:
 a) Log in
 b) Register
 Choice: \n''')
