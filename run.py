@@ -27,6 +27,7 @@ appointement_data = appointments.get_all_values()
 treatments = SHEET.worksheet('treatments')
 treatments_data = treatments.get_all_values()
 
+
 def clear_terminal():
     os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -186,10 +187,8 @@ Total payment due is {sum(final_list)}
 
                 else:
                     print(f"{Fore.RED}invalid option,start again")
-                    
                     addition = True
                        
-
         if addition is False:
             print(f"{Fore.RED}We dont have that treatment option, try again")
 
@@ -260,6 +259,7 @@ Please enter time in the format HH:MM:\n
         except ValueError:
             print(f"{Fore.RED}invalid time")
 
+
 def validate_fileno():
     patient_data = patients.get_all_values()
     while True:
@@ -302,6 +302,7 @@ def user_login():
 {Fore.RED}You've entered invalid credentials,Please try again
 """)
 
+
 def menu_choice():
     while True:
         menu = input(f'''{Fore.LIGHTYELLOW_EX}
@@ -318,7 +319,6 @@ e - Exit
             patient = Patient('Patient')
             patient.patient_details(file_number)
             
-
         elif menu == "b":
             name = input("Please enter Patient's first name:\n")
             surname = input("Please enter Patient's surname:\n")
@@ -331,7 +331,6 @@ e - Exit
             patient = Patient('Patient')
             patient.add_details(new_patient)
             
-
         elif menu == "c":
             while True:
                 appointment_choice = input('''Choose between
@@ -391,6 +390,7 @@ b) View prices
 {Fore.RED}You have entered an invalid option, Please try again
 """)
 
+
 def logo():
 
     print(f"""{Fore.CYAN}
@@ -412,7 +412,6 @@ def logo():
     Welcome to Patient Manager.
     The system to manage patients in your practice.
     {Style.RESET_ALL}""")
-
 
 
 def choice():
