@@ -104,11 +104,16 @@ class Scheduler:
         return True
 
     def add_appntmnt(self, file_number, date, time, reason):
+        treatment_prices = treatments.row_values(2)
+        treatment_names = treatments.row_values(1)
         if self.is_available(date, time):
             self.new_appointment.append(file_number)
             self.new_appointment.append(date)
             self.new_appointment.append(time)
             self.new_appointment.append(reason)
+            for i in range(len(treatment_names)):
+                if reason == treatment_names[i]:
+                    self.new_appointment.append(treatment_prices[i])
             appointments.append_row(self.new_appointment)
             print(f"{Fore.GREEN}Added appointment succesfully!")
 
@@ -368,6 +373,7 @@ e - Exit
                                 date = validate_app_date()
                                 time = validate_time()
                                 reason = validate_treatment()
+                                
                                 scheduler = Scheduler()
                                 scheduler.add_appntmnt(file_number, date, time,reason)
                                 menu_choice()
