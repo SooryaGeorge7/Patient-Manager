@@ -127,10 +127,14 @@ class Scheduler:
 Patient {pt_details[0]} {pt_details[1]}'s appointments""")
             appointment_date = appointments.col_values(2)
             appointment_time = appointments.col_values(3)
+            appointment_reason = appointments.col_values(4)
+            appointment_price = appointments.col_values(5)
             for value in range(len(file_num)):
                 if file_number == file_num[value]:
                     view_date = print(f"""{Fore.YELLOW}
 {appointment_date[value]}at {appointment_time[value]} hours
+Treatment:{appointment_reason[value]}
+Cost:{appointment_price[value]}
 """)
             return view_date
         except ValueError:
