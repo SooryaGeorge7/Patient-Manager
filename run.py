@@ -60,7 +60,11 @@ def sign_up():
                 sign_in = True
                 print(f"{Fore.GREEN}Sign Up Succesfull{Style.RESET_ALL}")
                 new_row.append(new_username)
-                new_row.append(new_password)
+                #new_row.append(new_password)
+                bcrypt_byte = new_password.encode('utf-8')
+                salt = bcrypt.gensalt()
+                hashed_p = bcrypt.hashpw(bcrypt_byte, salt)
+                new_row.append(hashed_p.decode('utf-8'))
                 users.append_row(new_row)
                 user_login()
         except ValueError as error:
@@ -314,13 +318,18 @@ def user_login():
 {Fore.LIGHTYELLOW_EX}Please enter username:\n
 """)
         login_password = input("Please enter password: \n")
+        b_byte = login_password.encode('utf-8')
+        salted = bcrypt.gensalt()
+        hashed_login = bcrypt.hashpw(b_byte, salted)
+        new_login_password = hashed_login.decode('utf-8')
         clear_terminal()
+        print(new_login_password)
         try:
             for x in data:
                 username = x[0]
                 password = x[1]
 
-                if login_username == username and login_password == password:
+                if login_username == username and new_login_password == password:
                     print(f"{Fore.GREEN}Log in Successful!")
                     menu_choice()
 
