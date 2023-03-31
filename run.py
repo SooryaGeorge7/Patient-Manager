@@ -103,11 +103,12 @@ class Scheduler:
                 return False
         return True
 
-    def add_appntmnt(self, file_number, date, time):
+    def add_appntmnt(self, file_number, date, time, reason):
         if self.is_available(date, time):
             self.new_appointment.append(file_number)
             self.new_appointment.append(date)
             self.new_appointment.append(time)
+            self.new_appointment.append(reason)
             appointments.append_row(self.new_appointment)
             print(f"{Fore.GREEN}Added appointment succesfully!")
 
@@ -268,6 +269,31 @@ def validate_fileno():
         else:
             return file_no
 
+def validate_treatment():
+    treatment_headings = treatments.row_values(1)
+    validate = False
+    while validate is False:
+        appointment_reason = input(f'''{Fore.YELLOW}
+Please a choose treatment for patient from the following options:
+Specific Exam
+Full Oral Exam
+Filling
+Extraction
+Denture
+Cleaning
+Xray
+Root Canal
+:\n''').lower()
+        for i in treatment_headings:
+            if appointment_reason == i:
+                validate = True
+                break
+        else:
+            print("Invalid treatment option,try again!")
+
+    if validate is True:
+        return appointment_reason    
+    
 
 def user_login():
     data = users.get_all_values()
@@ -341,8 +367,9 @@ e - Exit
                             if file_number == num[4]:
                                 date = validate_app_date()
                                 time = validate_time()
+                                reason = validate_treatment()
                                 scheduler = Scheduler()
-                                scheduler.add_appntmnt(file_number, date, time)
+                                scheduler.add_appntmnt(file_number, date, time,reason)
                                 menu_choice()
                                 break
                         else:
