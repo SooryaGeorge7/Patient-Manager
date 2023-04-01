@@ -82,10 +82,12 @@ class Patient:
 
             details = patients.row_values(row)
             view_patient = print(f"""{Fore.YELLOW}
----Patient Details---
-Patient Name:{details[0]}
-Patient Surname:{details[1]}\nEmail:{details[2]}
-Birthday:{details[3]}\nFile Number:{details[4]}""")
+          ---Patient Details---
+         Patient Name:{details[0]}
+         Patient Surname:{details[1]}
+         Email:{details[2]}
+         Birthday:{details[3]}
+         File Number:{details[4]}""")
             return view_patient
         except ValueError:
             print(f"{Fore.RED}File does'nt exist")
@@ -156,24 +158,27 @@ def payment_due():
         costs = treatments.row_values(2)
         addition = False
         pt_treatment = input(f'''{Fore.YELLOW}
-Please a choose treatment for patient from the following options:
-Specific Exam
-Full Oral Exam
-Filling
-Extraction
-Denture
-Cleaning
-Xray
-Root Canal
-:\n''').lower()
+    Please a choose treatment for patient from the following options:
+    Specific Exam
+    Full Oral Exam
+    Filling
+    Extraction
+    Denture
+    Cleaning
+    Xray
+    Root Canal
+    :\n
+    ''').lower()
         clear_terminal()
         for a in headings:
 
             if pt_treatment == a:
-                u_choice = input('''Choose between
-a) Add another treatment
-b) Total Payment Due
-:\n''')
+                u_choice = input('''
+    Choose between
+    a) Add another treatment
+    b) Total Payment Due
+    :\n
+    ''')
                 clear_terminal()
                 if u_choice == "a":
                     prices.append(pt_treatment)
@@ -289,16 +294,16 @@ def validate_treatment():
     validate = False
     while validate is False:
         appointment_reason = input(f'''{Fore.YELLOW}
-Please a choose treatment for patient from the following options:
-Specific Exam
-Full Oral Exam
-Filling
-Extraction
-Denture
-Cleaning
-Xray
-Root Canal
-:\n''').lower()
+    Please a choose treatment for patient from the following options:
+    Specific Exam
+    Full Oral Exam
+    Filling
+    Extraction
+    Denture
+    Cleaning
+    Xray
+    Root Canal
+    :\n''').lower()
         for i in treatment_headings:
             if appointment_reason == i:
                 validate = True
@@ -344,13 +349,14 @@ def user_login():
 def menu_choice():
     while True:
         menu = input(f'''{Fore.LIGHTYELLOW_EX}
-Please select one of the following Options below:\n
-a - View patient details
-b - Add new patient
-c - Appointment
-d - Treatment Costs
-e - Exit
-: \n''').lower()
+    Please select one of the following Options below:\n
+    a - View patient details
+    b - Add new patient
+    c - Appointment
+    d - Treatment Costs
+    e - Exit
+    : \n
+    ''').lower()
         clear_terminal()
         if menu == "a":
             file_number = input("Enter patient's file number(eg:#76654): \n")
@@ -371,10 +377,12 @@ e - Exit
 
         elif menu == "c":
             while True:
-                appointment_choice = input('''Choose between
- a) Add Appointment
- b) View Appointment
- :\n''')
+                appointment_choice = input('''
+    Choose between:
+    a) Add Appointment
+    b) View Appointment
+    :\n
+    ''')
                 clear_terminal()
                 if appointment_choice == "a":
                     patient_data = patients.get_all_values()
@@ -411,10 +419,12 @@ We dont have that file no, Please add patients details first''')
 
         elif menu == "d":
             while True:
-                t_choice = input('''Please Choose between
-a) Calculate Total Cost
-b) View prices
-:\n''')
+                t_choice = input('''
+    Please Choose between
+    a) Calculate Total Cost
+    b) View prices
+    :\n
+    ''')
                 clear_terminal()
                 if t_choice == "a":
                     payment_due()
@@ -463,10 +473,10 @@ def choice():
     option = False
     while option is False:
         user_choice = input(f'''{Fore.LIGHTYELLOW_EX}
-Please choose from options below:
-a) Log in
-b) Register
-Choice: \n''')
+    Please choose from options below:
+    a) Log in
+    b) Register
+    Choice: \n''')
         clear_terminal()
         if user_choice == "a":
             option = True
