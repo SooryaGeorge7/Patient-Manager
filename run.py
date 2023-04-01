@@ -86,6 +86,13 @@ class Patient:
         self.file_number = file_number
 
     def patient_details(self, file_number):
+        """
+        This method takes in file number from user and then
+        displays patient details if valid file number(by checking the
+        inputed file number with file number corresponding to 
+        patients  stored in patients datasheet in gspread), otherwise
+        displays error message.
+        """
         try:
             file_number_column = patients.col_values(5)
             row = file_number_column.index(file_number) + 1
@@ -103,6 +110,10 @@ class Patient:
             print(f"{Fore.RED}File does'nt exist")
 
     def add_details(self, new_patient):
+        """
+        Method to take in list and add each list item to
+        row in patient data sheet in gspread
+        """
         patients.append_row(new_patient)
         added = print(f"{Fore.GREEN}You've successfully added a new patient")
 
