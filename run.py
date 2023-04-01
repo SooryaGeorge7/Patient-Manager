@@ -125,6 +125,12 @@ class Scheduler:
         self.new_appointment = []
 
     def is_available(self, date, time):
+        """
+        Method to check if inputed appointment date and time by user is
+        available or not by comparing the input data with values in
+        appointments
+        sheet in gspread.
+        """
         for line in appointement_data:
             if date == line[1] and time == line[2]:
                 print(f"{Fore.RED}Sorry, that date and time is already booked")
@@ -132,6 +138,12 @@ class Scheduler:
         return True
 
     def add_appntmnt(self, file_number, date, time, reason):
+        """
+        Method to take in date and time if its available and
+        store them with addition of file no,treatment and cost
+        in a list. The list is appended to the appointment 
+        data sheet.
+        """
         treatment_prices = treatments.row_values(2)
         treatment_names = treatments.row_values(1)
         if self.is_available(date, time):
@@ -139,6 +151,7 @@ class Scheduler:
             self.new_appointment.append(date)
             self.new_appointment.append(time)
             self.new_appointment.append(reason)
+            # Used for loop to check the prices in treatments sheet.
             for i in range(len(treatment_names)):
                 if reason == treatment_names[i]:
                     self.new_appointment.append(treatment_prices[i])
@@ -146,6 +159,14 @@ class Scheduler:
             print(f"{Fore.GREEN}Added appointment succesfully!")
 
     def view_appointment(self, file_number):
+        """
+        Method that displays the user a certain patient's booked 
+        appointments.
+        This is done by take in file number as input and checking 
+        with corresponding details in data sheets to display an 
+        appropriate message to user.If inputed file number cant be found
+        in data sheet , error message is shown.
+        """
         try:
             file_num_column = patients.col_values(5)
             pt_row = file_num_column.index(file_number) + 1
