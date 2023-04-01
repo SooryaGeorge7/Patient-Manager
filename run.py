@@ -1,3 +1,6 @@
+"""
+Importing libraries and data from libraries and gspread
+"""
 import re
 import os
 import datetime
@@ -17,23 +20,29 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 
 SHEET = GSPREAD_CLIENT.open('Patient_manager')
-
 users = SHEET.worksheet('users')
-
 patients = SHEET.worksheet('patients')
-
 appointments = SHEET.worksheet('appointments')
 appointement_data = appointments.get_all_values()
-
 treatments = SHEET.worksheet('treatments')
 treatments_data = treatments.get_all_values()
 
 
 def clear_terminal():
+    """
+    Function that can be called to clear terminal at any stage of the program
+    """
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
 def sign_up():
+    """
+    Function that allows user to sign in when user chooses to.
+    It allows user to input username and password.
+    Checks that the username is not taken already and allows
+    username to confirm password and displays error message if user
+    gives in an invalid username or if passwords dont match.
+    """
     data = users.get_all_values()
     sign_in = False
     while sign_in is False:
@@ -47,9 +56,9 @@ def sign_up():
                     print(f""""
                     {Fore.RED}The username is already taken, please try again.
                     """)
-                    # allow user to enter username again.
+                    # Allow user to enter username again.
                     new_username = input("Please enter a new username:\n")
-                    # ask user for the newpassword ,and confirm using input().
+                    # Ask user for the newpassword ,and confirm using input().
             new_password = input("Please enter a new password:\n")
             confirm_password = input("Please reenter password to confirm:\n")
             clear_terminal()
@@ -60,7 +69,8 @@ def sign_up():
                 sign_in = True
                 print(f"{Fore.GREEN}Sign Up Succesfull{Style.RESET_ALL}")
                 new_row.append(new_username)
-                # new_row.append(new_password)
+                # Ensured the usage of hashed password using bcrypt
+                # Learnt from here https://www.youtube.com/watch?v=hNa05wr0DSA
                 bcrypt_byte = new_password.encode('utf-8')
                 salt = bcrypt.gensalt()
                 hashed_p = bcrypt.hashpw(bcrypt_byte, salt)
