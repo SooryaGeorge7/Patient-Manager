@@ -60,7 +60,7 @@ def sign_up():
                 sign_in = True
                 print(f"{Fore.GREEN}Sign Up Succesfull{Style.RESET_ALL}")
                 new_row.append(new_username)
-                #new_row.append(new_password)
+                # new_row.append(new_password)
                 bcrypt_byte = new_password.encode('utf-8')
                 salt = bcrypt.gensalt()
                 hashed_p = bcrypt.hashpw(bcrypt_byte, salt)
@@ -283,6 +283,7 @@ def validate_fileno():
         else:
             return file_no
 
+
 def validate_treatment():
     treatment_headings = treatments.row_values(1)
     validate = False
@@ -306,8 +307,8 @@ Root Canal
             print("Invalid treatment option,try again!")
 
     if validate is True:
-        return appointment_reason    
-    
+        return appointment_reason
+
 
 def user_login():
     data = users.get_all_values()
@@ -319,20 +320,17 @@ def user_login():
 """)
         login_password = input("Please enter password: \n")
         coded_password = login_password.encode('utf-8')
-        
         clear_terminal()
-        
         try:
             for x in data:
                 username = x[0]
                 password = x[1]
                 hash_password = password.encode('utf-8')
-                
 
-                if login_username == username and bcrypt.checkpw(coded_password, hash_password):
+                if login_username == username and \
+                   bcrypt.checkpw(coded_password, hash_password):
                     print(f"{Fore.GREEN}Log in Successful!")
                     menu_choice()
-
                     break
 
             else:
@@ -387,9 +385,13 @@ e - Exit
                                 date = validate_app_date()
                                 time = validate_time()
                                 reason = validate_treatment()
-                                
                                 scheduler = Scheduler()
-                                scheduler.add_appntmnt(file_number, date, time,reason)
+                                scheduler.add_appntmnt(
+                                    file_number,
+                                    date,
+                                    time,
+                                    reason
+                                )
                                 menu_choice()
                                 break
                         else:
@@ -437,18 +439,18 @@ def logo():
 
     print(f"""{Fore.CYAN}
     _______         _    _                  _
-   |_   __ \       / |_ (_)                / |_
+   |_   __ \\      / |_ (_)                / |_
      | |__) |,--. `| |-'__  .---.  _ .--. `| |-'
-     |  ___/`'_\ : | | [  |/ /__\\[ `.-. | | |
-    _| |_   // | |,| |, | || \__., | | | | | |,
-   |_____|  \'-;__/\__/[___]'.__.'[___||__]\__/
-    ____    ____
-   |_   \  /   _|
-     |   \/   |   ,--.   _ .--.   ,--.   .--./) .---.  _ .--.
-     | |\  /| |  `'_\ : [ `.-. | `'_\ : / /'`\;/ /__\\[ `/'`\]
-    _| |_\/_| |_ // | |, | | | | // | |,\ \._//| \__., | |
-   |_____||_____|\'-;__/[___||__]\'-;__/.',__`  '.__.'[___]
-                                       ( ( __))
+     |  ___/`'_\\ :| | [  |/ /__\\[ `.-. | | |
+    _| |_   // | |,| |, | || \\__.,| | | | | |,
+   |_____|  \'-;__/\\_/[___]'.__.'[___||__]\\_/
+    ____     ____
+   |_   \\  /   _|
+     |   \\/   |   ,--.   _ .--.   ,--.    .--./)  .---.  _ .--.
+     | |\\  /| |  `'_\\: [ `.-. | `'_\\:  / /'`\\;//__ \\[ `/'`\\]
+    _| |_\\/_| |_ // | |, | | | | // | |, \\ ._// |\\__.,  | |
+   |_____| |_____|\'-;__/[___||__]\'-;__/.',__`    '.__.  [___]
+                                        ( ( __))
     """)
     print(f"""{Fore.LIGHTWHITE_EX}
     Welcome to Patient Manager.
