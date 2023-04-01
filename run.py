@@ -318,18 +318,18 @@ def user_login():
 {Fore.LIGHTYELLOW_EX}Please enter username:\n
 """)
         login_password = input("Please enter password: \n")
-        b_byte = login_password.encode('utf-8')
-        salted = bcrypt.gensalt()
-        hashed_login = bcrypt.hashpw(b_byte, salted)
-        new_login_password = hashed_login.decode('utf-8')
+        coded_password = login_password.encode('utf-8')
+        
         clear_terminal()
-        print(new_login_password)
+        
         try:
             for x in data:
                 username = x[0]
                 password = x[1]
+                hash_password = password.encode('utf-8')
+                
 
-                if login_username == username and new_login_password == password:
+                if login_username == username and bcrypt.checkpw(coded_password, hash_password):
                     print(f"{Fore.GREEN}Log in Successful!")
                     menu_choice()
 
