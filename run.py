@@ -286,6 +286,11 @@ def validate_email():
 
 
 def validate_app_date():
+    """
+    Function that takes in appointment date from user and checks if date is
+    valid using datetime. It also checks if inputted date is in the
+    future, and displays error message if not.
+    """
     while True:
         try:
             u_date = input(f"""{Fore.LIGHTYELLOW_EX}
@@ -303,6 +308,11 @@ Please add appointment in the format DD-MM-YYYY:\n
 
 
 def validate_birthdate():
+    """
+    Function that validates DOB entered by user by checking if its
+    a date in the past. It also checks if the user has inputted a date
+    in the correct format.
+    """
     while True:
         try:
             b_date = input(f"""{Fore.LIGHTYELLOW_EX}
