@@ -202,8 +202,9 @@ def payment_due():
         headings = treatments.row_values(1)
         costs = treatments.row_values(2)
         addition = False
-        pt_treatment = input(f"""{Fore.YELLOW}
+        pt_treatment = input(f"""{Fore.LIGHTYELLOW_EX}
  Please a choose treatment for patient from the following options:
+ {Fore.YELLOW}
  Specific Exam
  Full Oral Exam
  Filling
@@ -217,7 +218,7 @@ def payment_due():
         for a in headings:
 
             if pt_treatment == a:
-                u_choice = input("""
+                u_choice = input(f"""{Fore.LIGHTYELLOW_EX}
  Choose between
  a) Add another treatment
  b) Total Payment Due
@@ -240,7 +241,7 @@ def payment_due():
                     for i in prices:
                         if i in headings:
                             final_list.append(int_costs[headings.index(i)])
-                    print(f"{Fore.LIGHTYELLOW_EX} Total payment due"
+                    print(f"{Fore.YELLOW} Total payment due"
                           f" is {sum(final_list)}")
                     break
 
@@ -309,7 +310,7 @@ def validate_birthdate():
     """
     while True:
         try:
-            b_date = input(f"{Fore.LIGHTYELLOW_EX}Please add patient's "
+            b_date = input(f"{Fore.LIGHTYELLOW_EX} Please add patient's "
                            "DOB in the format DD-MM-YYYY:\n ")
             date_item = datetime.datetime.strptime(b_date, '%d-%m-%Y')
             today_date = datetime.datetime.now()
@@ -327,7 +328,7 @@ def validate_time():
     Function that validates appointment time user inputs using date time.
     """
     while True:
-        u_time = input(f"{Fore.LIGHTYELLOW_EX}Please enter time in the "
+        u_time = input(f"{Fore.LIGHTYELLOW_EX} Please enter time in the "
                        "format HH:MM:\n ")
         try:
             datetime.datetime.strptime(u_time, '%H:%M')
@@ -555,7 +556,7 @@ def logo():
                  |  ___/`'_\\ : | | [  |/ /__\\ [ `.-. | | |
                 _| |_   // | |,| |, | || \\__., | | | | | |,
                |_____|  \\'-;__/\\__/[___]'.__.'[___||__]\\__/
-          ____     ____
+          ____    ____
          |_   \\  /   _|
            |   \\/   |   ,--.   _ .--.   ,--.   .--./) .---.  _ .--.
            | |\\  /| |  `'_\\ : [ `.-. | `'_\\ : / /'`\\;/ /__\\[ `/'`\\]
