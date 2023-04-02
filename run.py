@@ -47,9 +47,8 @@ def sign_up():
     sign_in = False
     while sign_in is False:
         try:
-            new_username = input(f"""
-{Fore.LIGHTYELLOW_EX}Please enter a new username:\n
-""")
+            new_username = input(f"""{Fore.LIGHTYELLOW_EX}
+    Please enter a new username:\n""")
             new_row = []
             for line in data:
                 if new_username == line[0]:
@@ -63,8 +62,8 @@ def sign_up():
             confirm_password = input("Please reenter password to confirm:\n")
             clear_terminal()
             if confirm_password != new_password:
-                raise ValueError(f"""
-{Fore.RED}Passwords dont match, please start again!""")
+                raise ValueError(f"""{Fore.RED}
+    Passwords dont match, please start again!""")
             else:
                 sign_in = True
                 print(f"{Fore.GREEN}Sign Up Succesfull{Style.RESET_ALL}")
@@ -89,7 +88,7 @@ class Patient:
         """
         This method takes in file number from user and then
         displays patient details if valid file number(by checking the
-        inputed file number with file number corresponding to 
+        inputed file number with file number corresponding to
         patients  stored in patients datasheet in gspread), otherwise
         displays error message.
         """
@@ -141,7 +140,7 @@ class Scheduler:
         """
         Method to take in date and time if its available and
         store them with addition of file no,treatment and cost
-        in a list. The list is appended to the appointment 
+        in a list. The list is appended to the appointment
         data sheet.
         """
         treatment_prices = treatments.row_values(2)
@@ -160,10 +159,10 @@ class Scheduler:
 
     def view_appointment(self, file_number):
         """
-        Method that displays the user a certain patient's booked 
+        Method that displays the user a certain patient's booked
         appointments.
-        This is done by take in file number as input and checking 
-        with corresponding details in data sheets to display an 
+        This is done by take in file number as input and checking
+        with corresponding details in data sheets to display an
         appropriate message to user.If inputed file number cant be found
         in data sheet , error message is shown.
         """
@@ -173,7 +172,7 @@ class Scheduler:
             pt_details = patients.row_values(pt_row)
             file_num = appointments.col_values(1)
             print(f"""
-Patient {pt_details[0]} {pt_details[1]}'s appointments""")
+    Patient {pt_details[0]} {pt_details[1]}'s appointments""")
             appointment_date = appointments.col_values(2)
             appointment_time = appointments.col_values(3)
             appointment_reason = appointments.col_values(4)
@@ -181,10 +180,10 @@ Patient {pt_details[0]} {pt_details[1]}'s appointments""")
             for value in range(len(file_num)):
                 if file_number == file_num[value]:
                     view_date = print(f"""{Fore.YELLOW}
-{appointment_date[value]}at {appointment_time[value]} hours
-Treatment:{appointment_reason[value]}
-Cost:{appointment_price[value]}
-""")
+    {appointment_date[value]}at {appointment_time[value]} hours
+    Treatment:{appointment_reason[value]}
+    Cost:{appointment_price[value]}
+    """)
             return view_date
         except ValueError:
             print(f"""{Fore.RED}
@@ -194,8 +193,8 @@ Cost:{appointment_price[value]}
 
 def payment_due():
     """
-    Function that allows user to choose treatments to calculate 
-    total payment due and displays appropriate message when given 
+    Function that allows user to choose treatments to calculate
+    total payment due and displays appropriate message when given
     invalid input.
     """
     payment = False
@@ -245,8 +244,8 @@ def payment_due():
                         if i in headings:
                             final_list.append(int_costs[headings.index(i)])
                     print(f"""{Fore.LIGHTYELLOW_EX}
-Total payment due is {sum(final_list)}
-""")
+    Total payment due is {sum(final_list)}
+    """)
                     break
 
                 else:
@@ -294,8 +293,8 @@ def validate_app_date():
     while True:
         try:
             u_date = input(f"""{Fore.LIGHTYELLOW_EX}
-Please add appointment in the format DD-MM-YYYY:\n
-""")
+    Please add appointment in the format DD-MM-YYYY:\n
+    """)
             date_obj = datetime.datetime.strptime(u_date, '%d-%m-%Y')
             current_date = datetime.datetime.now()
             if date_obj > current_date:
@@ -316,7 +315,7 @@ def validate_birthdate():
     while True:
         try:
             b_date = input(f"""{Fore.LIGHTYELLOW_EX}
-Please add patient's DOB in the format DD-MM-YYYY:\n""")
+    Please add patient's DOB in the format DD-MM-YYYY:\n""")
             date_item = datetime.datetime.strptime(b_date, '%d-%m-%Y')
             today_date = datetime.datetime.now()
             if date_item < today_date:
@@ -334,8 +333,8 @@ def validate_time():
     """
     while True:
         u_time = input(f"""{Fore.LIGHTYELLOW_EX}
-Please enter time in the format HH:MM:\n
-""")
+    Please enter time in the format HH:MM:\n
+    """)
         try:
             datetime.datetime.strptime(u_time, '%H:%M')
             return u_time
@@ -370,7 +369,7 @@ def validate_treatment():
     treatment_headings = treatments.row_values(1)
     validate = False
     while validate is False:
-        appointment_reason = input(f'''{Fore.YELLOW}
+        appointment_reason = input(f"""{Fore.YELLOW}
     Please a choose treatment for patient from the following options:
     Specific Exam
     Full Oral Exam
@@ -380,7 +379,7 @@ def validate_treatment():
     Cleaning
     Xray
     Root Canal
-    :\n''').lower()
+    :\n""").lower()
         for i in treatment_headings:
             if appointment_reason == i:
                 validate = True
@@ -437,7 +436,7 @@ def menu_choice():
     to exit the program
     """
     while True:
-        menu = input(f'''{Fore.LIGHTYELLOW_EX}
+        menu = input(f"""{Fore.LIGHTYELLOW_EX}
     Please select one of the following Options below:\n
     a - View patient details
     b - Add new patient
@@ -445,7 +444,7 @@ def menu_choice():
     d - Treatment Costs
     e - Exit
     : \n
-    ''').lower()
+    """).lower()
         clear_terminal()
         if menu == "a":
             file_number = input("Enter patient's file number(eg:#76654): \n")
@@ -494,8 +493,8 @@ def menu_choice():
                         else:
                             raise ValueError
                     except ValueError:
-                        print(f'''{Fore.RED}
-We dont have that file no, Please add patients details first''')
+                        print(f"""{Fore.RED}
+    We dont have that file no, Please add patients details first""")
                         break
 
                 elif appointment_choice == "b":
@@ -508,12 +507,12 @@ We dont have that file no, Please add patients details first''')
 
         elif menu == "d":
             while True:
-                t_choice = input('''
+                t_choice = input("""
     Please Choose between
     a) Calculate Total Cost
     b) View prices
     :\n
-    ''')
+    """)
                 clear_terminal()
                 if t_choice == "a":
                     payment_due()
@@ -529,9 +528,8 @@ We dont have that file no, Please add patients details first''')
             exit()
 
         else:
-            print(f"""
-{Fore.RED}You have entered an invalid option, Please try again
-""")
+            print(f"""{Fore.RED}
+    You have entered an invalid option, Please try again""")
 
 
 def logo():
