@@ -193,6 +193,11 @@ Cost:{appointment_price[value]}
 
 
 def payment_due():
+    """
+    Function that allows user to choose treatments to calculate 
+    total payment due and displays appropriate message when given 
+    invalid input.
+    """
     payment = False
     prices = []
     while payment is False:
@@ -252,7 +257,10 @@ Total payment due is {sum(final_list)}
 
 
 def view_treatments():
-
+    """
+    Function that displays the treatments and corresponding prices in
+    datasheet treatments.
+    """
     headings = treatments.row_values(1)
     costs = treatments.row_values(2)
     i = 0
