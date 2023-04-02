@@ -478,7 +478,7 @@ def menu_choice():
 
         elif menu == "c":
             while True:
-                appointment_choice = input("""
+                appointment_choice = input(f"""{Fore.LIGHTYELLOW_EX}
  Choose between:
  a) Add Appointment
  b) View Appointment
