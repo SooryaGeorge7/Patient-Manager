@@ -56,9 +56,9 @@ def sign_up():
                     {Fore.RED}The username is already taken, please try again.
                     """)
                     # Allow user to enter username again.
-                    new_username = input("Please enter a new username:\n")
+                    new_username = not_empty("Please enter a new username:\n")
                     # Ask user for the newpassword ,and confirm using input().
-            new_password = input("Please enter a new password:\n")
+            new_password = not_empty("Please enter a new password:\n")
             confirm_password = input("Please reenter password to confirm:\n")
             clear_terminal()
             if confirm_password != new_password:
@@ -390,6 +390,14 @@ def validate_treatment():
     if validate is True:
         return appointment_reason
 
+def not_empty(user_text):
+    while True:
+        user_input = input(user_text)
+        if len(user_input) == 0:
+            print("You've entered an empty string") 
+        else:
+            return user_input
+
 
 def user_login():
     """
@@ -464,8 +472,8 @@ def menu_choice():
             patient.patient_details(file_number)
 
         elif menu == "b":
-            name = input("Please enter Patient's first name:\n")
-            surname = input("Please enter Patient's surname:\n")
+            name = not_empty("Please enter Patient's first name:\n")
+            surname = not_empty("Please enter Patient's surname:\n")
             email = validate_email()
             birthday = validate_birthdate()
             fileno = validate_fileno()
@@ -578,11 +586,12 @@ def choice():
     """
     option = False
     while option is False:
-        user_choice = input(f'''{Fore.LIGHTYELLOW_EX}
+        user_choice = input(f"""{Fore.LIGHTYELLOW_EX}
     Please choose from options below(Please register if you havent before):
     a) Log in
     b) Register
-    Choice: \n''')
+    Choice:\n
+    """)
         clear_terminal()
         if user_choice == "a":
             option = True
