@@ -271,6 +271,10 @@ def view_treatments():
 
 
 def validate_email():
+    """
+    Function that validates user's inputed email by using regular
+    expressions to match pattern.
+    """
     while True:
         u_email = input(f"{Fore.LIGHTYELLOW_EX}Please enter email:\n")
         v_email = r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
