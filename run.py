@@ -329,6 +329,9 @@ Please add patient's DOB in the format DD-MM-YYYY:\n""")
 
 
 def validate_time():
+    """
+    Function that validates appointment time user inputs using date time.
+    """
     while True:
         u_time = input(f"""{Fore.LIGHTYELLOW_EX}
 Please enter time in the format HH:MM:\n
@@ -341,6 +344,12 @@ Please enter time in the format HH:MM:\n
 
 
 def validate_fileno():
+    """
+    Function that validates file number entered by user by checking if 
+    inputed file number is already in patients datasheet so that user 
+    doesnt add the same patient twice. If the file number is already been used , user is
+    given approriate message and returned back to the menu.
+    """
     patient_data = patients.get_all_values()
     while True:
         file_no = input("Please enter patient's file number:\n")
