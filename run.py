@@ -536,8 +536,7 @@ def menu_choice():
                     print(f"{Fore.RED}invalid input")
 
         elif menu == "e":
-            print(f"{Fore.BLUE}Goodbye")
-            exit()
+            main()
 
         else:
             print(f"""{Fore.RED}
