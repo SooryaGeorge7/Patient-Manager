@@ -345,10 +345,10 @@ Please enter time in the format HH:MM:\n
 
 def validate_fileno():
     """
-    Function that validates file number entered by user by checking if 
-    inputed file number is already in patients datasheet so that user 
-    doesnt add the same patient twice. If the file number is already been used , user is
-    given approriate message and returned back to the menu.
+    Function that validates file number entered by user by checking if
+    inputed file number is already in patients datasheet so that user
+    doesnt add the same patient twice. If the file number is already been used,
+    user is given approriate message and returned back to the menu.
     """
     patient_data = patients.get_all_values()
     while True:
@@ -363,6 +363,10 @@ def validate_fileno():
 
 
 def validate_treatment():
+    """
+    Function that validates inputed treatment to check if it is
+    a treatment provided by the clinic.
+    """
     treatment_headings = treatments.row_values(1)
     validate = False
     while validate is False:
@@ -389,6 +393,13 @@ def validate_treatment():
 
 
 def user_login():
+    """
+    Function that allows user to enter username and password
+    and validates them by checking with the usernames and passwords stored
+    users data sheet. The inputed password has to encoded to check with
+    the hashed passwords in data sheet.(You have to encode the passwords
+    in datasheet because they were decoded when being stored.)
+    """
     data = users.get_all_values()
     log_in = False
     print(f"{Fore.LIGHTYELLOW_EX}You may log in!")
@@ -420,6 +431,11 @@ def user_login():
 
 
 def menu_choice():
+    """
+    This function is called when user succesfully logs in, it
+    gives user a number of options to choose from and it also allows user
+    to exit the program
+    """
     while True:
         menu = input(f'''{Fore.LIGHTYELLOW_EX}
     Please select one of the following Options below:\n
@@ -519,7 +535,11 @@ We dont have that file no, Please add patients details first''')
 
 
 def logo():
-
+    """
+    Function that shows the program's logo and gives
+    a brief welcome message that allows user to understand
+    what the program is about.
+    """
     print(f"""{Fore.CYAN}
         _______         _    _                  _
        |_   __ \\       / |_ (_)                / |_
@@ -538,15 +558,19 @@ def logo():
     """)
     print(f"""{Fore.LIGHTWHITE_EX}
     Welcome to Patient Manager.
-    The system to manage patients in your practice.
+    The system to manage patients in your Dental practice.
     {Style.RESET_ALL}""")
 
 
 def choice():
+    """
+    Function that allows user to choose between loging in
+    or signing in.
+    """
     option = False
     while option is False:
         user_choice = input(f'''{Fore.LIGHTYELLOW_EX}
-    Please choose from options below:
+    Please choose from options below(Please register if you havent before):
     a) Log in
     b) Register
     Choice: \n''')
@@ -563,6 +587,10 @@ def choice():
 
 
 def main():
+    """
+    This main function calls the logo function and
+    choice function to start the program
+    """
     logo()
     choice()
 
