@@ -422,10 +422,22 @@ def user_login():
                     break
 
             else:
-                raise ValueError
+                user_option = input("""
+    We dont have those credentials,
+    Please choose between":
+    a - Try Log in again
+    b - Register\n
+    """)
+                if user_option == "a":
+                    raise ValueError
+                elif user_option == "b":
+                    sign_up()
+                    break
+                else:
+                    print("Invalid option.Start again")
         except ValueError:
             print(f"""
-{Fore.RED}You've entered invalid credentials,Please try again
+{Fore.RED}Please try again
 """)
 
 
