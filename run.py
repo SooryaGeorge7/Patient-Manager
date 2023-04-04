@@ -85,9 +85,9 @@ def file_no_pattern(user_text):
         user_pattern = input(user_text)
         file_pattern = r"^#[0-9]{5}$"
         if re.match(file_pattern, user_pattern):
-            print(f"{Fore.RED} You have not entered a valid file no.")
-        else:
             return user_pattern
+        else:
+            print(f"{Fore.RED} You have not entered a valid file no.")
 
 
 class Patient:
@@ -356,7 +356,10 @@ def validate_fileno():
     """
     patient_data = patients.get_all_values()
     while True:
-        file_no = file_no_pattern(" Please enter patient's file number:\n ")
+        file_no = file_no_pattern(f"{Fore.LIGHTYELLOW_EX} "
+                                  "Enter patient's file "
+                                  "number (format: #-----)"
+                                  " :\n ")
         for number in patient_data:
             if file_no == number[4]:
                 print(f"{Fore.RED} This patient is already added.")
@@ -471,7 +474,9 @@ def menu_choice():
  :\n """).lower()
         clear_terminal()
         if menu == "a":
-            file_number = file_no_pattern(" Enter patient's file number(eg:#76654):\n ")
+            file_number = file_no_pattern(f"{Fore.LIGHTYELLOW_EX} Enter "
+                                          "patient's file number"
+                                          "(format: #_ _ _ _ _):\n ")
             patient = Patient('Patient')
             patient.patient_details(file_number)
 
@@ -497,7 +502,10 @@ def menu_choice():
                 clear_terminal()
                 if appointment_choice == "a":
                     patient_data = patients.get_all_values()
-                    file_number = file_no_pattern(" Please enter file number:\n ")
+                    file_number = file_no_pattern(f"{Fore.LIGHTYELLOW_EX} "
+                                                  "Enter patient's file "
+                                                  "number (format: #-----)"
+                                                  " :\n ")
                     try:
                         for num in patient_data:
                             if file_number == num[4]:
@@ -521,7 +529,10 @@ def menu_choice():
                         break
 
                 elif appointment_choice == "b":
-                    file_number = file_no_pattern(" Enter patient's file number:\n ")
+                    file_number = file_no_pattern(f"{Fore.LIGHTYELLOW_EX} "
+                                                  "Enter patient's file "
+                                                  "number (format: #-----)"
+                                                  " :\n ")
                     scheduler = Scheduler()
                     scheduler.view_appointment(file_number)
                     break
