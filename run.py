@@ -190,7 +190,7 @@ class Scheduler:
             for value in range(len(file_num)):
                 if file_number == file_num[value]:
                     view_date = print(f"""{Fore.YELLOW}
- {appointment_date[value]}at {appointment_time[value]} hours
+ {appointment_date[value]} at {appointment_time[value]} hours
  Treatment:{appointment_reason[value]}
  Cost:{appointment_price[value]}
  """)
@@ -377,8 +377,9 @@ def validate_treatment():
     treatment_headings = treatments.row_values(1)
     validate = False
     while validate is False:
-        appointment_reason = input(f"""{Fore.YELLOW}
+        appointment_reason = input(f"""{Fore.LIGHTYELLOW_EX}
  Please a choose treatment for patient from the following options:
+ {Fore.YELLOW}
  Specific Exam
  Full Oral Exam
  Filling
@@ -481,8 +482,10 @@ def menu_choice():
             patient.patient_details(file_number)
 
         elif menu == "b":
-            name = not_empty(" Please enter Patient's first name:\n ")
-            surname = not_empty(" Please enter Patient's surname:\n ")
+            name = not_empty(f"{Fore.LIGHTYELLOW_EX} Please enter "
+                             "Patient's first name:\n ")
+            surname = not_empty(f"{Fore.LIGHTYELLOW_EX} Please enter"
+                                " Patient's surname:\n ")
             email = validate_email()
             birthday = validate_birthdate()
             fileno = validate_fileno()
@@ -496,8 +499,8 @@ def menu_choice():
             while True:
                 appointment_choice = input(f"""{Fore.LIGHTYELLOW_EX}
  Choose between:
- a) Add Appointment
- b) View Appointment
+ a - Add Appointment
+ b - View Appointment
  :\n """)
                 clear_terminal()
                 if appointment_choice == "a":
@@ -512,6 +515,7 @@ def menu_choice():
                                 date = validate_app_date()
                                 time = validate_time()
                                 reason = validate_treatment()
+                                clear_terminal()
                                 scheduler = Scheduler()
                                 scheduler.add_appntmnt(
                                     file_number,
@@ -543,8 +547,8 @@ def menu_choice():
             while True:
                 t_choice = input("""
  Please Choose between
- a) Calculate Total Cost
- b) View prices
+ a - Calculate Total Cost
+ b - View prices
  :\n """)
                 clear_terminal()
                 if t_choice == "a":
