@@ -558,7 +558,7 @@ def menu_choice():
 
         elif menu == "d":
             while True:
-                t_choice = input("""
+                t_choice = input(f"""{Fore.LIGHTYELLOW_EX}
  Please Choose between
  a - Calculate Total Cost
  b - View prices
