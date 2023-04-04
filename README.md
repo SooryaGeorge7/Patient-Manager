@@ -15,7 +15,10 @@ I decided to challenge myself with a trying to complete a command line python ap
   - [User Stories](#user-stories)
     - [First time visitor](#first-time-visitor)
     - [Returning visitors](#returning-visitors)
-  - [Features](#features)
+  - [Logic and Features](#logic-and-features)
+    - [Python](#python)
+    - [Database](#database)
+    - [Features](#features)
   - [Future implementation](#features-left-to-implement)
   - [Technologies Used](#technology-used)
     - [Languages Used](langues-used)
@@ -48,8 +51,46 @@ I decided to challenge myself with a trying to complete a command line python ap
 * I want to be able to log in succesfully. 
 * I dont want to sign up again. 
 
-## Features
+## Logic and Features
 
+### Python flowchart 
+
+A flowchart was created in the start of the project to help build logic for the system.
+![Patient Manager Flow Diagram](documentation/flow-chart/flow-chart.png)
+
+### DataSheet
+
+Google Sheets were used to store data from user into spread sheet and to export data when neccessary as well.
+This project has a total of 4 worksheets. 
+
+1. The users sheet 
+
+![Users sheet](documentation/datasheets/users-sheet.png)
+
+The users sheet contains the user's username and password(hashed with bcrypt). The hashed password is stored in case if the system
+is hacked they would not be able to access passwords to log in to the program.
+This sheet is user when patient tries signing in/registering to store new username/password and when loging in to check if inputed username and password match the ones in the datasheet.
+
+2. The patients sheet
+
+![Patients sheet](documentation/datasheets/patients-sheet.png)
+
+The patients sheet contains the patient details of patients. Namely their first name, surname, email address, birthdate and file number.
+This sheet is used when viewing patient details and when adding patient details.It is also used to access patient's name when viewing appointments.
+
+3. The appointments sheet
+
+![Appointments sheet](documentation/datasheets/appointments-sheet.png)
+
+The appointments sheet contains patient file no, appointment date, time, treatment and price.
+This sheet is used when adding appointments and viewing appointments. All values in the sheet are entered by user except for the values in the price column.The prices in price column is imported from treatments sheet when user enter's patient's treatment for that appointment.
+
+4. The treatments sheet
+
+![Treatments sheet](documentation/datasheets/treatments-sheet.png)
+
+The treatments sheet contains all treatments offered in the dental clinic and the prices for each.
+This sheet is accessed when viewing prices,adding treatment prices to show total payment due and to check for treatment prices when adding appointment for a patient. 
 ## Future implementation 
 * I want to add css styling to be able to mimick a real life application.  
 * Id want to give user more options such as adding and calculating treatments for each patient. 
