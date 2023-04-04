@@ -81,6 +81,10 @@ def sign_up():
 
 
 def file_no_pattern(user_text):
+    """
+    Function that makes sure that user inputs the file number in
+    the correct pattern/format
+    """
     while True:
         user_pattern = input(user_text)
         file_pattern = r"^#[0-9]{5}$"
@@ -397,6 +401,9 @@ def validate_treatment():
 
 
 def not_empty(user_text):
+    """
+    Function that makes sure that user doesnt enter an empty string
+    """
     while True:
         user_input = input(user_text)
         if len(user_input) == 0:
@@ -466,7 +473,7 @@ def menu_choice():
  Please select one of the following Options below:\n
  a - View patient details
  b - Add new patient
- c - Appointment
+ c - Appointments
  d - Treatment Costs
  e - Exit
  :\n """).lower()
