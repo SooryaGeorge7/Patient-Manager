@@ -541,11 +541,12 @@ def menu_choice():
                                 clear_terminal()
                                 scheduler = Scheduler()
                                 scheduler.view_appointment(file_number)
+                                menu_choice()
                                 break
                         else:
                             raise ValueError
                     except ValueError:
-                        print(f"{Fore.LIGHTYELLOW_EX} We dont have an "
+                        print(f"{Fore.RED} We dont have an "
                               "appointment with them,please add appointment")
 
         elif menu == "d":
