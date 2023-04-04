@@ -91,6 +91,78 @@ This sheet is used when adding appointments and viewing appointments. All values
 
 The treatments sheet contains all treatments offered in the dental clinic and the prices for each.
 This sheet is accessed when viewing prices,adding treatment prices to show total payment due and to check for treatment prices when adding appointment for a patient. 
+
+### Features
+
+*  MAIN PAGE
+
+![Main Page](documentation/features/main-page.png)
+![Main Page Error](documentation/features/main-page-error.png)
+
+* LOG IN
+
+![Log in Feature](documentation/features/login-process.png)
+![Log in Error](documentation/features/login-error.png)
+
+* REGISTER/SIGN UP
+
+![Sign in Feature](documentation/features/signin-process.png)
+![Sign in succesfull](documentation/features/signup-succesfull.png)
+![Empty string error](documentation/features/empty-string-error.png)
+![Passwords error](documentation/features/passwords-error.png)
+
+* MAIN MENU
+
+![Main Menu](documentation/features/main-menu.png)
+![Main menu error](documentation/features/main-menu-error.png)
+
+* MENU OPTION A
+
+![View patient feature](documentation/features/menu-option-a/view-patient-option.png)
+![File no pattern error](documentation/features/menu-option-a/file-no-pattern-error.png)
+![File no error](documentation/features/menu-option-a/no-file-num.png)
+![Patient Details](documentation/features/menu-option-a/view-patient-details.png)
+
+* MENU OPTION B 
+
+![Add patients process](documentation/features/menu-option-b/add-patient-details.png)
+![Date format error](documentation/features/menu-option-b/date-format-error.png)
+![Birthday error](documentation/features/menu-option-b/birthday-error.png)
+![Email error](documentation/features/menu-option-b/email-error.png)
+
+* MENU OPTION C
+
+![Appointment options](documentation/features/menu-option-c/appointment-options.png)
+![choice error message](documentation/features/menu-option-c/option-c-error.png)
+
+ * ADD APPOINTMENT 
+
+ ![Adding pt process](documentation/features/menu-option-c/add-appointment/adding-appointments.png)
+ ![Add pt details error](documentation/features/menu-option-c/add-appointment/add-patientdetails-error.png)
+ ![Unavailable date error](documentation/features/menu-option-c/add-appointment/unavailable-appointment.png)
+ ![Appointment date error](documentation/features/menu-option-c/add-appointment/appointment-date-error.png)
+ ![Added message](documentation/features/menu-option-c/add-appointment/added-successfully.png)
+
+ * VIEW APPOINTMENT
+
+ ![View appointment](documentation/features/menu-option-c/view-appointment/view-appointment.png)
+ ![View Appointment error](documentation/features/menu-option-c/view-appointment/view-appointment-error.png)
+
+* MENU OPTION D
+
+![Treatment options](documentation/features/menu-option-d/menu-d-options.png)
+ 
+ * PAYMENT DUE 
+
+ ![Treatment options](documentation/features/menu-option-d/payment-due/treatment-options.png)
+ ![Treatment option error](documentation/features/menu-option-d/payment-due/treatment-option-error.png)
+ ![After choice options](documentation/features/menu-option-d/payment-due/after-treatmentoption.png)
+ ![Total due](documentation/features/menu-option-d/payment-due/total-due.png)
+
+ * TREATMENT PRICES
+
+ ![Treatment prices](documentation/features/menu-option-d/prices/treatment-prices.png)
+
 ## Future implementation 
 * I want to add css styling to be able to mimick a real life application.  
 * Id want to give user more options such as adding and calculating treatments for each patient. 
