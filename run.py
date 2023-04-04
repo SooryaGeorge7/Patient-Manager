@@ -176,28 +176,24 @@ class Scheduler:
         appropriate message to user.If inputed file number cant be found
         in data sheet , error message is shown.
         """
-        try:
-            file_num_column = patients.col_values(5)
-            pt_row = file_num_column.index(file_number) + 1
-            pt_details = patients.row_values(pt_row)
-            file_num = appointments.col_values(1)
-            print(f" {Fore.YELLOW}Patient {pt_details[0]} {pt_details[1]}'s"
-                  " appointments")
-            appointment_date = appointments.col_values(2)
-            appointment_time = appointments.col_values(3)
-            appointment_reason = appointments.col_values(4)
-            appointment_price = appointments.col_values(5)
-            for value in range(len(file_num)):
-                if file_number == file_num[value]:
-                    view_date = print(f"""{Fore.YELLOW}
+        
+        file_num_column = patients.col_values(5)
+        pt_row = file_num_column.index(file_number) + 1
+        pt_details = patients.row_values(pt_row)
+        file_num = appointments.col_values(1)
+        print(f" {Fore.YELLOW}Patient {pt_details[0]} "
+              f"{pt_details[1]}'s appointments")
+        appointment_date = appointments.col_values(2)
+        appointment_time = appointments.col_values(3)
+        appointment_reason = appointments.col_values(4)
+        appointment_price = appointments.col_values(5)
+        for value in range(len(file_num)):
+            if file_number == file_num[value]:
+                print(f"""{Fore.YELLOW}
  {appointment_date[value]} at {appointment_time[value]} hours
  Treatment:{appointment_reason[value]}
  Cost:{appointment_price[value]}
  """)
-            return view_date
-        except ValueError:
-            print(f"{Fore.RED} We dont have an appointment"
-                  " with that file number")
 
 
 def payment_due():
