@@ -23,7 +23,7 @@ SHEET = GSPREAD_CLIENT.open('Patient_manager')
 users = SHEET.worksheet('users')
 patients = SHEET.worksheet('patients')
 appointments = SHEET.worksheet('appointments')
-appointement_data = appointments.get_all_values()
+
 treatments = SHEET.worksheet('treatments')
 treatments_data = treatments.get_all_values()
 
@@ -140,7 +140,8 @@ class Scheduler:
         appointments
         sheet in gspread.
         """
-        for line in appointement_data:
+        appointment_data = appointments.get_all_values()
+        for line in appointment_data:
             if date == line[1] and time == line[2]:
                 print(f"{Fore.RED} Sorry,That date and time is already booked")
                 return False
@@ -176,7 +177,7 @@ class Scheduler:
         appropriate message to user.If inputed file number cant be found
         in data sheet , error message is shown.
         """
-        
+
         file_num_column = patients.col_values(5)
         pt_row = file_num_column.index(file_number) + 1
         pt_details = patients.row_values(pt_row)
@@ -529,15 +530,14 @@ def menu_choice():
                         break
 
                 elif appointment_choice == "b":
-                    appointement_data = appointments.get_all_values()
+                    appointment_data = appointments.get_all_values()
                     file_number = file_no_pattern(f"{Fore.LIGHTYELLOW_EX} "
                                                   "Enter patient's file "
                                                   "number (format: #-----)"
                                                   " :\n ")
                     try:
-                        for f_num in appointement_data:
+                        for f_num in appointment_data:
                             if file_number == f_num[0]:
-                                
                                 clear_terminal()
                                 scheduler = Scheduler()
                                 scheduler.view_appointment(file_number)
