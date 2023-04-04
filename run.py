@@ -533,15 +533,24 @@ def menu_choice():
                         break
 
                 elif appointment_choice == "b":
+                    appointement_data = appointments.get_all_values()
                     file_number = file_no_pattern(f"{Fore.LIGHTYELLOW_EX} "
                                                   "Enter patient's file "
                                                   "number (format: #-----)"
                                                   " :\n ")
-                    scheduler = Scheduler()
-                    scheduler.view_appointment(file_number)
-                    break
-                else:
-                    print(f"{Fore.RED} invalid option!")
+                    try:
+                        for f_num in appointement_data:
+                            if file_number == f_num[0]:
+                                
+                                clear_terminal()
+                                scheduler = Scheduler()
+                                scheduler.view_appointment(file_number)
+                                break
+                        else:
+                            raise ValueError
+                    except ValueError:
+                        print(f"{Fore.LIGHTYELLOW_EX} We dont have an "
+                              "appointment with them,please add appointment")
 
         elif menu == "d":
             while True:
