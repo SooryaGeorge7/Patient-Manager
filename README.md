@@ -141,14 +141,30 @@ When asked to confirm password, if passwords dont match then user is displayed a
 * MAIN MENU
 
 ![Main Menu](documentation/features/main-menu.png)
+
+One user logs in successfully, The main menu is displayed which has 5 options(a - e) to choose from.
+
 ![Main menu error](documentation/features/main-menu-error.png)
+
+If user doesnt choose an option from (a -b ), then user is displayed an error message before asking to choose again.
 
 * MENU OPTION A
 
 ![View patient feature](documentation/features/menu-option-a/view-patient-option.png)
+
+If user chooses option "a", Program asks user to enter a file number(unique code for each patient). 
+
 ![File no pattern error](documentation/features/menu-option-a/file-no-pattern-error.png)
+
+The file number has a specific unque pattern, if user doesnt enter a file number with the correct pattern/format, it will give off this error. This error is shown everytime user doesnt enter a file number in the correct pattern at any time the user is required to enter a file number in the program. 
+
 ![File no error](documentation/features/menu-option-a/no-file-num.png)
+
+If you enter a file number in the correct pattern/format, but we dont have this patient's details in the patients sheet , then user is given error message and will return user back to main page inorder for them to add the patient details of that specific file number.
+
 ![Patient Details](documentation/features/menu-option-a/view-patient-details.png)
+
+If user does enter a valid file number and it is stored in Patient's sheet in gspread, The program exports/ returns the patient's details connected to that specific file number.The user then is returned back to the main menu to be able to choose an option again.
 
 * MENU OPTION B 
 
