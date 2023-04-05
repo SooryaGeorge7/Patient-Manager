@@ -2,7 +2,7 @@
 
 ## Brief 
 
-This python project is specifically developed for a dental or medical private practice. 
+This python project is specifically developed for a dental  private practice. 
 
 This is a simple patient management system that would allow users(eg. admin) to add, view or edit  appointments, treatments and patient details. 
 
@@ -38,7 +38,30 @@ I decided to challenge myself with a trying to complete a command line python ap
     - [Acknowledgements](#acknowledgements)
 
 
-## User Stories 
+## Project 
+
+### Scope/ Stratergy
+
+I wanted to develop an application that could be used in real life. In my daily life in the dental environment, i often come across applications to manage patients.I drew inspiration from those applications.
+This patient management system allows user to log in, sign in, view patient details, add patient details , add appointments , view appointments , view treatment costs and calculate total payment due. 
+
+The strategy for this project is implemented in the following ways:
+
+* Allows user to enter data which are imported to database.
+* Allows user to retrieve data from database.
+* Ensure passwords generated are stored in database after being hashed in case of hackers.
+* Ensured all inputs are validated .
+* Allows for easy navigation through program .
+* Colored texts to display to user depending on user action.
+* Database connection with gspreads that allows ease of import and export of data.
+* Can access all features and user is given option to exit in main menu
+
+### Site Owner Goals
+
+* Create a system that can be used in a real life dental practice. 
+* Ensure a bug free application.
+* Ensure that user recieves feedback when neccessary.
+* Decide what type of inputs are valid.
 
 ### First time visitor
 * I want to be able to sign in to the program.
@@ -56,7 +79,7 @@ I decided to challenge myself with a trying to complete a command line python ap
 ## Python flowchart 
 
 A flowchart was created in the start of the project to help build logic for the system.
-![Patient Manager Flow Diagram](documentation/flow-chart/flow-chart.png)
+![Patient Manager Flow Diagram](documentation/flow-chart/flow-chart-patient-manager.png)
 
 ## DataSheet
 
