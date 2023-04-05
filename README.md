@@ -190,20 +190,47 @@ As for the names , user gets displayed an error message if they enter an empty s
 * MENU OPTION C
 
 ![Appointment options](documentation/features/menu-option-c/appointment-options.png)
+
+The menu option "c" displayed another menu for user to choose. a - To add appointment, or b - to view appointments. 
+
 ![choice error message](documentation/features/menu-option-c/option-c-error.png)
+
+If user chooses neither a or b, an error message is displayed before asking user to choose again.
 
  * ADD APPOINTMENT 
 
  ![Adding pt process](documentation/features/menu-option-c/add-appointment/adding-appointments.png)
+
+ If user chooses "a",then program proceeds to ask user for patient's file no, appointment date , time and treatment.
+
  ![Add pt details error](documentation/features/menu-option-c/add-appointment/add-patientdetails-error.png)
+
+ If user enters a file number that is not in the patients sheet in gspread, then user is returned to main menu to add patient's details first.This ensure that patient's details needs to be in the database before you can add an appointment for that patient.
+
  ![Unavailable date error](documentation/features/menu-option-c/add-appointment/unavailable-appointment.png)
+
+ If user enters a date and time which is already been entered/used in appointment sheet in gspread, then an error message is shown before return user to menu.This ensures that the user cant book more than 1 patient for a specific date and time .
+
+
  ![Appointment date error](documentation/features/menu-option-c/add-appointment/appointment-date-error.png)
+
+ If user enters a date in the past, this error message will be shown before they are asked to enter appointment date again
+
+ The time entered should also be written in the correct format or pattern , if not an error is displayed before allowing user to enter time again.
+
  ![Added message](documentation/features/menu-option-c/add-appointment/added-successfully.png)
+
+ If appointment is added succesfully, a messaged is displayed before returning user to the main menu
 
  * VIEW APPOINTMENT
 
  ![View appointment](documentation/features/menu-option-c/view-appointment/view-appointment.png)
+
+ When user chooses option b- to view appointment, user is prompt to enter patient's file number. The file number is used to retrieve patient's name and surname from patients sheet. The file number is also used to retrieve the appointment details of the patient in the appointment sheets. All appointments made for this particular patient is displayed to user with treatment cost as well.
+
  ![View Appointment error](documentation/features/menu-option-c/view-appointment/view-appointment-error.png)
+
+ If user enter's a file number that is not in the appointments sheet, the user is displayed an error message to add appointment first. 
 
 * MENU OPTION D
 
