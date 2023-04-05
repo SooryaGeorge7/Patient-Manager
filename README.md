@@ -267,6 +267,8 @@ Once user chooses total payment due, then the user is displayed the total cost o
  
  If user chooses menu option "e", the system allows you to return to start screen of the program.
 
+---
+
 ## Future implementation 
 * I want to add css styling to be able to mimick a real life application.  
 * Id want to give user more options such as adding and calculating treatments for each patient. 
@@ -296,7 +298,42 @@ Once user chooses total payment due, then the user is displayed the total cost o
 ### Known Bugs
 
 ## Deployment 
+
 ### Deployment to Heroku
+
+The site was deployed to heroku with the following steps: 
+
+1. Type in pip3 freeze > requirements.txt in terminal to add to requirements.txt
+2. Git add, git commit and push changes.
+3. Visit [Heroku](https://id.heroku.com/login) to creat an acount. 
+4. Click on "Create new app".
+5. I entered my app name as "patient-manager-system"
+6. Enter region as Europe.
+7. Click on Create App Button.
+8. The new page contains several tabs. Select settings tab first. 
+9. Scroll down in settings tab to Section "Config Vars"
+10. Click button "Reveal Config Vars"
+11. Go back to gitpod and copy creds.json contents
+12. In the KEY field under Config Vars ,Enter "CREDS" (NB:UPPERCASE)
+13. In the VAlue field under COnfid Vards, paste contents of creds.json.
+14. Click button "Add"
+15. Add another KEY - "PORT"
+16. Add another VALUE - "8000"
+17. Click button "Add" again.
+18. Scroll down to "Build Packs" section, and click on "Add Build Pack"
+19. In the pop up window, click on "Python" and then "Save Changes"
+20. click on "Add Build Pack" again and click on "node.js" and then "Save Changes" again
+21. The buildpacks should be in the order of "Python" on top, and "node.js" underneath.
+22. Scroll up, and then click on the "Deploy" Tab.
+23. Scroll down and go to section "Deployment Method", select "Git Hub"
+24. Confirm that you want to connect to Github below .
+25. Once connected, Type in the name of repository ( This project - Patient-Manager) and click on "Search"
+26. Once the "Patient-Manager" repository is found, click on connect.
+27. Once connected, scroll down to automatic deploy. Click on "Enable Automatic Deploys"
+28. Afterwards, click on "Deploy Branch" . 
+29. Once you see the message "the app was succesfully deployed", then the app link will be provided to you.
+29. You can click on that to view deployed heroku terminal.
+30. I added Coloroma, and Bcrypt after deploying which needed to be added to requirements.txt using pip3 freeze > requirements.txt in order for them to operate on the deployed heroku terminal.
 
 ### How To Fork
 
