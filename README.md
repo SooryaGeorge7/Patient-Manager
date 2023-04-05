@@ -235,17 +235,37 @@ If user chooses neither a or b, an error message is displayed before asking user
 * MENU OPTION D
 
 ![Treatment options](documentation/features/menu-option-d/menu-d-options.png)
+
+When user chooses menu option d- treatments, program displays another option to user that allows user to calculate total payment due or to view prices.
  
  * PAYMENT DUE 
 
  ![Treatment options](documentation/features/menu-option-d/payment-due/treatment-options.png)
+
+ When user chooses option a - total payment due, the is asked to choose from the treatment options shown. 
+
  ![Treatment option error](documentation/features/menu-option-d/payment-due/treatment-option-error.png)
+
+ If user doesnt choose one of the treatment options from the list( doesnt matter if they enter in UPPERCASE or LOWERCASE), an error message is displayed before asking user to enter treatment option again. 
+
  ![After choice options](documentation/features/menu-option-d/payment-due/after-treatmentoption.png)
+
+ After user enters a valid treatment option , user is displayed another message which allows them to choose between adding another treatment option or viewing total payment due.
+ If user chooses - add another treatment option, then user is displayed the treatment options to choose again.
+
  ![Total due](documentation/features/menu-option-d/payment-due/total-due.png)
+
+Once user chooses total payment due, then the user is displayed the total cost of all the treatments you have added previously.
 
  * TREATMENT PRICES
 
  ![Treatment prices](documentation/features/menu-option-d/prices/treatment-prices.png)
+
+ If user chose to view treatment prices, a list of treatments with their respective prices are shown to the user . These values are exported from the treatments sheet.
+
+* MENU OPTION E
+ 
+ If user chooses menu option "e", the system allows you to return to start screen of the program.
 
 ## Future implementation 
 * I want to add css styling to be able to mimick a real life application.  
