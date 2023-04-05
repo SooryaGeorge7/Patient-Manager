@@ -169,9 +169,23 @@ If user does enter a valid file number and it is stored in Patient's sheet in gs
 * MENU OPTION B 
 
 ![Add patients process](documentation/features/menu-option-b/add-patient-details.png)
+
+To add patients, user is asked to enter patient's name, surname, birthday, email and file number.
+If added succesfully, user is returned to the main menu.
+
 ![Date format error](documentation/features/menu-option-b/date-format-error.png)
+
+The date entered by user should be in the correct formula, otherwise it will give an error before asking to enter enter date again.
+
 ![Birthday error](documentation/features/menu-option-b/birthday-error.png)
+
+The date entered in the correct formula should be a date in the past, if not then an error message will be displayed before user is aasked to enter birthdate again.
+
 ![Email error](documentation/features/menu-option-b/email-error.png)
+
+The email entered is validated, if its not in the format of an email. Program will display error message before asking to enter an email again. 
+
+As for the names , user gets displayed an error message if they enter an empty string before requesting to enter the name or surname. The file number should also be given in the correct format/pattern in order to be validated. 
 
 * MENU OPTION C
 
