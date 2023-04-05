@@ -51,14 +51,14 @@ I decided to challenge myself with a trying to complete a command line python ap
 * I want to be able to log in succesfully. 
 * I dont want to sign up again. 
 
-## Logic and Features
+# Logic and Features
 
-### Python flowchart 
+## Python flowchart 
 
 A flowchart was created in the start of the project to help build logic for the system.
 ![Patient Manager Flow Diagram](documentation/flow-chart/flow-chart.png)
 
-### DataSheet
+## DataSheet
 
 Google Sheets were used to store data from user into spread sheet and to export data when neccessary as well.
 This project has a total of 4 worksheets. 
@@ -92,24 +92,51 @@ This sheet is used when adding appointments and viewing appointments. All values
 The treatments sheet contains all treatments offered in the dental clinic and the prices for each.
 This sheet is accessed when viewing prices,adding treatment prices to show total payment due and to check for treatment prices when adding appointment for a patient. 
 
-### Features
+## Features
 
 *  MAIN PAGE
 
 ![Main Page](documentation/features/main-page.png)
+
+Main page/ Start screen consists of ASCII logo, welcome message with short description and a menu to choose between log in or sign up.
+
 ![Main Page Error](documentation/features/main-page-error.png)
+
+If you dont enter a valid option( a or b), then program will give error message and then will let user choose again.
+
+--- 
 
 * LOG IN
 
 ![Log in Feature](documentation/features/login-process.png)
+
+Once you choose (a) , The user is allowed to enter username and password.
+
 ![Log in Error](documentation/features/login-error.png)
+
+User should only log in if they have already signed up/ registered.If the system does'nt have your username or password in datasheet, it will display this error message and will allow you to choose to sign up or log in again.
+
+---
 
 * REGISTER/SIGN UP
 
 ![Sign in Feature](documentation/features/signin-process.png)
+
+Once you choose to sign up or register, you will be allowed to enter a new username. If the same username is already stored in data sheet users, user will be given an error message and asked to enter another user name. Once validated, proceeds to ask for  a new password and then to confirm that password.
+
 ![Sign in succesfull](documentation/features/signup-succesfull.png)
+
+Once you have signed in, program allows you to log in.
+
 ![Empty string error](documentation/features/empty-string-error.png)
+
+For any string that the system has to store such as new password, new username, first name(needed to add patient details) and surname (needed to add patient details). The program then makes sure that user does not enter an empty string for those inputs.
+
 ![Passwords error](documentation/features/passwords-error.png)
+
+When asked to confirm password, if passwords dont match then user is displayed an error message before asking to start again.
+
+---
 
 * MAIN MENU
 
