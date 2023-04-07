@@ -43,14 +43,20 @@ def sign_up():
     username to confirm password and displays error message if user
     gives in an invalid username or if passwords dont match.
     """
+    # Gets all the data from users sheet
     data = users.get_all_values()
+    # Set boolean to make changes within if/else statment
     sign_in = False
+    # Use while loop to repeat input to user incase of error happens
     while sign_in is False:
         try:
             new_username = input(f"{Fore.LIGHTYELLOW_EX} Please enter"
                                  " a new username:\n ")
+            # Define an empty list
             new_row = []
+            # Line is column
             for line in data:
+                # Column 1 is line[0] which contains the username
                 if new_username == line[0]:
                     print(f"{Fore.RED} The username is already taken,"
                           " please try again.")
@@ -60,11 +66,14 @@ def sign_up():
                     # Ask user for the newpassword ,and confirm using input().
             new_password = not_empty(" Please enter a new password:\n ")
             confirm_password = input(" Please reenter password to confirm:\n ")
+            # Call function to clear terminal
             clear_terminal()
+            # If password doesnt match, the user directed back to start
             if confirm_password != new_password:
                 raise ValueError(f"{Fore.RED} Passwords dont match,"
                                  " please start again!")
             else:
+                # Change boolean value of sign_in here
                 sign_in = True
                 print(f"{Fore.GREEN} Sign Up Succesfull{Style.RESET_ALL}")
                 new_row.append(new_username)
