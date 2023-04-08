@@ -95,8 +95,11 @@ def file_no_pattern(user_text):
     the correct pattern/format
     """
     while True:
+        # While loop is used so that user is asked until correct pattern
         user_pattern = input(user_text)
+        # Use pattern matching to make sure user enters file in format
         file_pattern = r"^#[0-9]{5}$"
+        # re.match() is user to match pattern to user input
         if re.match(file_pattern, user_pattern):
             return user_pattern
         else:
