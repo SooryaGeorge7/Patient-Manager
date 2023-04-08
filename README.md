@@ -28,7 +28,10 @@ I decided to challenge myself with a trying to complete a command line python ap
   - [Technologies Used](#technology-used)
     - [Languages Used](langues-used)
     - [Frameworks, Libraries and Programs Used](#frameworks,-libraries-and-programs-used)
+    - [Python Libraries](#python-libraries)
   - [Testing](#testing)
+    - [Validation](#validation)
+    - [Manual Testing](#manual-testing)
   - [Bugs](#bugs)
     - [Solved Bugs](#solved-bugs)
     - [Known Bugs](#known-bugs)
@@ -315,6 +318,10 @@ Once user chooses total payment due, then the user is displayed the total cost o
 * An option to add notes for each patient.
 * I'd want to have a search function to be able to search for specific patient incase file number is lost.
 * I'd want to be able to print out quotations for each patient and have payment due to be included in.
+* Add implementation to include time needed for each appointment 
+* Implement a calender system to mark out days that clinic will not be operatin( public holidays)
+* Make application to manage patients for more than 1 dentist at a time.
+* Include more treatment options
 
 
 # Technologies Used
@@ -336,7 +343,7 @@ Once user chooses total payment due, then the user is displayed the total cost o
 * [CI Python Linter](https://pep8ci.herokuapp.com/) - To validate python code.
 * [Text ASCII Art Generator](http://patorjk.com/software/taag/)  - For start of game logo art piece.
 
-## Pythin Libraries 
+## Python Libraries 
 
 * [gspread](https://docs.gspread.org/)- This is used for control of google sheets API
 * [OAuthLib](https://pypi.org/project/oauthlib/)- This is used to authenticate and request HTTP to google sheets API
@@ -356,6 +363,8 @@ Once user chooses total payment due, then the user is displayed the total cost o
 [PEP8CI](https://pep8ci.herokuapp.com/) was used to validate python code. The errors that came up initially were line too long erros, trailing white spaces, blank spaces error which were all corrected
 
 ## Manual Testing
+
+Please go over to [TESTING.md] for manual testing documentation.
 
 # Bugs 
 ## Solved Bugs
