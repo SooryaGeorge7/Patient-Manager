@@ -428,8 +428,11 @@ def payment_due():
     invalid input.
     """
     payment = False
+    # Define a new list to add all the treatments user chooses
     prices = []
     while payment is False:
+        # Get values from treatment sheet
+        # Store each row values in different variable
         headings = treatments.row_values(1)
         costs = treatments.row_values(2)
         addition = False
@@ -446,9 +449,10 @@ def payment_due():
  Root Canal
  :\n """).lower()
         clear_terminal()
-        for a in headings:
+        # Use for loop to check if input is in headings
+        for title in headings:
 
-            if pt_treatment == a:
+            if pt_treatment == title:
                 u_choice = input(f"""{Fore.LIGHTYELLOW_EX}
  Choose between
  a) Add another treatment
@@ -456,24 +460,32 @@ def payment_due():
  :\n """)
                 clear_terminal()
                 if u_choice == "a":
+                    # Each input is added into prices list
                     prices.append(pt_treatment)
                     addition = True
 
                 elif u_choice == "b":
                     payment = True
                     prices.append(pt_treatment)
+                    # Find row values of treatments sheet
                     headings = treatments.row_values(1)
                     costs = treatments.row_values(2)
                     addition = True
-
+                    # Change values in costs to integer with int()
                     int_costs = [int(x) for x in costs]
                     i = 0
+                    # Define a new list to add the integers
                     final_list = []
+                    # Use for loop to check if item in price is in headings
                     for i in prices:
                         if i in headings:
+                            #  Use index() to check the treatment price
+                            #  Append it to new list with integers
                             final_list.append(int_costs[headings.index(i)])
+                    # Use sum() to add integers in list
                     print(f"{Fore.YELLOW} Total payment due"
                           f" is {sum(final_list)}")
+                    # The break statement will return patient back to menu
                     break
 
                 else:
@@ -492,6 +504,7 @@ def view_treatments():
     costs = treatments.row_values(2)
     i = 0
     print(f"{Fore.YELLOW} Treatment Prices")
+    # Use forloop to print our values in treatment sheet
     for i in range(len(headings)):
         print(f" {Fore.YELLOW}{headings[i]}:{costs[i]}€")
 
@@ -503,6 +516,7 @@ def validate_email():
     """
     while True:
         u_email = input(f"{Fore.LIGHTYELLOW_EX} Please enter email:\n ")
+        # Use pattern matching to make sure user enter valid email
         v_email = r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
         if re.match(v_email, u_email):
             break
@@ -523,9 +537,11 @@ def validate_app_date():
                            " in the format DD-MM-YYYY:\n ")
             date_obj = datetime.datetime.strptime(u_date, '%d-%m-%Y')
             current_date = datetime.datetime.now()
+            # Use > to check if input date is not present or past
             if date_obj > current_date:
                 break
             else:
+                # While loop returns user back to question
                 print(f"{Fore.RED} That date is not in the future, try again.")
         except ValueError:
             print(f"{Fore.RED} That is not a valid date,try again.")
@@ -544,6 +560,7 @@ def validate_birthdate():
                            "DOB in the format DD-MM-YYYY:\n ")
             date_item = datetime.datetime.strptime(b_date, '%d-%m-%Y')
             today_date = datetime.datetime.now()
+            # Check if input date is not present or future date with <
             if date_item < today_date:
                 break
             else:
@@ -580,6 +597,9 @@ def validate_fileno():
                                   "Enter patient's file "
                                   "number (format: #-----)"
                                   " :\n ")
+        # Use for loop to check if specific file no is already used.
+        # Checked in patients sheet data
+        # Cant have the same file number again as its a unique code
         for number in patient_data:
             if file_no == number[4]:
                 print(f"{Fore.RED} This patient is already added.")
@@ -608,6 +628,7 @@ def validate_treatment():
  Cleaning
  Xray
  Root Canal:\n """).lower()
+        # Use forlopp to check if input is same as data in treatments
         for i in treatment_headings:
             if appointment_reason == i:
                 validate = True
@@ -625,6 +646,7 @@ def not_empty(user_text):
     """
     while True:
         user_input = input(user_text)
+        # Use len() to check length of inputted string 
         if len(user_input) == 0:
             print(f"{Fore.RED} You've entered an empty string")
         else:
