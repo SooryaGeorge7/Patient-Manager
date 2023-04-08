@@ -19,6 +19,7 @@ I decided to challenge myself with a trying to complete a command line python ap
   - [User Stories](#user-stories)
     - [First time visitor](#first-time-visitor)
     - [Returning visitors](#returning-visitors)
+  - [User Experience](#user-experience)
   - [Logic and Features](#logic-and-features)
     - [Python](#python)
     - [Database](#database)
@@ -44,7 +45,7 @@ I decided to challenge myself with a trying to complete a command line python ap
 
 # Project 
 
-### Scope/ Stratergy
+## Scope/ Stratergy
 
 I wanted to develop an application that could be used in real life. In my daily life in the dental environment, i often come across applications to manage patients.I drew inspiration from those applications.
 This patient management system allows user to log in, sign in, view patient details, add patient details , add appointments , view appointments , view treatment costs and calculate total payment due. 
@@ -53,30 +54,40 @@ The strategy for this project is implemented in the following ways:
 
 * Allows user to enter data which are imported to database.
 * Allows user to retrieve data from database.
-* Ensure passwords generated are stored in database after being hashed in case of hackers.
+* Ensure passwords generated are stored in database after being hashed in case of hackers(using bcrypt).
 * Ensured all inputs are validated .
 * Allows for easy navigation through program .
 * Colored texts to display to user depending on user action.
 * Database connection with gspreads that allows ease of import and export of data.
 * Can access all features and user is given option to exit in main menu
 
-### Site Owner Goals
+## Site Owner Goals
 
 * Create a system that can be used in a real life dental practice. 
 * Ensure a bug free application.
 * Ensure that user recieves feedback when neccessary.
 * Decide what type of inputs are valid.
 
-### First time visitor
+## First time visitor
 * I want to be able to sign in to the program.
 * I want to view patient's details 
 * I want to add appointments for a patient.
+* I want to add a new patient's details
 * I want to edit or view treatments. 
 * I want to find the price of treatments.
 
-### Returning visitor
+## Returning visitor
 * I want to be able to log in succesfully. 
 * I dont want to sign up again. 
+
+# User Experience
+
+The outputs displayed to user varies with color in the terminal for better ux. 
+For example: 
+* For errors and invalid inputs: output message would be red.
+* If user has logged in succesfully : output message would be green.
+* Most other questions or stataments are displayed with a shade of yellow.
+* If data is being exported from datasheet: The displayed output is a darker yellow
 
 # Logic and Features
 
