@@ -363,7 +363,7 @@ class Patient:
 
 class Scheduler:
     """
-    This class represents a scheduling system that checks if 
+    This class represents a scheduling system that checks if
     appointment is available, allows user to add appointment
     and show all appointments of a patient.
     """
@@ -519,7 +519,7 @@ def view_treatments():
     print(f"{Fore.YELLOW} Treatment Prices")
     # Use forloop to print our values in treatment sheet
     for i in range(len(headings)):
-        print(f" {Fore.YELLOW}{headings[i]}:{costs[i]}€")
+        print(f" {Fore.YELLOW}{headings[i].title()}:{costs[i]}€")
 
 
 def validate_email():
