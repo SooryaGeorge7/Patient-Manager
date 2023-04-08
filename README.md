@@ -346,15 +346,24 @@ Once user chooses total payment due, then the user is displayed the total cost o
 * [bcrypt](https://pypi.org/project/bcrypt/)- Used for hashing passwords inputed by user.
 * [datetime](https://docs.python.org/3/library/datetime.html)- Used to check inputed date and time format.
 
-## Testing
+# Testing
 
-## Bugs 
-### Solved Bugs
-### Known Bugs
+## Validation
 
-## Deployment 
+* run.py
+![Validation for run.py](documentation/pep8ci-validation.png)
 
-### Deployment to Heroku
+[PEP8CI](https://pep8ci.herokuapp.com/) was used to validate python code. The errors that came up initially were line too long erros, trailing white spaces, blank spaces error which were all corrected
+
+## Manual Testing
+
+# Bugs 
+## Solved Bugs
+## Known Bugs
+
+# Deployment 
+
+## Deployment to Heroku
 
 The site was deployed to heroku with the following steps: 
 
@@ -390,7 +399,7 @@ The site was deployed to heroku with the following steps:
 29. You can click on that to view deployed heroku terminal.
 30. I added Coloroma, and Bcrypt after deploying which needed to be added to requirements.txt using pip3 freeze > requirements.txt in order for them to operate on the deployed heroku terminal.
 
-### How To Fork
+## How To Fork
 
 To fork the Patient-Manager Repository:
 
@@ -399,7 +408,7 @@ Find the repository for this project, SooryaGeorge7/Patient-Manager
 Click the fork button on top right corner.
 How to Clone
 
-### How To Clone
+## How To Clone
 
 To clone the Patient-Manager Repository:
 
