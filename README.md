@@ -1,6 +1,10 @@
 # Dental Patient Manager
 
-## Brief 
+![Program mock up](documentation/patient-manager-app.png)
+
+[View Live Link Here](https://patient-manager-system.herokuapp.com/)
+
+# Brief 
 
 This python project is specifically developed for a dental  private practice. 
 
@@ -10,7 +14,7 @@ I decided to build this project for my 3rd portfolio project for code instutute 
 
 I decided to challenge myself with a trying to complete a command line python application that would allow me to manage patients similarly to the applications used in real dental private practices. 
 
-## Table of contents
+# Table of contents
   - [Brief](#brief)
   - [User Stories](#user-stories)
     - [First time visitor](#first-time-visitor)
@@ -38,7 +42,7 @@ I decided to challenge myself with a trying to complete a command line python ap
     - [Acknowledgements](#acknowledgements)
 
 
-## Project 
+# Project 
 
 ### Scope/ Stratergy
 
