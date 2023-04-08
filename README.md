@@ -308,11 +308,14 @@ Once user chooses total payment due, then the user is displayed the total cost o
 ---
 
 ## Future implementation 
-* I want to add css styling to be able to mimick a real life application.  
-* Id want to give user more options such as adding and calculating treatments for each patient. 
+
+* I want to add more styling to be able to mimick a real life application.  
+* Id want to user to enter more details when adding patient such as address, cell no, etc. 
 * An option to say if patient has paid for treatments or not.
 * An option to add notes for each patient.
-* Add much more details for patients information( taking in address etc)
+* I'd want to have a search function to be able to search for specific patient incase file number is lost.
+* I'd want to be able to print out quotations for each patient and have payment due to be included in.
+
 
 # Technologies Used
 
