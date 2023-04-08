@@ -27,6 +27,9 @@ appointments = SHEET.worksheet('appointments')
 treatments = SHEET.worksheet('treatments')
 treatments_data = treatments.get_all_values()
 
+# Learnt how to use colorama here
+# https://www.geeksforgeeks.org/pattern-matching-python-regex/
+
 
 def logo():
     """
@@ -317,6 +320,7 @@ def menu_choice():
 
 
 class Patient:
+    
     def __init__(self, file_number):
         self.file_number = file_number
 
@@ -514,6 +518,8 @@ def validate_email():
     Function that validates user's inputed email by using regular
     expressions to match pattern.
     """
+    # Learnt about pattern matching here
+    # https://www.geeksforgeeks.org/pattern-matching-python-regex/
     while True:
         u_email = input(f"{Fore.LIGHTYELLOW_EX} Please enter email:\n ")
         # Use pattern matching to make sure user enter valid email
@@ -531,6 +537,8 @@ def validate_app_date():
     valid using datetime. It also checks if inputted date is in the
     future, and displays error message if not.
     """
+    # Learnt about date time to validate dates here
+    # https://stackoverflow.com/questions/16870663/how-do-i-validate-a-date-string-format-in-python
     while True:
         try:
             u_date = input(f"{Fore.LIGHTYELLOW_EX} Please add appointment"
@@ -574,6 +582,8 @@ def validate_time():
     """
     Function that validates appointment time user inputs using date time.
     """
+    # Learnt how to validate time using date time here
+    # https://stackoverflow.com/questions/33076617/how-to-validate-time-format
     while True:
         u_time = input(f"{Fore.LIGHTYELLOW_EX} Please enter time in the "
                        "format HH:MM:\n ")
@@ -646,7 +656,7 @@ def not_empty(user_text):
     """
     while True:
         user_input = input(user_text)
-        # Use len() to check length of inputted string 
+        # Use len() to check length of inputted string
         if len(user_input) == 0:
             print(f"{Fore.RED} You've entered an empty string")
         else:
