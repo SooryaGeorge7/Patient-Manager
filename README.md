@@ -367,7 +367,20 @@ Once user chooses total payment due, then the user is displayed the total cost o
 Please go over to [TESTING.md] for manual testing documentation.
 
 # Bugs 
+
 ## Solved Bugs
+
+1.	Was unable to store hashed passwords, gave error-
+TypeError: Object of type bytes is not JSON serializable
+ when trying to store my hashed password to gspread
+2.	Need to show all apppointments for a patient, not just one. 
+3.	Log in – if you cant, dead end. 
+4.	Appointments could be made for file numbers who ddnt have patient details yet. 
+5.	View appointments gave error .
+6.	Could add the same file number more than once in patients datasheet. 
+7.	User were able to store empty strings as values in data base- prevent that 
+8.	Needed to check if appointment date and time is not repeated in appointment sheet. 
+
 ## Known Bugs
 
 # Deployment 
