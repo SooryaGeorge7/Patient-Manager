@@ -28,11 +28,105 @@ treatments = SHEET.worksheet('treatments')
 treatments_data = treatments.get_all_values()
 
 
-def clear_terminal():
+def logo():
     """
-    Function that can be called to clear terminal at any stage of the program
+    Function that shows the program's logo and gives
+    a brief welcome message that allows user to understand
+    what the program is about.
     """
-    os.system('cls' if os.name == 'nt' else 'clear')
+    print(f"""{Fore.CYAN}
+                _______         _    _                  _
+               |_   __ \\       / |_ (_)                / |_
+                 | |__) |,--. `| |-'__  .---.  _ .--. `| |-'
+                 |  ___/`'_\\ : | | [  |/ /__\\ [ `.-. | | |
+                _| |_   // | |,| |, | || \\__., | | | | | |,
+               |_____|  \\'-;__/\\__/[___]'.__.'[___||__]\\__/
+          ____    ____
+         |_   \\  /   _|
+           |   \\/   |   ,--.   _ .--.   ,--.   .--./) .---.  _ .--.
+           | |\\  /| |  `'_\\ : [ `.-. | `'_\\ : / /'`\\;/ /__\\[ `/'`\\]
+          _| |_\\/_| |_ // | |, | | | | // | |,\\ \\._//| \\__., | |
+         |_____||_____|\\'-;__/[___||__]\\'-;__/.',__`  '.__.'[___]
+                                             ( ( __))
+    """)
+    print(f"""{Fore.LIGHTWHITE_EX}
+                        Welcome to Patient Manager.
+           The system to manage patients in your Dental practice.
+    {Style.RESET_ALL}""")
+
+
+def choice():
+    """
+    Function that allows user to choose between loging in
+    or signing in.
+    """
+    option = False
+    while option is False:
+        user_choice = input(f"""{Fore.LIGHTYELLOW_EX}
+ Please choose from options below(Please register if you havent before):
+ a - Log in
+ b - Register
+ Choice:\n """)
+        clear_terminal()
+        if user_choice == "a":
+            option = True
+            user_login()
+        elif user_choice == "b":
+            sign_up()
+            option = True
+
+        else:
+            print(f"{Fore.RED} Invalid option, try again")
+
+
+def user_login():
+    """
+    Function that allows user to enter username and password
+    and validates them by checking with the usernames and passwords stored
+    users data sheet. The inputed password has to encoded to check with
+    the hashed passwords in data sheet.(You have to encode the passwords
+    in datasheet because they were decoded when being stored.)
+    """
+    data = users.get_all_values()
+    log_in = False
+    print(f"{Fore.GREEN} You may log in!")
+    while log_in is False:
+        login_username = input(f"{Fore.LIGHTYELLOW_EX} Please "
+                               "enter username:\n ")
+        login_password = input(" Please enter password:\n ")
+        coded_password = login_password.encode('utf-8')
+        clear_terminal()
+        try:
+            for x in data:
+                username = x[0]
+                password = x[1]
+                hash_password = password.encode('utf-8')
+
+                if login_username == username and \
+                   bcrypt.checkpw(coded_password, hash_password):
+                    print(f"{Fore.GREEN} Log in Successful!")
+                    menu_choice()
+                    break
+
+            else:
+                user_option = input(f"""{Fore.RED}
+ We dont have those credentials,
+ Please choose between":
+ {Fore.LIGHTYELLOW_EX}
+ a - Try Log in again
+ b - Register
+ :\n """)
+                if user_option == "a":
+                    clear_terminal()
+                    raise ValueError
+                elif user_option == "b":
+                    clear_terminal()
+                    sign_up()
+                    break
+                else:
+                    print(f"{Fore.RED} Invalid option.Start again")
+        except ValueError:
+            print(f"{Fore.RED} Please try again")
 
 
 def sign_up():
@@ -89,21 +183,123 @@ def sign_up():
             print(error)
 
 
-def file_no_pattern(user_text):
+def menu_choice():
     """
-    Function that makes sure that user inputs the file number in
-    the correct pattern/format
+    This function is called when user succesfully logs in, it
+    gives user a number of options to choose from and it also allows user
+    to exit the program
     """
     while True:
-        # While loop is used so that user is asked until correct pattern
-        user_pattern = input(user_text)
-        # Use pattern matching to make sure user enters file in format
-        file_pattern = r"^#[0-9]{5}$"
-        # re.match() is user to match pattern to user input
-        if re.match(file_pattern, user_pattern):
-            return user_pattern
+        menu = input(f"""{Fore.LIGHTYELLOW_EX}
+ Please select one of the following Options below:\n
+ a - View patient details
+ b - Add new patient
+ c - Appointments
+ d - Treatment Costs
+ e - Exit
+ :\n """).lower()
+        clear_terminal()
+        if menu == "a":
+            file_number = file_no_pattern(f"{Fore.LIGHTYELLOW_EX} Enter "
+                                          "patient's file number"
+                                          "(format: #_ _ _ _ _):\n ")
+            patient = Patient('Patient')
+            patient.patient_details(file_number)
+
+        elif menu == "b":
+            name = not_empty(f"{Fore.LIGHTYELLOW_EX} Please enter "
+                             "Patient's first name:\n ")
+            surname = not_empty(f"{Fore.LIGHTYELLOW_EX} Please enter"
+                                " Patient's surname:\n ")
+            email = validate_email()
+            birthday = validate_birthdate()
+            fileno = validate_fileno()
+            clear_terminal()
+            new_patient = [name, surname, email, birthday, fileno]
+
+            patient = Patient('Patient')
+            patient.add_details(new_patient)
+
+        elif menu == "c":
+            while True:
+                appointment_choice = input(f"""{Fore.LIGHTYELLOW_EX}
+ Choose between:
+ a - Add Appointment
+ b - View Appointment
+ :\n """)
+                clear_terminal()
+                if appointment_choice == "a":
+                    patient_data = patients.get_all_values()
+                    file_number = file_no_pattern(f"{Fore.LIGHTYELLOW_EX} "
+                                                  "Enter patient's file "
+                                                  "number (format: #-----)"
+                                                  " :\n ")
+                    try:
+                        for num in patient_data:
+                            if file_number == num[4]:
+                                date = validate_app_date()
+                                time = validate_time()
+                                reason = validate_treatment()
+                                clear_terminal()
+                                scheduler = Scheduler()
+                                scheduler.add_appntmnt(
+                                    file_number,
+                                    date,
+                                    time,
+                                    reason
+                                )
+                                menu_choice()
+                                break
+                        else:
+                            raise ValueError
+                    except ValueError:
+                        print(f"{Fore.RED} We dont have that file no,"
+                              " Please add patients details first.")
+                        break
+
+                elif appointment_choice == "b":
+                    appointment_data = appointments.get_all_values()
+                    file_number = file_no_pattern(f"{Fore.LIGHTYELLOW_EX} "
+                                                  "Enter patient's file "
+                                                  "number (format: #-----)"
+                                                  " :\n ")
+                    try:
+                        for f_num in appointment_data:
+                            if file_number == f_num[0]:
+                                clear_terminal()
+                                scheduler = Scheduler()
+                                scheduler.view_appointment(file_number)
+                                menu_choice()
+                                break
+                        else:
+                            raise ValueError
+                    except ValueError:
+                        print(f"{Fore.RED} We dont have an "
+                              "appointment with them,please add appointment")
+
+        elif menu == "d":
+            while True:
+                t_choice = input(f"""{Fore.LIGHTYELLOW_EX}
+ Please Choose between
+ a - Calculate Total Cost
+ b - View prices
+ :\n """)
+                clear_terminal()
+                if t_choice == "a":
+                    payment_due()
+                    break
+                elif t_choice == "b":
+                    view_treatments()
+                    break
+                else:
+                    print(f"{Fore.RED} invalid input")
+
+        elif menu == "e":
+            main()
+
         else:
-            print(f"{Fore.RED} You have not entered a valid file no.")
+            print(f"{Fore.RED}You have entered an invalid option,"
+                  " Please try again")
 
 
 class Patient:
@@ -424,224 +620,28 @@ def not_empty(user_text):
             return user_input
 
 
-def user_login():
+def file_no_pattern(user_text):
     """
-    Function that allows user to enter username and password
-    and validates them by checking with the usernames and passwords stored
-    users data sheet. The inputed password has to encoded to check with
-    the hashed passwords in data sheet.(You have to encode the passwords
-    in datasheet because they were decoded when being stored.)
-    """
-    data = users.get_all_values()
-    log_in = False
-    print(f"{Fore.GREEN} You may log in!")
-    while log_in is False:
-        login_username = input(f"{Fore.LIGHTYELLOW_EX} Please "
-                               "enter username:\n ")
-        login_password = input(" Please enter password:\n ")
-        coded_password = login_password.encode('utf-8')
-        clear_terminal()
-        try:
-            for x in data:
-                username = x[0]
-                password = x[1]
-                hash_password = password.encode('utf-8')
-
-                if login_username == username and \
-                   bcrypt.checkpw(coded_password, hash_password):
-                    print(f"{Fore.GREEN} Log in Successful!")
-                    menu_choice()
-                    break
-
-            else:
-                user_option = input(f"""{Fore.RED}
- We dont have those credentials,
- Please choose between":
- {Fore.LIGHTYELLOW_EX}
- a - Try Log in again
- b - Register
- :\n """)
-                if user_option == "a":
-                    clear_terminal()
-                    raise ValueError
-                elif user_option == "b":
-                    clear_terminal()
-                    sign_up()
-                    break
-                else:
-                    print(f"{Fore.RED} Invalid option.Start again")
-        except ValueError:
-            print(f"{Fore.RED} Please try again")
-
-
-def menu_choice():
-    """
-    This function is called when user succesfully logs in, it
-    gives user a number of options to choose from and it also allows user
-    to exit the program
+    Function that makes sure that user inputs the file number in
+    the correct pattern/format
     """
     while True:
-        menu = input(f"""{Fore.LIGHTYELLOW_EX}
- Please select one of the following Options below:\n
- a - View patient details
- b - Add new patient
- c - Appointments
- d - Treatment Costs
- e - Exit
- :\n """).lower()
-        clear_terminal()
-        if menu == "a":
-            file_number = file_no_pattern(f"{Fore.LIGHTYELLOW_EX} Enter "
-                                          "patient's file number"
-                                          "(format: #_ _ _ _ _):\n ")
-            patient = Patient('Patient')
-            patient.patient_details(file_number)
-
-        elif menu == "b":
-            name = not_empty(f"{Fore.LIGHTYELLOW_EX} Please enter "
-                             "Patient's first name:\n ")
-            surname = not_empty(f"{Fore.LIGHTYELLOW_EX} Please enter"
-                                " Patient's surname:\n ")
-            email = validate_email()
-            birthday = validate_birthdate()
-            fileno = validate_fileno()
-            clear_terminal()
-            new_patient = [name, surname, email, birthday, fileno]
-
-            patient = Patient('Patient')
-            patient.add_details(new_patient)
-
-        elif menu == "c":
-            while True:
-                appointment_choice = input(f"""{Fore.LIGHTYELLOW_EX}
- Choose between:
- a - Add Appointment
- b - View Appointment
- :\n """)
-                clear_terminal()
-                if appointment_choice == "a":
-                    patient_data = patients.get_all_values()
-                    file_number = file_no_pattern(f"{Fore.LIGHTYELLOW_EX} "
-                                                  "Enter patient's file "
-                                                  "number (format: #-----)"
-                                                  " :\n ")
-                    try:
-                        for num in patient_data:
-                            if file_number == num[4]:
-                                date = validate_app_date()
-                                time = validate_time()
-                                reason = validate_treatment()
-                                clear_terminal()
-                                scheduler = Scheduler()
-                                scheduler.add_appntmnt(
-                                    file_number,
-                                    date,
-                                    time,
-                                    reason
-                                )
-                                menu_choice()
-                                break
-                        else:
-                            raise ValueError
-                    except ValueError:
-                        print(f"{Fore.RED} We dont have that file no,"
-                              " Please add patients details first.")
-                        break
-
-                elif appointment_choice == "b":
-                    appointment_data = appointments.get_all_values()
-                    file_number = file_no_pattern(f"{Fore.LIGHTYELLOW_EX} "
-                                                  "Enter patient's file "
-                                                  "number (format: #-----)"
-                                                  " :\n ")
-                    try:
-                        for f_num in appointment_data:
-                            if file_number == f_num[0]:
-                                clear_terminal()
-                                scheduler = Scheduler()
-                                scheduler.view_appointment(file_number)
-                                menu_choice()
-                                break
-                        else:
-                            raise ValueError
-                    except ValueError:
-                        print(f"{Fore.RED} We dont have an "
-                              "appointment with them,please add appointment")
-
-        elif menu == "d":
-            while True:
-                t_choice = input(f"""{Fore.LIGHTYELLOW_EX}
- Please Choose between
- a - Calculate Total Cost
- b - View prices
- :\n """)
-                clear_terminal()
-                if t_choice == "a":
-                    payment_due()
-                    break
-                elif t_choice == "b":
-                    view_treatments()
-                    break
-                else:
-                    print(f"{Fore.RED} invalid input")
-
-        elif menu == "e":
-            main()
-
+        # While loop is used so that user is asked until correct pattern
+        user_pattern = input(user_text)
+        # Use pattern matching to make sure user enters file in format
+        file_pattern = r"^#[0-9]{5}$"
+        # re.match() is user to match pattern to user input
+        if re.match(file_pattern, user_pattern):
+            return user_pattern
         else:
-            print(f"{Fore.RED}You have entered an invalid option,"
-                  " Please try again")
+            print(f"{Fore.RED} You have not entered a valid file no.")
 
 
-def logo():
+def clear_terminal():
     """
-    Function that shows the program's logo and gives
-    a brief welcome message that allows user to understand
-    what the program is about.
+    Function that can be called to clear terminal at any stage of the program
     """
-    print(f"""{Fore.CYAN}
-                _______         _    _                  _
-               |_   __ \\       / |_ (_)                / |_
-                 | |__) |,--. `| |-'__  .---.  _ .--. `| |-'
-                 |  ___/`'_\\ : | | [  |/ /__\\ [ `.-. | | |
-                _| |_   // | |,| |, | || \\__., | | | | | |,
-               |_____|  \\'-;__/\\__/[___]'.__.'[___||__]\\__/
-          ____    ____
-         |_   \\  /   _|
-           |   \\/   |   ,--.   _ .--.   ,--.   .--./) .---.  _ .--.
-           | |\\  /| |  `'_\\ : [ `.-. | `'_\\ : / /'`\\;/ /__\\[ `/'`\\]
-          _| |_\\/_| |_ // | |, | | | | // | |,\\ \\._//| \\__., | |
-         |_____||_____|\\'-;__/[___||__]\\'-;__/.',__`  '.__.'[___]
-                                             ( ( __))
-    """)
-    print(f"""{Fore.LIGHTWHITE_EX}
-                        Welcome to Patient Manager.
-           The system to manage patients in your Dental practice.
-    {Style.RESET_ALL}""")
-
-
-def choice():
-    """
-    Function that allows user to choose between loging in
-    or signing in.
-    """
-    option = False
-    while option is False:
-        user_choice = input(f"""{Fore.LIGHTYELLOW_EX}
- Please choose from options below(Please register if you havent before):
- a - Log in
- b - Register
- Choice:\n """)
-        clear_terminal()
-        if user_choice == "a":
-            option = True
-            user_login()
-        elif user_choice == "b":
-            sign_up()
-            option = True
-
-        else:
-            print(f"{Fore.RED} Invalid option, try again")
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 
 def main():
