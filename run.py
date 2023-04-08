@@ -350,9 +350,7 @@ class Patient:
         row in patient data sheet in gspread
         """
         patients.append_row(new_patient)
-        added = print(f"{Fore.GREEN} You've successfully added a new patient")
-
-        return added
+        print(f"{Fore.GREEN} You've successfully added a new patient")
 
 
 class Scheduler:
@@ -495,8 +493,7 @@ def view_treatments():
     i = 0
     print(f"{Fore.YELLOW} Treatment Prices")
     for i in range(len(headings)):
-        treatment_costs = print(f" {Fore.YELLOW}{headings[i]}:{costs[i]}")
-    return treatment_costs
+        print(f" {Fore.YELLOW}{headings[i]}:{costs[i]}€")
 
 
 def validate_email():
