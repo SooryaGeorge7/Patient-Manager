@@ -343,8 +343,8 @@ class Patient:
             details = patients.row_values(row)
             print(f"""{Fore.YELLOW}
               ---Patient Details---
-             Patient Name:{details[0]}
-             Patient Surname:{details[1]}
+             Patient Name:{details[0].title()}
+             Patient Surname:{details[1].title()}
              Email:{details[2]}
              Birthday:{details[3]}
              File Number:{details[4]}""")
@@ -419,8 +419,8 @@ class Scheduler:
         pt_row = file_num_column.index(file_number) + 1
         pt_details = patients.row_values(pt_row)
         file_num = appointments.col_values(1)
-        print(f" {Fore.YELLOW}Patient {pt_details[0]} "
-              f"{pt_details[1]}'s appointments")
+        print(f" {Fore.YELLOW}Patient {pt_details[0].title()} "
+              f"{pt_details[1].title()}'s appointments")
         appointment_date = appointments.col_values(2)
         appointment_time = appointments.col_values(3)
         appointment_reason = appointments.col_values(4)
@@ -429,7 +429,7 @@ class Scheduler:
             if file_number == file_num[value]:
                 print(f"""{Fore.YELLOW}
  {appointment_date[value]} at {appointment_time[value]} hours
- Treatment:{appointment_reason[value]}
+ Treatment:{appointment_reason[value].title()}
  Cost:{appointment_price[value]}
  """)
 
