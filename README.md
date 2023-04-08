@@ -314,21 +314,35 @@ Once user chooses total payment due, then the user is displayed the total cost o
 * An option to add notes for each patient.
 * Add much more details for patients information( taking in address etc)
 
-## Technologies Used
+# Technologies Used
 
-### Languages Used
+## Languages Used
 
-* Python is predominently used, with the project template having javascript and html as well. 
-### Frameworks, Libraries and Programs Used
+* Python is predominently used, with the project template having javascript,css and html as well. 
+* MarkedDown is used for the README.md and TESTING.md 
 
-* [GitHub](https://github.com/)- To save and store files
-* [Gitpod](https://gitpod.io/workspaces)- Code editor
-* [Git](https://git-scm.com/) - For Version control
-* [Heroku](https://heroku.com) - For deployment
-* [Google sheets API](https://developers.google.com/sheets/api) - To store and fetch data
-* [Diagrams.net](https://diagram.net) - Used to make flowchart 
-* [CI Python Linter](https://pep8ci.herokuapp.com/) - To validate code
-* [Ascii Art](https://www.asciiart.eu/) - For start of game art piece 
+## Frameworks, Libraries and Programs Used
+
+* [GitHub](https://github.com/)- To save and store files.
+* [Gitpod](https://gitpod.io/workspaces)- Code editor.
+* [Git](https://git-scm.com/) - For Version control.
+* [Heroku](https://heroku.com) - For deployment.
+* [Google sheets API](https://developers.google.com/sheets/api) - To store and fetch data.
+* [Diagrams.net](https://diagram.net) - Used to make flowchart .
+* [Pexels](https://www.pexels.com/) - Used for background image.
+* [CI Python Linter](https://pep8ci.herokuapp.com/) - To validate python code.
+* [Text ASCII Art Generator](http://patorjk.com/software/taag/)  - For start of game logo art piece.
+
+## Pythin Libraries 
+
+* [gspread](https://docs.gspread.org/)- This is used for control of google sheets API
+* [OAuthLib](https://pypi.org/project/oauthlib/)- This is used to authenticate and request HTTP to google sheets API
+* [Colorama](https://pypi.org/project/colorama/)- Used to change color of texts displayed in terminal.
+* [os](https://docs.python.org/3/library/os.html)- Used to clear terminal when needed
+* [re](https://docs.python.org/3/library/re.html)- Used to make pattern for emails, file number to validate input.
+* [bcrypt](https://pypi.org/project/bcrypt/)- Used for hashing passwords inputed by user.
+* [datetime](https://docs.python.org/3/library/datetime.html)- Used to check inputed date and time format.
+
 ## Testing
 
 ## Bugs 
