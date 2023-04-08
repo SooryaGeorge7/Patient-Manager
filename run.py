@@ -94,12 +94,13 @@ def user_login():
         login_username = input(f"{Fore.LIGHTYELLOW_EX} Please "
                                "enter username:\n ")
         login_password = input(" Please enter password:\n ")
+        # Encode user input to be able to match hashed one in database
         coded_password = login_password.encode('utf-8')
         clear_terminal()
         try:
-            for x in data:
-                username = x[0]
-                password = x[1]
+            for value in data:
+                username = value[0]
+                password = value[1]
                 hash_password = password.encode('utf-8')
 
                 if login_username == username and \
@@ -121,6 +122,7 @@ def user_login():
                     raise ValueError
                 elif user_option == "b":
                     clear_terminal()
+                    # Call function to sign in
                     sign_up()
                     break
                 else:
@@ -190,6 +192,7 @@ def menu_choice():
     to exit the program
     """
     while True:
+        # Menu has 5 options, user is returned to this menu after task.
         menu = input(f"""{Fore.LIGHTYELLOW_EX}
  Please select one of the following Options below:\n
  a - View patient details
@@ -200,13 +203,18 @@ def menu_choice():
  :\n """).lower()
         clear_terminal()
         if menu == "a":
+            # Insert input into file_no_pattern function to check format
             file_number = file_no_pattern(f"{Fore.LIGHTYELLOW_EX} Enter "
                                           "patient's file number"
                                           "(format: #_ _ _ _ _):\n ")
+            # Define variable to call method
             patient = Patient('Patient')
+            # Call patient class method patient_details()
             patient.patient_details(file_number)
 
         elif menu == "b":
+            # Input is passed in not_empty() to make sure string
+            # is not empty
             name = not_empty(f"{Fore.LIGHTYELLOW_EX} Please enter "
                              "Patient's first name:\n ")
             surname = not_empty(f"{Fore.LIGHTYELLOW_EX} Please enter"
@@ -215,13 +223,14 @@ def menu_choice():
             birthday = validate_birthdate()
             fileno = validate_fileno()
             clear_terminal()
+            # list is created with arguments which pass in add_details()
             new_patient = [name, surname, email, birthday, fileno]
-
             patient = Patient('Patient')
             patient.add_details(new_patient)
 
         elif menu == "c":
             while True:
+                # User has to choose between adding or viewing
                 appointment_choice = input(f"""{Fore.LIGHTYELLOW_EX}
  Choose between:
  a - Add Appointment
@@ -235,12 +244,14 @@ def menu_choice():
                                                   "number (format: #-----)"
                                                   " :\n ")
                     try:
+                        # Use for loop to check with data in Patients sheet
                         for num in patient_data:
                             if file_number == num[4]:
                                 date = validate_app_date()
                                 time = validate_time()
                                 reason = validate_treatment()
                                 clear_terminal()
+                                # Call add_appntmnt() method in Scheduler
                                 scheduler = Scheduler()
                                 scheduler.add_appntmnt(
                                     file_number,
@@ -248,6 +259,7 @@ def menu_choice():
                                     time,
                                     reason
                                 )
+                                # This is called to go back to menu
                                 menu_choice()
                                 break
                         else:
@@ -258,12 +270,14 @@ def menu_choice():
                         break
 
                 elif appointment_choice == "b":
+                    # Get all data from appointments sheet
                     appointment_data = appointments.get_all_values()
                     file_number = file_no_pattern(f"{Fore.LIGHTYELLOW_EX} "
                                                   "Enter patient's file "
                                                   "number (format: #-----)"
                                                   " :\n ")
                     try:
+                        # Check if user input matches data in appointments.
                         for f_num in appointment_data:
                             if file_number == f_num[0]:
                                 clear_terminal()
@@ -319,16 +333,16 @@ class Patient:
             row = file_number_column.index(file_number) + 1
 
             details = patients.row_values(row)
-            view_patient = print(f"""{Fore.YELLOW}
+            print(f"""{Fore.YELLOW}
               ---Patient Details---
              Patient Name:{details[0]}
              Patient Surname:{details[1]}
              Email:{details[2]}
              Birthday:{details[3]}
              File Number:{details[4]}""")
-            return view_patient
+
         except ValueError:
-            print(f"{Fore.RED} File does'nt exist")
+            print(f"{Fore.RED} File does'nt exist,Please add patient.")
 
     def add_details(self, new_patient):
         """
