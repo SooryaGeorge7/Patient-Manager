@@ -411,9 +411,33 @@ Open the terminal in your code editor(eg. Gitpod) and change the current working
 In the terminal type in "git clone" and paste the link you copied in step 4 above. Press enter.
 Cloning is now completed.
 
-## Credits and Acknowledgements
+# Credits and Acknowledgements
 
-### Code Used
-### Content 
-### Media
-### Acknowledgements
+## Code Used
+
+* Learnt how to clear terminal here - https://stackoverflow.com/questions/2084508/clear-terminal-in-python
+* Learnt how to use coloroma here - https://linuxhint.com/colorama-python/
+* Learnt how to hash passwords here - https://stackoverflow.com/questions/63387149/hashing-a-password-with-bcrypt, https://www.youtube.com/watch?v=hNa05wr0DSA&t=679s
+* Learnt how to use regular expressions here - https://www.geeksforgeeks.org/pattern-matching-python-regex/
+* Learnt how to use datetime here - https://stackoverflow.com/questions/16870663/how-do-i-validate-a-date-string-format-in-python, https://stackoverflow.com/questions/33076617/how-to-validate-time-format
+
+
+## Content 
+
+* All content for application is written by me 
+
+## Media
+
+[Pexels.com](https://www.pexels.com)- Used to get background image for deployed terminal
+
+## Acknowledgements
+
+* I want to thank code institute slack #project-portfolio-3 group for all valuable knowledge i've learnt in short space of time
+* I want to thank my mentor Brian O'hare for the support and encouragements.
+* I acknowledge the tutor support for helping me understand some concepts with regards to git and heroku. 
+* I acknowledge UCD novemebr 2022 private group for the support among fellow peers.
+* I want to thank Chris Quinn for delivering out masterclasses and facilitator sessions for python essentials.
+
+## Disclaimer
+
+* This app is made for project portfolio 3 with full stack development course with Code instutute and is made for educational purposes only.
