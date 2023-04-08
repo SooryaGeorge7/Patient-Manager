@@ -320,7 +320,11 @@ def menu_choice():
 
 
 class Patient:
-    
+    """
+    This class represents a patients, it contains methods that views
+    patient details and adds patient details to same patient
+    sheet in gspread.
+    """
     def __init__(self, file_number):
         self.file_number = file_number
 
@@ -358,6 +362,11 @@ class Patient:
 
 
 class Scheduler:
+    """
+    This class represents a scheduling system that checks if 
+    appointment is available, allows user to add appointment
+    and show all appointments of a patient.
+    """
     def __init__(self):
         self.new_appointment = []
 
