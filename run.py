@@ -149,8 +149,8 @@ def sign_up():
     # Use while loop to repeat input to user incase of error happens
     while sign_in is False:
         try:
-            new_username = input(f"{Fore.LIGHTYELLOW_EX} Please enter"
-                                 " a new username:\n ")
+            new_username = not_empty(f"{Fore.LIGHTYELLOW_EX} Please enter"
+                                     " a new username:\n ")
             # Define an empty list
             new_row = []
             # Line is column
