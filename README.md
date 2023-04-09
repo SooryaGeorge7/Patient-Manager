@@ -370,16 +370,16 @@ Please go over to [TESTING.md] for manual testing documentation.
 
 ## Solved Bugs
 
-1.	Was unable to store hashed passwords, gave error-
-TypeError: Object of type bytes is not JSON serializable
- when trying to store my hashed password to gspread
-2.	Need to show all apppointments for a patient, not just one. 
-3.	Log in – if you cant, dead end. 
-4.	Appointments could be made for file numbers who ddnt have patient details yet. 
-5.	View appointments gave error .
-6.	Could add the same file number more than once in patients datasheet. 
-7.	User were able to store empty strings as values in data base- prevent that 
-8.	Needed to check if appointment date and time is not repeated in appointment sheet. 
+| Bug | Solution | 
+| --- | --- |
+| 1.	Was unable to store hashed passwords, gave error-TypeError: Object of type bytes is not JSON serializable. when trying to store my hashed password to gspread | This was solved by decoding the byte object to store the password as string.I found solution here https://stackoverflow.com/questions/44682018/typeerror-object-of-type-bytes-is-not-json-serializable |
+| 2. When user chose option to view appointments for a certain patient,	The system was only showing one appointment for patient and not all appointments assigned to that patient. | I solved this by using for loop in view_appointment() to check the column in appointment sheet that has all the file numbers. I then used if statement to check if inputed file number corresponded to filenumbers stored in the appointment sheet's file number column. If they are the same, then for loop will allow all the appointments with that specific file number to be displayed to user. In the data sheet below you can see appointments for same file number. ![appointment data](documentation/bugs/view-appointment-bug.png),  ![appointment display](documentation/bugs/view-appointment-bug-solved.png) This will then be displayed as this to user|
+| 3.	I realised after finishing 90% of the application that when i Log in and i dont have the correct credentials then user is at a dead end. and is not given an option to sign up or try again.![View bug here](documentation/bugs/login-bug.gif) | This was solved by giving user option to try again or sign up to store their credentials. ![See here](documentation/bugs/login-solution.png) |
+| 4.	Appointments could be made for file numbers who ddnt have patient details yet.This would then cause problems when user checks for patient details of an appointment that is made as there would be none| This is solved by first checking if file number entered by user to make appointment was in the patients sheet first, if that specific file number is already stored in the patients sheet then program proceeds to ask user to enter appointment date and time to make a booking. However, If inputed file number does not correspond to a file number in patient's sheet then user will be redirected to the main menu to enter patient's details before making an appointment. For example: user enters file no #78653 to make appointment and the app will check through patients sheet file number column ![patient sheet](documentation/bugs/patient-details-sheet.png) . As you can see that specific file number is in patient sheet file number column, and will then proceed to ask user with the necessary questions to make appointment. If that file number is not found in patient's sheet file number column, user will be redirected like so -![Add patient](documentation/bugs/add-patient-first.png) |
+| 5.	When user tried to view appointments for which patient details are already added,User is asked to input patient's file number. This gave error because appointment was not yet made with the specific patient yet . | Solved by using forloop to check if inputted file number was in appointment sheet in database/gspread and if it was'snt there then user is returned back to menu.  |
+| 6.	When user wanted to add patient details, they could add the same file number more than once in patients datasheet.This should cause problems as file number should be unique to each patient | This was solved by by checking the inputed file number with the file numbers stored in patient details using for loop.If it is already stored, error message will be displayed before user is returned back to main menu.  |
+| 7.	User were able to store empty strings as values in data base when adding patient details or storing usernames and passwords | This is solved by passing inputs into function not_empty() to make sure the length of their string is not 0, If it is 0, then user is prompted with message "You've entered an empty value" before being promted to ask for the input again. |
+| 8.	User was able to enter same appointment and time for multiple patients. This would not work in real life as there can only be 1 patient booked for one slot. |  I created an is_available() method in class scheduler to pass arguments date and time which is inputed by user. This date and time is checked with the appointments sheet's stored date and time . If both of these values correspond to a patient, then error message is shown to user saying "Sorry, that slot is already booked" before returning patient to menu. |
 
 ## Known Bugs
 
