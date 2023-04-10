@@ -163,7 +163,8 @@ def sign_up():
                     new_username = not_empty(f"{Fore.LIGHTYELLOW_EX} Please "
                                              "enter a new username:\n ")
                     # Ask user for the newpassword ,and confirm using input().
-            new_password = not_empty(" Please enter a new password:\n ")
+            new_password = not_empty(f"{Fore.LIGHTYELLOW_EX} Please enter a "
+                                     "new password:\n ")
             confirm_password = input(" Please reenter password to confirm:\n ")
             # Call function to clear terminal
             clear_terminal()

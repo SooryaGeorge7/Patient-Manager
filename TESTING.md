@@ -37,3 +37,21 @@
 | Please choose from a - View patient details, b - Add patient details, c - Appointments, d - Treatments, e - Exit | d | Presents user with another menu, to choose from a - Calculate payment due, b- View prices | as expected |
 | Please choose from a - View patient details, b - Add patient details, c - Appointments, d - Treatments, e - Exit | e | Returns user to start screen by calling main() | as expected |
 | Please choose from a - View patient details, b - Add patient details, c - Appointments, d - Treatments, e - Exit | any other key | Invalid input error message, prompts user to enter input again | as expected |
+
+## Manual testing of user choosing "a" in menu_choice()
+|Choice | Input | Expected result | Response |
+|---|---|---|---|
+| Enter patient's file no | file number entered in incorrect format | input is first tested in file_no_pattern() fxn, if not valid pattern, user is returned to enter file no again| as expected |
+| Enter patient's file no | valid file number format, but doesnt exist in patients sheet in spread | if valid file no format is inserted, program calls patient_details method of class Patient, in the patient_details method, it takes the file number as argument and checks if the file number corresponds to a file number in patient's sheet in gspread. If file number entered is not there, then user is given error message and asked to enter patient details before returning user to menu | as expected |
+| Enter patient's file no | valif file number format that exists in patient's sheet in gspread | if valid file no format is inserted, program calls patient_details method of class Patient, in the patient_details method, it takes the file number as argument and checks if the file number corresponds to a file number in patient's sheet in gspread. If file number entered is  there, then patient details of that specific file no is displayed to user before returning user to menu | as expected | 
+
+## Manual testing of user choosing "b" in menu_choice()
+|Choice | Input | Expected result | Response |
+|---|---|---|---|
+| Enter patient's name, surname, email, DOB, file no | Empty strings entered for patient name or surname | empty values are passed through not_empty function to return user to enter input again if string entered was empty.| as expected |
+| Enter patient's name, surname, email, DOB, file no  | Email entered is invalid | Emails inputed are passed through validate_email() fxn to check if email written matches with valid email format. User is prompt to enter email again if invalid | as expected |
+| Enter patient's name, surname, email, DOB, file no | Invalid DOB format | The date of Birth entered is passed through function validate_birthdate() to check if date entered is in the correct format first before checking if DOB is not a date in the future or present.If date entered is not in correct format, then error message "This is not a valid entry" is displayed to user| as expected | 
+| Enter patient's name, surname, email, DOB, file no  | Date inputed is in the future or is the present day |The date of Birth entered is passed through function validate_birthdate() to check if DOB is not a date in the future or present.If date entered is in the future, then error message "This is not a valid birthdate, try again" is displayed to user  before requesting DOB again| as expected |
+| Enter patient's name, surname, email, DOB, file no | File no inputed in wrong format | File no is passed through file_no_pattern() fxn to check correct format, if not then user is promt to enter file no again | as expected | 
+| Enter patient's name, surname, email, DOB, file no | File no inputed already exists in patient's sheet | A valid file no is passed through validate_fileno() fxn to check file number entered is already present in Patient's sheet in gspread, if it is already present, then error message "This file no is already added" is displayed to user before returning user to main menu | as expected | 
+| Enter patient's name, surname, email, DOB, file no | All inputs entered are valid | Name, surname, email, DOB and file number is first appeneded to a list and add_details method of class Patient is called.The method passes the new list as its argument , which allows the values in the list to be appended to a new row in Patients sheet in gspread.
