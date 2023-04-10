@@ -39,6 +39,8 @@
 | Please choose from a - View patient details, b - Add patient details, c - Appointments, d - Treatments, e - Exit | any other key | Invalid input error message, prompts user to enter input again | as expected |
 
 ## Manual testing of user choosing "a" in menu_choice()
+
+
 |Choice | Input | Expected result | Response |
 |---|---|---|---|
 | Enter patient's file no | file number entered in incorrect format | input is first tested in file_no_pattern() fxn, if not valid pattern, user is returned to enter file no again| as expected |
@@ -46,6 +48,8 @@
 | Enter patient's file no | valif file number format that exists in patient's sheet in gspread | if valid file no format is inserted, program calls patient_details method of class Patient, in the patient_details method, it takes the file number as argument and checks if the file number corresponds to a file number in patient's sheet in gspread. If file number entered is  there, then patient details of that specific file no is displayed to user before returning user to menu | as expected | 
 
 ## Manual testing of user choosing "b" in menu_choice()
+
+
 |Choice | Input | Expected result | Response |
 |---|---|---|---|
 | Enter patient's name, surname, email, DOB, file no | Empty strings entered for patient name or surname | empty values are passed through not_empty function to return user to enter input again if string entered was empty.| as expected |
@@ -58,6 +62,8 @@
 
 
 ## Manual testing of user choosing "a- add appointment" after choosing option c in menu_choice()
+
+
 |Choice | Input | Expected result | Response |
 |---|---|---|---|
 | Enter file no, appointment date, appointment time, treatment| File no entered, wrong format| File no is passed through file_no_pattern() fxn to check correct format, if not then user is promt to enter file no again  | As expected |
@@ -70,8 +76,35 @@
 
 
 ## Manual testing of user choosing "b- View appointments" after choosing option c in menu_choice()
+
+
 |Choice | Input | Expected result | Response |
 |---|---|---|---|
 | Asks for patient's file no | file no wrong format |  File no is passed through file_no_pattern() fxn to check correct format, if not then user is promt to enter file no again  | As expected |
 | Asks for patient's file no| File number is not in appointments sheet| If valid file no format, Inputed file number is checked with file nos stored in appointments sheet in gspread. If file no doesnt match to one in the sheet, then user is displayed error "We dont have an appointment with them,please add appointment" before returning user to add appointment| As expected |
 | Asks for patient's file no| Valid input| Calls view_appointment() method of class Scheduler which checks file number with file no in patients sheet, appointments sheet to be able to display user an appropriate message showing all appointment for that specific patient. The row in appointments sheet with the inputed file no, is exported to display to user the appointment patient name, surname, date, time, treatment and cost of treatment.| As expected|
+
+## Manual testing of user choosing "a"- Calculate total payment due after choosing option d in menu_choice()
+
+|Choice | Input | Expected result | Response |
+|---|---|---|---|
+| Asks user to choose treatment from options, and then to keep adding or view payment due  | Invalid treatment option input  | in Payment_due(),If user inputs any value other than the treatment options shown to user, then error message "We dont have that treatment option, try again" is displayed to user before asking to enter treatment again. | As expected  |
+| Asks user to choose treatment from options, and then to keep adding or view payment due  | User chooses an option other than "a"- add another treatment "b"- View payment due | In payment_due() and asks user is asked to add another treatment option or view total payment due.If input is neither then, error message "invalid option, start  again" is displayed before prompting user to enter treatment option again | As expected |
+| Asks user to choose treatment from options, and then to keep adding or view payment due  | Valid inputs | treatment options chosen by user is added to a list which is compared to treatments in treatment sheet. If they are the same, then new list is added with the cost of treatments as integers. sum() is used to add the costs of treatment together to show payment due to user.  | As expected |
+
+
+## Manual testing of user choosing "b"- View prices after choosing option d in menu_choice()
+
+|Choice | Input | Expected result | Response |
+|---|---|---|---|
+| Doesnt ask any input from user |choice- b| Displays results from treatment sheet which contains the treatments and prices of each treatment in a readable manner.| As expected|
+
+## Manual testing of user choosing option e in menu_ choice()
+
+| Expected result | Response |
+| Allows user to return to start screen | As expected |
+
+## Manual testing of user entering invalid input in menu_ choice()
+
+| Expected result | Response |
+| Gives error message "You have entered an invalid option, please try again" before returning user to menu again| As expected |
