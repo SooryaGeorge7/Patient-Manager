@@ -299,7 +299,7 @@ def menu_choice():
             while True:
                 t_choice = input(f"""{Fore.LIGHTYELLOW_EX}
  Please Choose between
- a - Calculate Total Cost
+ a - Calculate Payment Due
  b - View prices
  :\n """)
                 clear_terminal()
@@ -474,7 +474,7 @@ def payment_due():
                 u_choice = input(f"""{Fore.LIGHTYELLOW_EX}
  Choose between
  a) Add another treatment
- b) Total Payment Due
+ b) View Total Payment Due
  :\n """)
                 clear_terminal()
                 if u_choice == "a":
