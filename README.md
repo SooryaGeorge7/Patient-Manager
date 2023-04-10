@@ -364,7 +364,7 @@ Once user chooses total payment due, then the user is displayed the total cost o
 
 ## Manual Testing
 
-Please go over to [TESTING.md] for manual testing documentation.
+Please go over to [TESTING.md](TESTING.md) for manual testing documentation.
 
 # Bugs 
 

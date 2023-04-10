@@ -426,13 +426,17 @@ class Scheduler:
         appointment_time = appointments.col_values(3)
         appointment_reason = appointments.col_values(4)
         appointment_price = appointments.col_values(5)
+        number = 0
         for value in range(len(file_num)):
             if file_number == file_num[value]:
+                number += 1
                 print(f"""{Fore.YELLOW}
- {appointment_date[value]} at {appointment_time[value]} hours
- Treatment:{appointment_reason[value].title()}
- Cost:{appointment_price[value]}
- """)
+         {number}.
+         Date:{appointment_date[value]}
+         Time: {appointment_time[value]}
+         Treatment:{appointment_reason[value].title()}
+         Cost:{appointment_price[value]}€
+         """)
 
 
 def payment_due():
