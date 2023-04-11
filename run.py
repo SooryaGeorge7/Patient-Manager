@@ -312,6 +312,8 @@ def menu_choice():
                         print(f"{Fore.RED} We dont have an "
                               "appointment with that file no.")
                         break
+                else:
+                    print(f"{Fore.RED} invalid input")
 
         elif menu == "d":
             while True:
