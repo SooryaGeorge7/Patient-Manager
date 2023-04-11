@@ -20,12 +20,10 @@ SCOPE = [
 CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
-
 SHEET = GSPREAD_CLIENT.open('Patient_manager')
 users = SHEET.worksheet('users')
 patients = SHEET.worksheet('patients')
 appointments = SHEET.worksheet('appointments')
-
 treatments = SHEET.worksheet('treatments')
 treatments_data = treatments.get_all_values()
 
@@ -75,8 +73,10 @@ def choice():
         clear_terminal()
         if user_choice == "a":
             option = True
+            # calls fxn to log in
             user_login()
         elif user_choice == "b":
+            # calls fxn to sign up/register
             sign_up()
             option = True
 
@@ -92,6 +92,7 @@ def user_login():
     the hashed passwords in data sheet.(You have to encode the passwords
     in datasheet because they were decoded when being stored.)
     """
+    # Get values from users SHEET in google sheets using get_all_values().
     data = users.get_all_values()
     log_in = False
     print(f"{Fore.GREEN} You may log in!")
@@ -99,18 +100,22 @@ def user_login():
         login_username = input(f"{Fore.LIGHTYELLOW_EX} Please "
                                "enter username:\n ")
         login_password = getpass.getpass(" Please enter password:\n ")
-        # Encode user input to be able to match hashed one in database
+        # Encode user input to be able to match hashed one in database.
         coded_password = login_password.encode('utf-8')
+        # Call fxn to clear terminal
         clear_terminal()
         try:
+            # Use for loop to check for stored usernames and passwords
             for value in data:
                 username = value[0]
                 password = value[1]
+                # Encode the (decoded) string password to change it to bytes
                 hash_password = password.encode('utf-8')
-
+                # Use bcrypt.checkpw to check if input matches stored password
                 if login_username == username and \
                    bcrypt.checkpw(coded_password, hash_password):
                     print(f"{Fore.GREEN} Log in Successful!")
+                    # Call menu fxn
                     menu_choice()
                     break
 
@@ -153,7 +158,6 @@ def sign_up():
         try:
             new_username = not_empty(f"{Fore.LIGHTYELLOW_EX} Please enter"
                                      " a new username:\n ")
-            # Define an empty list
             new_row = []
             # Line is column
             for line in data:
@@ -188,6 +192,7 @@ def sign_up():
                 salt = bcrypt.gensalt()
                 hashed_p = bcrypt.hashpw(bcrypt_byte, salt)
                 new_row.append(hashed_p.decode('utf-8'))
+                # Use append_row to store username and hashed password in SHEET
                 users.append_row(new_row)
                 user_login()
         except ValueError as error:
@@ -250,15 +255,18 @@ def menu_choice():
  :\n """)
                 clear_terminal()
                 if appointment_choice == "a":
+                    # Get all the values from patients SHEET in google sheet
                     patient_data = patients.get_all_values()
                     file_number = file_no_pattern(f"{Fore.LIGHTYELLOW_EX} "
                                                   "Enter patient's file "
                                                   "number (format: #-----)"
                                                   " :\n ")
                     try:
-                        # Use for loop to check with data in Patients sheet
+                        # Use for loop to check data stored in Patients sheet
                         for num in patient_data:
+                            # num[4] is column containing all file numbers
                             if file_number == num[4]:
+                                # Call fxns to validate
                                 date = validate_app_date()
                                 time = validate_time()
                                 reason = validate_treatment()
@@ -282,7 +290,7 @@ def menu_choice():
                         break
 
                 elif appointment_choice == "b":
-                    # Get all data from appointments sheet
+                    # Get all data from appointments sheet.
                     appointment_data = appointments.get_all_values()
                     file_number = file_no_pattern(f"{Fore.LIGHTYELLOW_EX} "
                                                   "Enter patient's file "
@@ -291,6 +299,7 @@ def menu_choice():
                     try:
                         # Check if user input matches data in appointments.
                         for f_num in appointment_data:
+                            # f_num[0] contains all file nos in appointments.
                             if file_number == f_num[0]:
                                 clear_terminal()
                                 scheduler = Scheduler()
@@ -313,9 +322,11 @@ def menu_choice():
  :\n """)
                 clear_terminal()
                 if t_choice == "a":
+                    # Calls fxn to calculate payment due
                     payment_due()
                     break
                 elif t_choice == "b":
+                    # Calls fxn that displays treatment prices
                     view_treatments()
                     break
                 else:
@@ -410,6 +421,7 @@ class Scheduler:
             self.new_appointment.append(time)
             self.new_appointment.append(reason)
             # Used for loop to check the prices in treatments sheet.
+            # use range(len())to iterate through all treatments
             for i in range(len(treatment_names)):
                 if reason == treatment_names[i]:
                     self.new_appointment.append(treatment_prices[i])
@@ -494,21 +506,23 @@ def payment_due():
 
                 elif u_choice == "b":
                     payment = True
+                    # Last input is also added to prices list
                     prices.append(pt_treatment)
                     # Find row values of treatments sheet
                     headings = treatments.row_values(1)
                     costs = treatments.row_values(2)
                     addition = True
                     # Change values in costs to integer with int()
+                    # store integers in new list
                     int_costs = [int(x) for x in costs]
                     i = 0
-                    # Define a new list to add the integers
+                    # Define a new list to add the chosen treatment's prices
                     final_list = []
                     # Use for loop to check if item in price is in headings
                     for i in prices:
                         if i in headings:
                             #  Use index() to check the treatment price
-                            #  Append it to new list with integers
+                            #  Append it to final_list
                             final_list.append(int_costs[headings.index(i)])
                     # Use sum() to add integers in list
                     print(f"{Fore.YELLOW} Total payment due"
@@ -520,6 +534,7 @@ def payment_due():
                     print(f"{Fore.RED} invalid option,start again")
                     addition = True
         if addition is False:
+            # For when user doesnt enter a valid treatment option
             print(f"{Fore.RED} We dont have that treatment option, try again")
 
 
@@ -532,7 +547,7 @@ def view_treatments():
     costs = treatments.row_values(2)
     i = 0
     print(f"{Fore.YELLOW} Treatment Prices")
-    # Use forloop to print our values in treatment sheet
+    # Use forloop to print out values in treatment sheet
     for i in range(len(headings)):
         print(f" {Fore.YELLOW}{headings[i].title()}:{costs[i]}€")
 
@@ -542,12 +557,13 @@ def validate_email():
     Function that validates user's inputed email by using regular
     expressions to match pattern.
     """
-    # Learnt about pattern matching here
+    # Learnt about pattern matching and regular expression here
     # https://www.geeksforgeeks.org/pattern-matching-python-regex/
     while True:
         u_email = input(f"{Fore.LIGHTYELLOW_EX} Please enter email:\n ")
         # Use pattern matching to make sure user enter valid email
         v_email = r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+        # re.match checks inputed email to match v_email pattern/format
         if re.match(v_email, u_email):
             break
         else:
@@ -567,6 +583,7 @@ def validate_app_date():
         try:
             u_date = input(f"{Fore.LIGHTYELLOW_EX} Please add appointment"
                            " in the format DD-MM-YYYY:\n ")
+            # Use datetime to check if input matches given format
             date_obj = datetime.datetime.strptime(u_date, '%d-%m-%Y')
             current_date = datetime.datetime.now()
             # Use > to check if input date is not present or past
@@ -632,8 +649,8 @@ def validate_fileno():
                                   "number (format: #-----)"
                                   " :\n ")
         # Use for loop to check if specific file no is already used.
-        # Checked in patients sheet data
-        # Cant have the same file number again as its a unique code
+        # Checked in patients sheet data.
+        # Cant have the same file number again as its a unique code.
         for number in patient_data:
             if file_no == number[4]:
                 print(f"{Fore.RED} This patient is already added.")
@@ -711,6 +728,8 @@ def clear_terminal():
     """
     Function that can be called to clear terminal at any stage of the program
     """
+    # Learnt here
+    # https://stackoverflow.com/questions/4810537/how-to-clear-the-screen-in-python
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
