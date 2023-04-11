@@ -4,10 +4,12 @@ Importing libraries and data from libraries and gspread
 import re
 import os
 import datetime
+import getpass
 import gspread
 from google.oauth2.service_account import Credentials
 from colorama import Fore, Style
 import bcrypt
+
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -96,8 +98,7 @@ def user_login():
     while log_in is False:
         login_username = input(f"{Fore.LIGHTYELLOW_EX} Please "
                                "enter username:\n ")
-        login_password = input(f" Please enter password:\n "
-                               f"{Fore.BLACK}")
+        login_password = getpass.getpass(" Please enter password:\n ")
         # Encode user input to be able to match hashed one in database
         coded_password = login_password.encode('utf-8')
         clear_terminal()
