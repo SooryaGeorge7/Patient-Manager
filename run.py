@@ -96,8 +96,8 @@ def user_login():
     while log_in is False:
         login_username = input(f"{Fore.LIGHTYELLOW_EX} Please "
                                "enter username:\n ")
-        login_password = input(f" Please enter password:\n"
-                               f"{Fore.BLACK} {Style.RESET_ALL}")
+        login_password = input(f" Please enter password:\n "
+                               f"{Fore.BLACK}")
         # Encode user input to be able to match hashed one in database
         coded_password = login_password.encode('utf-8')
         clear_terminal()
@@ -166,10 +166,10 @@ def sign_up():
                     # Ask user for the newpassword ,and confirm using input().
             new_password = not_empty(f"{Fore.LIGHTYELLOW_EX} Please enter a "
                                      "new password:\n "
-                                     f"{Fore.BLACK}{Style.RESET_ALL}")
+                                     f"{Fore.BLACK}")
             confirm_password = input(f"{Fore.LIGHTYELLOW_EX} Please reenter "
                                      "password to confirm:\n "
-                                     f"{Fore.BLACK}{Style.RESET_ALL}")
+                                     f"{Fore.BLACK}")
             # Call function to clear terminal
             clear_terminal()
             # If password doesnt match, the user directed back to start
