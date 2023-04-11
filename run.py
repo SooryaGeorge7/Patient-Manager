@@ -213,7 +213,10 @@ def menu_choice():
         if menu == "a":
             # Insert input into file_no_pattern function to check format
             file_number = file_no_pattern(f"{Fore.LIGHTYELLOW_EX} Enter "
-                                          "patient's file number"
+                                          "patient's file number."
+                                          "If you dont have a no yet, please"
+                                          " enter any number combination "
+                                          "in the format given. "
                                           "(format: #_ _ _ _ _):\n ")
             # Define variable to call method
             patient = Patient('Patient')
