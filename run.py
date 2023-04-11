@@ -301,7 +301,8 @@ def menu_choice():
                             raise ValueError
                     except ValueError:
                         print(f"{Fore.RED} We dont have an "
-                              "appointment with them,please add appointment")
+                              "appointment with that file no.")
+                        break
 
         elif menu == "d":
             while True:
