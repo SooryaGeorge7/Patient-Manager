@@ -360,7 +360,8 @@ class Patient:
              File Number:{details[4]}""")
 
         except ValueError:
-            print(f"{Fore.RED} File does'nt exist,Please add patient.")
+            print(f"{Fore.RED} Please remember to"
+                  "add patient first.")
 
     def add_details(self, new_patient):
         """
@@ -700,7 +701,10 @@ def file_no_pattern(user_text):
         if re.match(file_pattern, user_pattern):
             return user_pattern
         else:
-            print(f"{Fore.RED} You have not entered a valid file no.")
+            print(f"{Fore.RED} You have not entered"
+                  " file no in the correct format."
+                  " Please start with # followed by"
+                  " 5 digits eg(#12345)")
 
 
 def clear_terminal():
