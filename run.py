@@ -73,10 +73,10 @@ def choice():
         clear_terminal()
         if user_choice == "a":
             option = True
-            # calls fxn to log in
+            # Calls fxn to log in
             user_login()
         elif user_choice == "b":
-            # calls fxn to sign up/register
+            # Calls fxn to sign up/register
             sign_up()
             option = True
 
@@ -240,7 +240,7 @@ def menu_choice():
             birthday = validate_birthdate()
             fileno = validate_fileno()
             clear_terminal()
-            # list is created with arguments which pass in add_details()
+            # List is created with arguments which pass in add_details()
             new_patient = [name, surname, email, birthday, fileno]
             patient = Patient('Patient')
             patient.add_details(new_patient)
@@ -423,7 +423,7 @@ class Scheduler:
             self.new_appointment.append(time)
             self.new_appointment.append(reason)
             # Used for loop to check the prices in treatments sheet.
-            # use range(len())to iterate through all treatments
+            # Use range(len())to iterate through all treatments
             for i in range(len(treatment_names)):
                 if reason == treatment_names[i]:
                     self.new_appointment.append(treatment_prices[i])
@@ -515,7 +515,7 @@ def payment_due():
                     costs = treatments.row_values(2)
                     addition = True
                     # Change values in costs to integer with int()
-                    # store integers in new list
+                    # Store integers in new list
                     int_costs = [int(x) for x in costs]
                     i = 0
                     # Define a new list to add the chosen treatment's prices
@@ -549,7 +549,7 @@ def view_treatments():
     costs = treatments.row_values(2)
     i = 0
     print(f"{Fore.YELLOW} Treatment Prices")
-    # Use forloop to print out values in treatment sheet
+    # Use for loop to print out values in treatment sheet
     for i in range(len(headings)):
         print(f" {Fore.YELLOW}{headings[i].title()}:{costs[i]}€")
 

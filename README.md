@@ -8,15 +8,17 @@
 
 This python project is specifically developed for a dental  private practice. 
 
-This is a simple patient management system that would allow users(eg. admin) to add, view or edit  appointments, treatments and patient details. 
+This is a simple patient management system that would allow users to add, view or edit  appointments, treatments and patient details. 
 
-I decided to build this project for my 3rd portfolio project for code instutute having drawn inspiration from my current work life. 
+I decided to build this project for my 3rd portfolio project for code institute having drawn inspiration from my current work life. 
 
-I decided to challenge myself with a trying to complete a command line python application that would allow me to manage patients similarly to the applications used in real dental private practices. 
+I decided to challenge myself with a trying to complete a command line python application that would allow me to manage patients similarly to the applications used in a real dental private practice. 
 
 # Table of contents
   - [Brief](#brief)
-  - [User Stories](#user-stories)
+  - [Project](#project)
+    - [Scope/ Strategy](#scope-strategy)
+    - [Site Owner Goalds](#site-owner-goals)
     - [First time visitor](#first-time-visitor)
     - [Returning visitors](#returning-visitors)
   - [User Experience](#user-experience)
@@ -48,7 +50,7 @@ I decided to challenge myself with a trying to complete a command line python ap
 
 # Project 
 
-## Scope/ Stratergy
+## Scope/  Strategy
 
 I wanted to develop an application that could be used in real life. In my daily life in the dental environment, i often come across applications to manage patients.I drew inspiration from those applications.
 This patient management system allows user to log in, sign in, view patient details, add patient details , add appointments , view appointments , view treatment costs and calculate total payment due. 
@@ -61,35 +63,35 @@ The strategy for this project is implemented in the following ways:
 * Ensured all inputs are validated .
 * Allows for easy navigation through program .
 * Colored texts to display to user depending on user action.
-* Database connection with gspreads that allows ease of import and export of data.
-* Can access all features and user is given option to exit in main menu
+* Database connection with gspread that allows ease of import and export of data.
+* Can access all features and user is given option to exit in main menu.
 
 ## Site Owner Goals
 
 * Create a system that can be used in a real life dental practice. 
 * Ensure a bug free application.
-* Ensure that user recieves feedback when neccessary.
+* Ensure that user receives feedback when necessary.
 * Decide what type of inputs are valid.
 
 ## First time visitor
-* I want to be able to sign in to the program.
-* I want to view patient's details 
-* I want to add appointments for a patient.
-* I want to add a new patient's details
-* I want to edit or view treatments. 
-* I want to find the price of treatments.
+* As a user, I want to be able to sign in to the program.
+* As a user, I want to view a patient's details.
+* As a user, I want to add appointments for a patient.
+* As a user, I want to add a new patient's details.
+* As a user, I want to edit or view treatments. 
+* As a user, I want to find the price of treatments.
 
 ## Returning visitor
-* I want to be able to log in succesfully. 
-* I dont want to sign up again. 
+* I want to be able to log in successfully. 
+* I don't want to sign up again. 
 
 # User Experience
 
 The outputs displayed to user varies with color in the terminal for better ux. 
 For example: 
 * For errors and invalid inputs: output message would be red.
-* If user has logged in succesfully : output message would be green.
-* Most other questions or stataments are displayed with a shade of yellow.
+* If user has logged in successfully : output message would be green.
+* Most other questions or statements are displayed with a shade of yellow.
 * If data is being exported from datasheet: The displayed output is a darker yellow
 
 # Logic and Features
@@ -99,9 +101,9 @@ For example:
 A flowchart was created in the start of the project to help build logic for the system.
 ![Patient Manager Flow Diagram](documentation/flow-chart/flow-chart-patient-manager.png)
 
-## DataSheet
+## Datasheet
 
-Google Sheets were used to store data from user into spread sheet and to export data when neccessary as well.
+Google Sheets were used to store data from user into spread sheet and to export data when necessary as well.
 This project has a total of 4 worksheets. 
 
 1. The users sheet 
@@ -110,28 +112,28 @@ This project has a total of 4 worksheets.
 
 The users sheet contains the user's username and password(hashed with bcrypt). The hashed password is stored in case if the system
 is hacked they would not be able to access passwords to log in to the program.
-This sheet is user when patient tries signing in/registering to store new username/password and when loging in to check if inputed username and password match the ones in the datasheet.
+This sheet is user when patient tries signing in/registering to store new username/password and when logging in to check if inputted username and password match the ones in the datasheet.
 
 2. The patients sheet
 
 ![Patients sheet](documentation/datasheets/patients-sheet.png)
 
 The patients sheet contains the patient details of patients. Namely their first name, surname, email address, birthdate and file number.
-This sheet is used when viewing patient details and when adding patient details.It is also used to access patient's name when viewing appointments.
+This sheet is used when viewing patient details and when adding patient details. It is also used to access patient's name when viewing appointments.
 
 3. The appointments sheet
 
 ![Appointments sheet](documentation/datasheets/appointments-sheet.png)
 
 The appointments sheet contains patient file no, appointment date, time, treatment and price.
-This sheet is used when adding appointments and viewing appointments. All values in the sheet are entered by user except for the values in the price column.The prices in price column is imported from treatments sheet when user enter's patient's treatment for that appointment.
+This sheet is used when adding appointments and viewing appointments. All values in the sheet are entered by user except for the values in the price column. The prices in price column is imported from treatments sheet when user enters patient's treatment for that appointment.
 
 4. The treatments sheet
 
 ![Treatments sheet](documentation/datasheets/treatments-sheet.png)
 
 The treatments sheet contains all treatments offered in the dental clinic and the prices for each.
-This sheet is accessed when viewing prices,adding treatment prices to show total payment due and to check for treatment prices when adding appointment for a patient. 
+This sheet is accessed when viewing prices, adding treatment prices to show total payment due and to check for treatment prices when adding appointment for a patient. 
 
 ## Features
 
@@ -143,7 +145,7 @@ Main page/ Start screen consists of ASCII logo, welcome message with short descr
 
 ![Main Page Error](documentation/features/main-page-error.png)
 
-If you dont enter a valid option( a or b), then program will give error message and then will let user choose again.
+If you don't enter a valid option( a or b), then program will give error message and then will let user choose again.
 
 --- 
 
@@ -155,7 +157,7 @@ Once you choose (a) , The user is allowed to enter username and password.
 
 ![Log in Error](documentation/features/login-error.png)
 
-User should only log in if they have already signed up/ registered.If the system does'nt have your username or password in datasheet, it will display this error message and will allow you to choose to sign up or log in again.
+User should only log in if they have already signed up/ registered. If the system doesn't have your username or password in datasheet, it will display this error message and will allow you to choose to sign up or log in again.
 
 ---
 
@@ -175,7 +177,7 @@ For any string that the system has to store such as new password, new username, 
 
 ![Passwords error](documentation/features/passwords-error.png)
 
-When asked to confirm password, if passwords dont match then user is displayed an error message before asking to start again.
+When asked to confirm password, if passwords don't match then user is displayed an error message before asking to start again.
 
 ---
 
@@ -187,7 +189,7 @@ One user logs in successfully, The main menu is displayed which has 5 options(a 
 
 ![Main menu error](documentation/features/main-menu-error.png)
 
-If user doesnt choose an option from (a -b ), then user is displayed an error message before asking to choose again.
+If user doesn't choose an option from (a -b ), then user is displayed an error message before asking to choose again.
 
 * MENU OPTION A
 
@@ -197,22 +199,22 @@ If user chooses option "a", Program asks user to enter a file number(unique code
 
 ![File no pattern error](documentation/features/menu-option-a/file-no-pattern-error.png)
 
-The file number has a specific unque pattern, if user doesnt enter a file number with the correct pattern/format, it will give off this error. This error is shown everytime user doesnt enter a file number in the correct pattern at any time the user is required to enter a file number in the program. 
+The file number has a specific unique pattern, if user doesn't enter a file number with the correct pattern/format, it will give off this error. This error is shown every time user doesn't enter a file number in the correct pattern at any time the user is required to enter a file number in the program. 
 
 ![File no error](documentation/features/menu-option-a/no-file-num.png)
 
-If you enter a file number in the correct pattern/format, but we dont have this patient's details in the patients sheet , then user is given error message and will return user back to main page inorder for them to add the patient details of that specific file number.
+If you enter a file number in the correct pattern/format, but we don't have this patient's details in the patients sheet , then user is given error message and will return user back to main page in order for them to add the patient details of that specific file number.
 
 ![Patient Details](documentation/features/menu-option-a/view-patient-details.png)
 
-If user does enter a valid file number and it is stored in Patient's sheet in gspread, The program exports/ returns the patient's details connected to that specific file number.The user then is returned back to the main menu to be able to choose an option again.
+If user does enter a valid file number and it is stored in Patient's sheet in gspread, The program exports/ returns the patient's details connected to that specific file number. The user then is returned back to the main menu to be able to choose an option again.
 
 * MENU OPTION B 
 
 ![Add patients process](documentation/features/menu-option-b/add-patient-details.png)
 
 To add patients, user is asked to enter patient's name, surname, birthday, email and file number.
-If added succesfully, user is returned to the main menu.
+If added successfully, user is returned to the main menu.
 
 ![Date format error](documentation/features/menu-option-b/date-format-error.png)
 
@@ -220,7 +222,7 @@ The date entered by user should be in the correct formula, otherwise it will giv
 
 ![Birthday error](documentation/features/menu-option-b/birthday-error.png)
 
-The date entered in the correct formula should be a date in the past, if not then an error message will be displayed before user is aasked to enter birthdate again.
+The date entered in the correct formula should be a date in the past, if not then an error message will be displayed before user is asked to enter birthdate again.
 
 ![Email error](documentation/features/menu-option-b/email-error.png)
 
@@ -242,15 +244,15 @@ If user chooses neither a or b, an error message is displayed before asking user
 
  ![Adding pt process](documentation/features/menu-option-c/add-appointment/adding-appointments.png)
 
- If user chooses "a",then program proceeds to ask user for patient's file no, appointment date , time and treatment.
+ If user chooses "a", then program proceeds to ask user for patient's file no, appointment date , time and treatment.
 
  ![Add pt details error](documentation/features/menu-option-c/add-appointment/add-patientdetails-error.png)
 
- If user enters a file number that is not in the patients sheet in gspread, then user is returned to main menu to add patient's details first.This ensure that patient's details needs to be in the database before you can add an appointment for that patient.
+ If user enters a file number that is not in the patients sheet in gspread, then user is returned to main menu to add patient's details first. This ensure that patient's details needs to be in the database before you can add an appointment for that patient.
 
  ![Unavailable date error](documentation/features/menu-option-c/add-appointment/unavailable-appointment.png)
 
- If user enters a date and time which is already been entered/used in appointment sheet in gspread, then an error message is shown before return user to menu.This ensures that the user cant book more than 1 patient for a specific date and time .
+ If user enters a date and time which is already been entered/used in appointment sheet in gspread, then an error message is shown before return user to menu. This ensures that the user cant book more than 1 patient for a specific date and time .
 
 
  ![Appointment date error](documentation/features/menu-option-c/add-appointment/appointment-date-error.png)
@@ -261,7 +263,7 @@ If user chooses neither a or b, an error message is displayed before asking user
 
  ![Added message](documentation/features/menu-option-c/add-appointment/added-successfully.png)
 
- If appointment is added succesfully, a messaged is displayed before returning user to the main menu
+ If appointment is added successfully, a messaged is displayed before returning user to the main menu
 
  * VIEW APPOINTMENT
 
@@ -271,7 +273,7 @@ If user chooses neither a or b, an error message is displayed before asking user
 
  ![View Appointment error](documentation/features/menu-option-c/view-appointment/view-appointment-error.png)
 
- If user enter's a file number that is not in the appointments sheet, the user is displayed an error message to add appointment first. 
+ If user enters a file number that is not in the appointments sheet, the user is displayed an error message to add appointment first. 
 
 * MENU OPTION D
 
@@ -287,7 +289,7 @@ When user chooses menu option d- treatments, program displays another option to 
 
  ![Treatment option error](documentation/features/menu-option-d/payment-due/treatment-option-error.png)
 
- If user doesnt choose one of the treatment options from the list( doesnt matter if they enter in UPPERCASE or LOWERCASE), an error message is displayed before asking user to enter treatment option again. 
+ If user doesn't choose one of the treatment options from the list( doesn't matter if they enter in UPPERCASE or LOWERCASE), an error message is displayed before asking user to enter treatment option again. 
 
  ![After choice options](documentation/features/menu-option-d/payment-due/after-treatmentoption.png)
 
@@ -312,14 +314,14 @@ Once user chooses total payment due, then the user is displayed the total cost o
 
 ## Future implementation 
 
-* I want to add more styling to be able to mimick a real life application.  
+* I want to add more styling to be able to mimic a real life application.  
 * Id want to user to enter more details when adding patient such as address, cell no, etc. 
 * An option to say if patient has paid for treatments or not.
 * An option to add notes for each patient.
 * I'd want to have a search function to be able to search for specific patient incase file number is lost.
 * I'd want to be able to print out quotations for each patient and have payment due to be included in.
 * Add implementation to include time needed for each appointment 
-* Implement a calender system to mark out days that clinic will not be operatin( public holidays)
+* Implement a calendar system to mark out days that clinic will not be operating( public holidays)
 * Make application to manage patients for more than 1 dentist at a time.
 * Include more treatment options
 
@@ -328,8 +330,8 @@ Once user chooses total payment due, then the user is displayed the total cost o
 
 ## Languages Used
 
-* Python is predominently used, with the project template having javascript,css and html as well. 
-* MarkedDown is used for the README.md and TESTING.md 
+* Python is predominantly used, with the project template having javascript, css and html as well. 
+* Markdown is used for the README.md and TESTING.md 
 
 ## Frameworks, Libraries and Programs Used
 
@@ -350,8 +352,8 @@ Once user chooses total payment due, then the user is displayed the total cost o
 * [Colorama](https://pypi.org/project/colorama/)- Used to change color of texts displayed in terminal.
 * [os](https://docs.python.org/3/library/os.html)- Used to clear terminal when needed
 * [re](https://docs.python.org/3/library/re.html)- Used to make pattern for emails, file number to validate input.
-* [bcrypt](https://pypi.org/project/bcrypt/)- Used for hashing passwords inputed by user.
-* [datetime](https://docs.python.org/3/library/datetime.html)- Used to check inputed date and time format.
+* [bcrypt](https://pypi.org/project/bcrypt/)- Used for hashing passwords inputted by user.
+* [datetime](https://docs.python.org/3/library/datetime.html)- Used to check inputted date and time format.
 
 # Testing
 
@@ -360,7 +362,7 @@ Once user chooses total payment due, then the user is displayed the total cost o
 * run.py
 ![Validation for run.py](documentation/pep8ci-validation.png)
 
-[PEP8CI](https://pep8ci.herokuapp.com/) was used to validate python code. The errors that came up initially were line too long erros, trailing white spaces, blank spaces error which were all corrected
+[PEP8CI](https://pep8ci.herokuapp.com/) was used to validate python code. The errors that came up initially were line too long errors, trailing white spaces, blank spaces error which were all corrected
 
 ## Manual Testing
 
@@ -372,14 +374,14 @@ Please go over to [TESTING.md](TESTING.md) for manual testing documentation.
 
 | Bug | Solution | 
 | --- | --- |
-| 1.	Was unable to store hashed passwords, gave error-TypeError: Object of type bytes is not JSON serializable. when trying to store my hashed password to gspread | This was solved by decoding the byte object to store the password as string.I found solution here https://stackoverflow.com/questions/44682018/typeerror-object-of-type-bytes-is-not-json-serializable |
-| 2. When user chose option to view appointments for a certain patient,	The system was only showing one appointment for patient and not all appointments assigned to that patient. | I solved this by using for loop in view_appointment() to check the column in appointment sheet that has all the file numbers. I then used if statement to check if inputed file number corresponded to filenumbers stored in the appointment sheet's file number column. If they are the same, then for loop will allow all the appointments with that specific file number to be displayed to user. In the data sheet below you can see appointments for same file number. ![appointment data](documentation/bugs/view-appointment-bug.png),  ![appointment display](documentation/bugs/view-appointment-bug-solved.png) This will then be displayed as this to user|
-| 3.	I realised after finishing 90% of the application that when i Log in and i dont have the correct credentials then user is at a dead end. and is not given an option to sign up or try again.![View bug here](documentation/bugs/login-bug.gif) | This was solved by giving user option to try again or sign up to store their credentials. ![See here](documentation/bugs/login-solution.png) |
-| 4.	Appointments could be made for file numbers who ddnt have patient details yet.This would then cause problems when user checks for patient details of an appointment that is made as there would be none| This is solved by first checking if file number entered by user to make appointment was in the patients sheet first, if that specific file number is already stored in the patients sheet then program proceeds to ask user to enter appointment date and time to make a booking. However, If inputed file number does not correspond to a file number in patient's sheet then user will be redirected to the main menu to enter patient's details before making an appointment. For example: user enters file no #78653 to make appointment and the app will check through patients sheet file number column ![patient sheet](documentation/bugs/patient-details-sheet.png) . As you can see that specific file number is in patient sheet file number column, and will then proceed to ask user with the necessary questions to make appointment. If that file number is not found in patient's sheet file number column, user will be redirected like so -![Add patient](documentation/bugs/add-patient-first.png) |
-| 5.	When user tried to view appointments for which patient details are already added,User is asked to input patient's file number. This gave error because appointment was not yet made with the specific patient yet . | Solved by using forloop to check if inputted file number was in appointment sheet in database/gspread and if it was'snt there then user is returned back to menu.  |
-| 6.	When user wanted to add patient details, they could add the same file number more than once in patients datasheet.This should cause problems as file number should be unique to each patient | This was solved by by checking the inputed file number with the file numbers stored in patient details using for loop.If it is already stored, error message will be displayed before user is returned back to main menu.  |
-| 7.	User were able to store empty strings as values in data base when adding patient details or storing usernames and passwords | This is solved by passing inputs into function not_empty() to make sure the length of their string is not 0, If it is 0, then user is prompted with message "You've entered an empty value" before being promted to ask for the input again. |
-| 8.	User was able to enter same appointment and time for multiple patients. This would not work in real life as there can only be 1 patient booked for one slot. |  I created an is_available() method in class scheduler to pass arguments date and time which is inputed by user. This date and time is checked with the appointments sheet's stored date and time . If both of these values correspond to a patient, then error message is shown to user saying "Sorry, that slot is already booked" before returning patient to menu. |
+| 1.	Was unable to store hashed passwords, gave error-Type Error: Object of type bytes is not JSON serializable. when trying to store my hashed password to gspread | This was solved by decoding the byte object to store the password as string. I found solution here https://stackoverflow.com/questions/44682018/typeerror-object-of-type-bytes-is-not-json-serializable |
+| 2. When user chose option to view appointments for a certain patient,	The system was only showing one appointment for patient and not all appointments assigned to that patient. | I solved this by using for loop in view_appointment() to check the column in appointment sheet that has all the file numbers. I then used if statement to check if inputted file number corresponded to file numbers stored in the appointment sheet's file number column. If they are the same, then for loop will allow all the appointments with that specific file number to be displayed to user. In the data sheet below you can see appointments for same file number. ![appointment data](documentation/bugs/view-appointment-bug.png),  ![appointment display](documentation/bugs/view-appointment-bug-solved.png) This will then be displayed as this to user|
+| 3.	I realized after finishing 90% of the application that when i log in and i don't have the correct credentials then user is at a dead end. and is not given an option to sign up or try again.![View bug here](documentation/bugs/login-bug.gif) | This was solved by giving user option to try again or sign up to store their credentials. ![See here](documentation/bugs/login-solution.png) |
+| 4.	Appointments could be made for file numbers who didn't have patient details yet. This would then cause problems when user checks for patient details of an appointment that is made as there would be none| This is solved by first checking if file number entered by user to make appointment was in the patients sheet first, if that specific file number is already stored in the patients sheet then program proceeds to ask user to enter appointment date and time to make a booking. However, If inputted file number does not correspond to a file number in patient's sheet then user will be redirected to the main menu to enter patient's details before making an appointment. For example: user enters file no #78653 to make appointment and the app will check through patients sheet file number column ![patient sheet](documentation/bugs/patient-details-sheet.png) . As you can see that specific file number is in patient sheet file number column, and will then proceed to ask user with the necessary questions to make appointment. If that file number is not found in patient's sheet file number column, user will be redirected like so -![Add patient](documentation/bugs/add-patient-first.png) |
+| 5.	When user tried to view appointments for which patient details are already added, User is asked to input patient's file number. This gave error because appointment was not yet made with the specific patient yet . | Solved by using for loop to check if inputted file number was in appointment sheet in database/gspread and if it wasn't there then user is returned back to menu.  |
+| 6.	When user wanted to add patient details, they could add the same file number more than once in patients datasheet. This should cause problems as file number should be unique to each patient | This was solved by by checking the inputted file number with the file numbers stored in patient details using for loop. If it is already stored, error message will be displayed before user is returned back to main menu.  |
+| 7.	User were able to store empty strings as values in data base when adding patient details or storing usernames and passwords | This is solved by passing inputs into function not_empty() to make sure the length of their string is not 0, If it is 0, then user is prompted with message "You've entered an empty value" before being prompted to ask for the input again. |
+| 8.	User was able to enter same appointment and time for multiple patients. This would not work in real life as there can only be 1 patient booked for one slot. |  I created an is_available() method in class scheduler to pass arguments date and time which is inputted by user. This date and time is checked with the appointments sheet's stored date and time . If both of these values correspond to a patient, then error message is shown to user saying "Sorry, that slot is already booked" before returning patient to menu. |
 
 ## Known Bugs
 
@@ -391,7 +393,7 @@ The site was deployed to heroku with the following steps:
 
 1. Type in pip3 freeze > requirements.txt in terminal to add to requirements.txt
 2. Git add, git commit and push changes.
-3. Visit [Heroku](https://id.heroku.com/login) to creat an acount. 
+3. Visit [Heroku](https://id.heroku.com/login) to create an account. 
 4. Click on "Create new app".
 5. I entered my app name as "patient-manager-system"
 6. Enter region as Europe.
@@ -401,7 +403,7 @@ The site was deployed to heroku with the following steps:
 10. Click button "Reveal Config Vars"
 11. Go back to gitpod and copy creds.json contents
 12. In the KEY field under Config Vars ,Enter "CREDS" (NB:UPPERCASE)
-13. In the VAlue field under COnfid Vards, paste contents of creds.json.
+13. In the value field under config Vars, paste contents of creds.json.
 14. Click button "Add"
 15. Add another KEY - "PORT"
 16. Add another VALUE - "8000"
@@ -417,7 +419,7 @@ The site was deployed to heroku with the following steps:
 26. Once the "Patient-Manager" repository is found, click on connect.
 27. Once connected, scroll down to automatic deploy. Click on "Enable Automatic Deploys"
 28. Afterwards, click on "Deploy Branch" . 
-29. Once you see the message "the app was succesfully deployed", then the app link will be provided to you.
+29. Once you see the message "the app was successfully deployed", then the app link will be provided to you.
 29. You can click on that to view deployed heroku terminal.
 30. I added Coloroma, and Bcrypt after deploying which needed to be added to requirements.txt using pip3 freeze > requirements.txt in order for them to operate on the deployed heroku terminal.
 
@@ -463,12 +465,12 @@ Cloning is now completed.
 
 ## Acknowledgements
 
-* I want to thank code institute slack #project-portfolio-3 group for all valuable knowledge i've learnt in short space of time
+* I want to thank code institute slack #project-portfolio-3 group for all valuable knowledge I've learnt in short space of time
 * I want to thank my mentor Brian O'hare for the support and encouragements.
 * I acknowledge the tutor support for helping me understand some concepts with regards to git and heroku. 
-* I acknowledge UCD novemebr 2022 private group for the support among fellow peers.
+* I acknowledge UCD novemeber 2022 private group for the support among fellow peers.
 * I want to thank Chris Quinn for delivering out masterclasses and facilitator sessions for python essentials.
 
 ## Disclaimer
 
-* This app is made for project portfolio 3 with full stack development course with Code instutute and is made for educational purposes only.
+* This app is made for project portfolio 3 with full stack development course with Code institute and is made for educational purposes only.
