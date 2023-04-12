@@ -141,7 +141,7 @@ This sheet is accessed when viewing prices, adding treatment prices to show tota
 
 ![Main Page](documentation/features/main-page.png)
 
-Main page/ Start screen consists of ASCII logo, welcome message with short description and a menu to choose between log in or sign up.
+Main page/ Start screen consists of ASCII logo, welcome message with short description and a menu which allows users to choose between a- log in or b- sign up/register.
 
 ![Main Page Error](documentation/features/main-page-error.png)
 
@@ -157,19 +157,19 @@ Once you choose (a) , The user is allowed to enter username and password.
 
 ![Log in Error](documentation/features/login-error.png)
 
-User should only log in if they have already signed up/ registered. If the system doesn't have your username or password in datasheet, it will display this error message and will allow you to choose to sign up or log in again.
+User should only log in if they have already signed up/ registered. If the system doesn't have your username or password stored in datasheet, it will display this error message and will allow you to choose to sign up or log in again.
 
 ---
 
 * REGISTER/SIGN UP
 
-![Sign in Feature](documentation/features/signin-process.png)
+![Sign up Feature](documentation/features/signin-process.png)
 
-Once you choose to sign up or register, you will be allowed to enter a new username. If the same username is already stored in data sheet users, user will be given an error message and asked to enter another user name. Once validated, proceeds to ask for  a new password and then to confirm that password.
+Once you choose to sign up or register, you will be allowed to enter a new username. If the new username inputted is already stored in data sheet users, user will be given an error message and asked to enter another user name. Once validated, proceeds to ask for  a new password and then to confirm that password.
 
-![Sign in succesfull](documentation/features/signup-succesfull.png)
+![Sign up succesfull](documentation/features/signup-succesfull.png)
 
-Once you have signed in, program allows you to log in.
+Once you have signed up/registered, program allows you to log in.
 
 ![Empty string error](documentation/features/empty-string-error.png)
 

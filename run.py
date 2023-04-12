@@ -285,7 +285,7 @@ def menu_choice():
                         else:
                             raise ValueError
                     except ValueError:
-                        print(f"{Fore.RED} We dont have that file no,"
+                        print(f"{Fore.RED} We dont have that file no stored,"
                               " Please add patients details first.")
                         break
 
@@ -313,7 +313,7 @@ def menu_choice():
                               "appointment with that file no.")
                         break
                 else:
-                    print(f"{Fore.RED} invalid input")
+                    print(f"{Fore.RED} Invalid option")
 
         elif menu == "d":
             while True:
@@ -332,7 +332,7 @@ def menu_choice():
                     view_treatments()
                     break
                 else:
-                    print(f"{Fore.RED} invalid input")
+                    print(f"{Fore.RED} Invalid onput")
 
         elif menu == "e":
             main()
@@ -374,7 +374,7 @@ class Patient:
 
         except ValueError:
             print(f"{Fore.RED} Please remember to"
-                  "add patient first.")
+                  " add patient first.")
 
     def add_details(self, new_patient):
         """
@@ -489,7 +489,7 @@ def payment_due():
  Cleaning
  Xray
  Root Canal
- :\n """).lower()
+ :\n {Fore.LIGHTYELLOW_EX}""").lower()
         clear_terminal()
         # Use for loop to check if input is in headings
         for title in headings:
@@ -533,7 +533,7 @@ def payment_due():
                     break
 
                 else:
-                    print(f"{Fore.RED} invalid option,start again")
+                    print(f"{Fore.RED} Invalid option,start again")
                     addition = True
         if addition is False:
             # For when user doesnt enter a valid treatment option
@@ -655,7 +655,7 @@ def validate_fileno():
         # Cant have the same file number again as its a unique code.
         for number in patient_data:
             if file_no == number[4]:
-                print(f"{Fore.RED} This patient is already added.")
+                print(f"{Fore.RED} This file is no is already stored.")
                 menu_choice()
                 break
         else:
@@ -680,7 +680,7 @@ def validate_treatment():
  Denture
  Cleaning
  Xray
- Root Canal:\n """).lower()
+ Root Canal:\n {Fore.LIGHTYELLOW_EX}""").lower()
         # Use forlopp to check if input is same as data in treatments
         for i in treatment_headings:
             if appointment_reason == i:
