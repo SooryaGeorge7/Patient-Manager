@@ -69,7 +69,7 @@ def choice():
  Please choose from options below(Please register if you havent before):
  a - Log in
  b - Register
- Choice:\n """)
+ Choice:\n {Style.RESET_ALL}""")
         clear_terminal()
         if user_choice == "a":
             option = True
@@ -81,7 +81,7 @@ def choice():
             option = True
 
         else:
-            print(f"{Fore.RED} Invalid option, try again")
+            print(f"{Fore.RED} Invalid option, try again{Style.RESET_ALL}")
 
 
 def user_login():
@@ -95,11 +95,13 @@ def user_login():
     # Get values from users SHEET in google sheets using get_all_values().
     data = users.get_all_values()
     log_in = False
-    print(f"{Fore.GREEN} You may log in!")
+    print(f"{Fore.GREEN} You may log in!{Style.RESET_ALL}")
     while log_in is False:
         login_username = input(f"{Fore.LIGHTYELLOW_EX} Please "
-                               "enter username:\n ")
-        login_password = getpass.getpass(" Please enter password:\n ")
+                               f"enter username:\n{Style.RESET_ALL} ")
+        login_password = getpass.getpass(f"{Fore.LIGHTYELLOW_EX} Please "
+                                         f"enter password:"
+                                         f"\n{Style.RESET_ALL} ")
         # Encode user input to be able to match hashed one in database.
         coded_password = login_password.encode('utf-8')
         # Call fxn to clear terminal
@@ -114,7 +116,7 @@ def user_login():
                 # Use bcrypt.checkpw to check if input matches stored password
                 if login_username == username and \
                    bcrypt.checkpw(coded_password, hash_password):
-                    print(f"{Fore.GREEN} Log in Successful!")
+                    print(f"{Fore.GREEN} Log in Successful!{Style.RESET_ALL}")
                     # Call menu fxn
                     menu_choice()
                     break
@@ -126,7 +128,7 @@ def user_login():
  {Fore.LIGHTYELLOW_EX}
  a - Try Log in again
  b - Register
- :\n """)
+ :\n{Style.RESET_ALL} """)
                 if user_option == "a":
                     clear_terminal()
                     raise ValueError
@@ -136,9 +138,9 @@ def user_login():
                     sign_up()
                     break
                 else:
-                    print(f"{Fore.RED} Invalid option.Start again")
+                    print(f"{Fore.RED} Invalid option.Start again{Style.RESET_ALL}")
         except ValueError:
-            print(f"{Fore.RED} Please try again")
+            print(f"{Fore.RED} Please try again{Style.RESET_ALL}")
 
 
 def sign_up():
@@ -157,17 +159,18 @@ def sign_up():
     while sign_in is False:
         try:
             new_username = not_empty(f"{Fore.LIGHTYELLOW_EX} Please enter"
-                                     " a new username:\n ")
+                                     f" a new username:\n {Style.RESET_ALL}")
             new_row = []
             # Line is column
             for line in data:
                 # Column 1 is line[0] which contains the username
                 if new_username == line[0]:
                     print(f"{Fore.RED} The username is already taken,"
-                          " please try again.")
+                          f" please try again.{Style.RESET_ALL}")
                     # Allow user to enter username again.
                     new_username = not_empty(f"{Fore.LIGHTYELLOW_EX} Please "
-                                             "enter a new username:\n ")
+                                             f"enter a new username:\n"
+                                             f" {Style.RESET_ALL}")
                     # Ask user for the newpassword ,and confirm using input().
             new_password = not_empty(f"{Fore.LIGHTYELLOW_EX} Please enter a "
                                      "new password:\n "
@@ -180,7 +183,7 @@ def sign_up():
             # If password doesnt match, the user directed back to start
             if confirm_password != new_password:
                 raise ValueError(f"{Fore.RED} Passwords dont match,"
-                                 " please start again!")
+                                 f" please start again!{Style.RESET_ALL}")
             else:
                 # Change boolean value of sign_in here
                 sign_in = True
@@ -319,7 +322,7 @@ def menu_choice():
             while True:
                 t_choice = input(f"""{Fore.LIGHTYELLOW_EX}
  Please Choose between
- a - Calculate Payment Due
+ a - Calculate Payment Due or
  b - View prices
  :\n """)
                 clear_terminal()
