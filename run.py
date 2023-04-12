@@ -138,7 +138,8 @@ def user_login():
                     sign_up()
                     break
                 else:
-                    print(f"{Fore.RED} Invalid option.Start again{Style.RESET_ALL}")
+                    print(f"{Fore.RED} Invalid option."
+                          f"Start again{Style.RESET_ALL}")
         except ValueError:
             print(f"{Fore.RED} Please try again{Style.RESET_ALL}")
 
