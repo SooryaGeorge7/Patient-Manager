@@ -167,21 +167,21 @@ User should only log in if they have already signed up/ registered. If the syste
 
 * REGISTER/SIGN UP
 
-![Sign up Feature](documentation/features/signin-process.png)
+![Sign up Feature](documentation/features/signup-feature.png)
 
-Once you choose to sign up or register, you will be allowed to enter a new username. If the new username inputted is already stored in data sheet users, user will be given an error message and asked to enter another user name. Once validated, proceeds to ask for  a new password and then to confirm that password.
+Once you choose to sign up or register, you will be allowed to enter a new username. If the new username inputted is already stored in data sheet users, user will be given an error message and asked to enter another username. Once validated, proceeds to ask for  a new password and then asks user to confirm that password.Note that the passwords entered are in color "Black" to make it almost invisible to prying eyes around.
 
 ![Sign up succesfull](documentation/features/signup-succesfull.png)
 
-Once you have signed up/registered, program allows you to log in.
+Once you have signed up/registered, the program allows you to log in.
 
 ![Empty string error](documentation/features/empty-string-error.png)
 
-For any string that the system has to store such as new password, new username, first name(needed to add patient details) and surname (needed to add patient details). The program then makes sure that user does not enter an empty string for those inputs.
+For any string that the system has to store such as a new password, new username, first name(needed to add patient details) and surname (needed to add patient details). The program then makes sure that user does not enter an empty string for those inputs.
 
 ![Passwords error](documentation/features/passwords-error.png)
 
-When asked to confirm password, if passwords don't match then user is displayed an error message before asking to start again.
+When asked to confirm password, if passwords don't match then user is displayed an error message before asking to start sign up process again.
 
 ---
 
