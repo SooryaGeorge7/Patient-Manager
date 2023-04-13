@@ -217,7 +217,7 @@ If user does enter a valid file number and it is stored in Patient's sheet in gs
 
 ![Add patients process](documentation/features/menu-option-b/add-patient-details.png)
 
-To add patients, user is asked to enter patient's name, surname, birthday, email and file number.
+If user chooses option "b" from menu, then user is asked to enter patient's name, surname, birthday, email and file number.
 If added successfully, user is returned to the main menu.
 
 ![Date format error](documentation/features/menu-option-b/date-format-error.png)

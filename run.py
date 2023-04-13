@@ -498,7 +498,7 @@ def payment_due():
  Cleaning
  Xray
  Root Canal
- :\n {Fore.LIGHTYELLOW_EX}""").lower()
+ :\n image.{Style.RESET_ALL}""").lower()
         clear_terminal()
         # Use for loop to check if input is in headings
         for title in headings:
@@ -508,7 +508,7 @@ def payment_due():
  Choose between
  a) Add another treatment
  b) View Total Payment Due
- :\n """)
+ :\n {Style.RESET_ALL}""")
                 clear_terminal()
                 if u_choice == "a":
                     # Each input is added into prices list
@@ -571,7 +571,8 @@ def validate_email():
     # Learnt about pattern matching and regular expression here
     # https://www.geeksforgeeks.org/pattern-matching-python-regex/
     while True:
-        u_email = input(f"{Fore.LIGHTYELLOW_EX} Please enter email:\n ")
+        u_email = input(f"{Fore.LIGHTYELLOW_EX} Please enter email:\n"
+                        f" {Style.RESET_ALL}")
         # Use pattern matching to make sure user enter valid email
         v_email = r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
         # re.match checks inputed email to match v_email pattern/format
@@ -593,7 +594,7 @@ def validate_app_date():
     while True:
         try:
             u_date = input(f"{Fore.LIGHTYELLOW_EX} Please add appointment"
-                           " in the format DD-MM-YYYY:\n ")
+                           f" in the format DD-MM-YYYY:\n {Style.RESET_ALL}")
             # Use datetime to check if input matches given format
             date_obj = datetime.datetime.strptime(u_date, '%d-%m-%Y')
             current_date = datetime.datetime.now()
@@ -602,7 +603,8 @@ def validate_app_date():
                 break
             else:
                 # While loop returns user back to question
-                print(f"{Fore.RED} That date is not in the future, try again.")
+                print(f"{Fore.RED} That date is not in the future, try again."
+                      f"{Style.RESET_ALL}")
         except ValueError:
             print(f"{Fore.RED} That is not a valid date,try again.")
     return u_date
@@ -617,7 +619,8 @@ def validate_birthdate():
     while True:
         try:
             b_date = input(f"{Fore.LIGHTYELLOW_EX} Please add patient's "
-                           "DOB in the format DD-MM-YYYY:\n ")
+                           "DOB in the format DD-MM-YYYY:\n "
+                           f"{Style.RESET_ALL}")
             date_item = datetime.datetime.strptime(b_date, '%d-%m-%Y')
             today_date = datetime.datetime.now()
             # Check if input date is not present or future date with <
@@ -638,7 +641,7 @@ def validate_time():
     # https://stackoverflow.com/questions/33076617/how-to-validate-time-format
     while True:
         u_time = input(f"{Fore.LIGHTYELLOW_EX} Please enter time in the "
-                       "format HH:MM:\n ")
+                       f"format HH:MM:\n {Style.RESET_ALL}")
         try:
             datetime.datetime.strptime(u_time, '%H:%M')
             return u_time
@@ -658,13 +661,14 @@ def validate_fileno():
         file_no = file_no_pattern(f"{Fore.LIGHTYELLOW_EX} "
                                   "Enter patient's file "
                                   "number (format: #-----)"
-                                  " :\n ")
+                                  f" :\n {Style.RESET_ALL}")
         # Use for loop to check if specific file no is already used.
         # Checked in patients sheet data.
         # Cant have the same file number again as its a unique code.
         for number in patient_data:
             if file_no == number[4]:
-                print(f"{Fore.RED} This file is no is already stored.")
+                print(f"{Fore.RED} This file is no is already stored."
+                      f"{Style.RESET_ALL}")
                 menu_choice()
                 break
         else:
@@ -689,7 +693,7 @@ def validate_treatment():
  Denture
  Cleaning
  Xray
- Root Canal:\n {Fore.LIGHTYELLOW_EX}""").lower()
+ Root Canal:\n {Style.RESET_ALL}""").lower()
         # Use forlopp to check if input is same as data in treatments
         for i in treatment_headings:
             if appointment_reason == i:
