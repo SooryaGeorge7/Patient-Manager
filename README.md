@@ -215,14 +215,14 @@ If user does enter a valid file number and it is stored in Patient's sheet in gs
 
 * MENU OPTION B 
 
-![Add patients process](documentation/features/menu-option-b/add-patient-details.png)
+![Add patients process](documentation/features/menu-option-b/menu-option-b-feature.png)
 
 If user chooses option "b" from menu, then user is asked to enter patient's name, surname, birthday, email and file number.
 If added successfully, user is returned to the main menu.
 
 ![Date format error](documentation/features/menu-option-b/date-format-error.png)
 
-The date entered by user should be in the correct formula, otherwise it will give an error before asking to enter enter date again.
+The date entered by user should be in the correct formula, otherwise it will give this error before asking to enter enter date again.
 
 ![Birthday error](documentation/features/menu-option-b/birthday-error.png)
 
@@ -232,13 +232,13 @@ The date entered in the correct formula should be a date in the past, if not the
 
 The email entered is validated, if its not in the format of an email. Program will display error message before asking to enter an email again. 
 
-As for the names , user gets displayed an error message if they enter an empty string before requesting to enter the name or surname. The file number should also be given in the correct format/pattern in order to be validated. 
+As for the name and surname of patients entered by user , an error message will be displayed if they enter an empty string before requesting to enter the name or surname again.(as shown before in signup/register feature) The file number should also be given in the correct format/pattern in order to be validated. (as shown before in menu a features)
 
 * MENU OPTION C
 
 ![Appointment options](documentation/features/menu-option-c/appointment-options.png)
 
-The menu option "c" displayed another menu for user to choose. a - To add appointment, or b - to view appointments. 
+When user chooses menu option "c", the program displays another menu for user to choose. a - To add appointment, or b - to view appointments. 
 
 ![choice error message](documentation/features/menu-option-c/option-c-error.png)
 
@@ -252,16 +252,18 @@ If user chooses neither a or b, an error message is displayed before asking user
 
  ![Add pt details error](documentation/features/menu-option-c/add-appointment/add-patientdetails-error.png)
 
- If user enters a file number that is not in the patients sheet in gspread, then user is returned to main menu to add patient's details first. This ensure that patient's details needs to be in the database before you can add an appointment for that patient.
+ If user enters a file number that is not stored in the patients sheet in gspread, then user is returned to main menu to add patient's details first. This ensure that patient's details needs to be in the database before you can add an appointment for that patient.
 
  ![Unavailable date error](documentation/features/menu-option-c/add-appointment/unavailable-appointment.png)
 
- If user enters a date and time which is already been entered/used in appointment sheet in gspread, then an error message is shown before return user to menu. This ensures that the user cant book more than 1 patient for a specific date and time .
+ If user enters a date and time which has already been entered/used in appointment sheet in gspread, then an error message is shown before return user to menu. This ensures that the user cant book more than 1 patient for a specific slot.
 
 
  ![Appointment date error](documentation/features/menu-option-c/add-appointment/appointment-date-error.png)
 
- If user enters a date in the past, this error message will be shown before they are asked to enter appointment date again
+ If user enters a date in the past, this error message will be shown before they are asked to enter appointment date again.
+ 
+ ![Time error](documentation/features/menu-option-c/add-appointment/invalid-time-error.png)
 
  The time entered should also be written in the correct format or pattern , if not an error is displayed before allowing user to enter time again.
 
@@ -275,9 +277,9 @@ If user chooses neither a or b, an error message is displayed before asking user
 
  When user chooses option b- to view appointment, user is prompt to enter patient's file number. The file number is used to retrieve patient's name and surname from patients sheet. The file number is also used to retrieve the appointment details of the patient in the appointment sheets. All appointments made for this particular patient is displayed to user with treatment cost as well.
 
- ![View Appointment error](documentation/features/menu-option-c/view-appointment/view-appointment-error.png)
+ ![View Appointment error](documentation/features/menu-option-c/view-appointment/view-app-error.png)
 
- If user enters a file number that is not in the appointments sheet, the user is displayed an error message to add appointment first. 
+ If user enters a file number that is not in the appointments sheet, the user is displayed this error message before returning user to menu. 
 
 * MENU OPTION D
 
