@@ -145,23 +145,23 @@ This sheet is accessed when viewing prices, adding treatment prices to show tota
 
 ![Main Page](documentation/features/main-page.png)
 
-Main page/ Start screen consists of ASCII logo, welcome message with short description and a menu which allows users to choose between a- log in or b- sign up/register.
+Main page/ Start screen consists of ASCII logo, a welcome message with short description and a menu which allows users to choose between a- log in or b- sign up/register.
 
 ![Main Page Error](documentation/features/main-page-error.png)
 
-If you don't enter a valid option( a or b), then program will give error message and then will let user choose again.
+If you don't enter a valid option( a or b), then the program will give an error message and will let user choose again.
 
 --- 
 
 * LOG IN
 
-![Log in Feature](documentation/features/login-process.png)
+![Log in Feature](documentation/features/invisible-password.gif)
 
-Once you choose (a) , The user is allowed to enter username and password.
+If you choose (a) , The user is allowed to enter username and password.Note that the password entered is invisible. This feature is implemented so noone would be able to see the user's password when typing.
 
 ![Log in Error](documentation/features/login-error.png)
 
-User should only log in if they have already signed up/ registered. If the system doesn't have your username or password stored in datasheet, it will display this error message and will allow you to choose to sign up or log in again.
+User should only log in if they have already signed up/ registered. If the system doesn't have user's username or password stored in datasheet(Sheet called "users"), it will display this error message and will allow you to choose to register/sign up or log in again.
 
 ---
 
