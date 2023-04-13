@@ -276,22 +276,22 @@ If user chooses neither a or b, an error message is displayed before asking user
  ![View appointment](documentation/features/menu-option-c/view-appointment/view-appointment.png)
 
  When user chooses option b- to view appointment, user is prompt to enter patient's file number. The file number is used to retrieve patient's name and surname from patients sheet. The file number is also used to retrieve the appointment details of the patient in the appointment sheets. All appointments made for this particular patient is displayed to user with treatment cost as well.
-
+ Note that treatment cost is also shown when viewing appointments. When user added appointment, the system matches inputted treatment from user to find the price of the specific treatment in treatments sheet and exports that price to appointments sheet with the specifc patient's appointment row values. When viewing appointment for a patient, then the price is also shown to user in this way.
  ![View Appointment error](documentation/features/menu-option-c/view-appointment/view-app-error.png)
 
  If user enters a file number that is not in the appointments sheet, the user is displayed this error message before returning user to menu. 
 
 * MENU OPTION D
 
-![Treatment options](documentation/features/menu-option-d/menu-d-options.png)
+![Treatment options](documentation/features/menu-d-menu.png)
 
-When user chooses menu option d- treatments, program displays another option to user that allows user to calculate total payment due or to view prices.
+When user chooses menu option d- treatments, the program displays another option to user that allows user to either calculate  payment due or to view prices.
  
  * PAYMENT DUE 
 
  ![Treatment options](documentation/features/menu-option-d/payment-due/treatment-options.png)
 
- When user chooses option a - total payment due, the is asked to choose from the treatment options shown. 
+ When user chooses option a - calculate payment due, then user is asked to choose from the treatment options shown. 
 
  ![Treatment option error](documentation/features/menu-option-d/payment-due/treatment-option-error.png)
 
@@ -299,18 +299,18 @@ When user chooses menu option d- treatments, program displays another option to 
 
  ![After choice options](documentation/features/menu-option-d/payment-due/after-treatmentoption.png)
 
- After user enters a valid treatment option , user is displayed another message which allows them to choose between adding another treatment option or viewing total payment due.
- If user chooses - add another treatment option, then user is displayed the treatment options to choose again.
+ After user enters a valid treatment option , user is displayed another menu which allows them to choose between adding another treatment option or viewing total payment due.
+ If user chooses a- add another treatment option, then user is displayed the treatment options to choose again.
 
  ![Total due](documentation/features/menu-option-d/payment-due/total-due.png)
 
-Once user chooses total payment due, then the user is displayed the total cost of all the treatments you have added previously.
+Once user chooses total payment due, then the user is displayed the total cost of all the treatments user has selected.
 
  * TREATMENT PRICES
 
- ![Treatment prices](documentation/features/menu-option-d/prices/treatment-prices.png)
+ ![Treatment prices](documentation/features/menu-option-d/prices/treatment-costs.png)
 
- If user chose to view treatment prices, a list of treatments with their respective prices are shown to the user . These values are exported from the treatments sheet.
+ If user chose to view treatment prices, a list of treatments with their respective prices are shown to the user . These values are exported from the treatments sheet and displayed to user in a specific way.
 
 * MENU OPTION E
  

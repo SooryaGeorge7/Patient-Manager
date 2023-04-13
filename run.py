@@ -498,7 +498,7 @@ def payment_due():
  Cleaning
  Xray
  Root Canal
- :\n image.{Style.RESET_ALL}""").lower()
+ :\n {Style.RESET_ALL}""").lower()
         clear_terminal()
         # Use for loop to check if input is in headings
         for title in headings:
