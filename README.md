@@ -201,17 +201,17 @@ If user doesn't choose an option from (a -b ), then user is displayed an error m
 
 If user chooses option "a", Program asks user to enter a file number(unique code for each patient). 
 
-![File no pattern error](documentation/features/menu-option-a/file-no-pattern-error.png)
+![File no pattern error](documentation/features/menu-option-a/fileno-pattern-error.png)
 
-The file number has a specific unique pattern, if user doesn't enter a file number with the correct pattern/format, it will give off this error. This error is shown every time user doesn't enter a file number in the correct pattern at any time the user is required to enter a file number in the program. 
+If user doesn't enter a file number with the correct pattern/format, this error will be displayed to user. This error is shown every time user doesn't enter a file number in the correct pattern at any time the user is required to enter a file number in the program. The user is prompt to enter file no again
 
-![File no error](documentation/features/menu-option-a/no-file-num.png)
+![File no error](documentation/features/menu-option-a/menu-option-a-error.png)
 
-If you enter a file number in the correct pattern/format, but we don't have this patient's details in the patients sheet , then user is given error message and will return user back to main page in order for them to add the patient details of that specific file number.
+If you enter a file number in the correct pattern/format, but we don't have this patient's details in the patients sheet in google sheet , then user is given this error message and will return user back to main page in order for them to add the patient details of that specific file number.
 
 ![Patient Details](documentation/features/menu-option-a/view-patient-details.png)
 
-If user does enter a valid file number and it is stored in Patient's sheet in gspread, The program exports/ returns the patient's details connected to that specific file number. The user then is returned back to the main menu to be able to choose an option again.
+If user does enter a valid file number and it is stored in Patient's sheet in gspread, The program displays the patient's details connected to that specific file number in the terminal. The user  is then returned back to the main menu to be able to choose an option again.
 
 * MENU OPTION B 
 
