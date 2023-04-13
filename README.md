@@ -110,6 +110,7 @@ This project has a total of 4 worksheets.
 
 ![Users sheet](documentation/datasheets/users-sheet.png)
 
+[Link to Users sheet in google sheet](https://docs.google.com/spreadsheets/d/1dkCCupGQAcPjtaDc4UBFdGyKOdK8X6IkiDllRYUHD6U/edit?usp=sharing)
 The users sheet contains the user's username and password(hashed with bcrypt). The hashed password is stored in case if the system
 is hacked they would not be able to access passwords to log in to the program.
 This sheet is user when patient tries signing in/registering to store new username/password and when logging in to check if inputted username and password match the ones in the datasheet.
@@ -118,6 +119,7 @@ This sheet is user when patient tries signing in/registering to store new userna
 
 ![Patients sheet](documentation/datasheets/patients-sheet.png)
 
+[Link to Patients sheet in google sheet](https://docs.google.com/spreadsheets/d/1dkCCupGQAcPjtaDc4UBFdGyKOdK8X6IkiDllRYUHD6U/edit#gid=1629797953)
 The patients sheet contains the patient details of patients. Namely their first name, surname, email address, birthdate and file number.
 This sheet is used when viewing patient details and when adding patient details. It is also used to access patient's name when viewing appointments.
 
@@ -125,6 +127,7 @@ This sheet is used when viewing patient details and when adding patient details.
 
 ![Appointments sheet](documentation/datasheets/appointments-sheet.png)
 
+[Link to Appointments sheet in google sheet](https://docs.google.com/spreadsheets/d/1dkCCupGQAcPjtaDc4UBFdGyKOdK8X6IkiDllRYUHD6U/edit#gid=1400056105)
 The appointments sheet contains patient file no, appointment date, time, treatment and price.
 This sheet is used when adding appointments and viewing appointments. All values in the sheet are entered by user except for the values in the price column. The prices in price column is imported from treatments sheet when user enters patient's treatment for that appointment.
 
@@ -132,6 +135,7 @@ This sheet is used when adding appointments and viewing appointments. All values
 
 ![Treatments sheet](documentation/datasheets/treatments-sheet.png)
 
+[Link to Treatments sheet in google sheet](https://docs.google.com/spreadsheets/d/1dkCCupGQAcPjtaDc4UBFdGyKOdK8X6IkiDllRYUHD6U/edit#gid=1800076289)
 The treatments sheet contains all treatments offered in the dental clinic and the prices for each.
 This sheet is accessed when viewing prices, adding treatment prices to show total payment due and to check for treatment prices when adding appointment for a patient. 
 
