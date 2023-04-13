@@ -218,7 +218,7 @@ def menu_choice():
  c - Appointments
  d - Treatment Costs
  e - Exit
- :\n """).lower()
+ :\n {Style.RESET_ALL}""").lower()
         clear_terminal()
         if menu == "a":
             # Insert input into file_no_pattern function to check format
@@ -227,7 +227,8 @@ def menu_choice():
                                           "If you dont have a no yet, please"
                                           " enter any number combination "
                                           "in the format given. "
-                                          "(format: #_ _ _ _ _):\n ")
+                                          "(format: #_ _ _ _ _):\n "
+                                          f"{Style.RESET_ALL}")
             # Define variable to call method
             patient = Patient('Patient')
             # Call patient class method patient_details()
@@ -237,9 +238,10 @@ def menu_choice():
             # Input is passed in not_empty() to make sure string
             # is not empty
             name = not_empty(f"{Fore.LIGHTYELLOW_EX} Please enter "
-                             "Patient's first name:\n ")
+                             f"Patient's first name:\n {Style.RESET_ALL}")
             surname = not_empty(f"{Fore.LIGHTYELLOW_EX} Please enter"
-                                " Patient's surname:\n ")
+                                " Patient's surname:\n "
+                                f"{Style.RESET_ALL}")
             email = validate_email()
             birthday = validate_birthdate()
             fileno = validate_fileno()
@@ -256,7 +258,7 @@ def menu_choice():
  Choose between:
  a - Add Appointment
  b - View Appointment
- :\n """)
+ :\n {Style.RESET_ALL}""")
                 clear_terminal()
                 if appointment_choice == "a":
                     # Get all the values from patients SHEET in google sheet
@@ -264,7 +266,7 @@ def menu_choice():
                     file_number = file_no_pattern(f"{Fore.LIGHTYELLOW_EX} "
                                                   "Enter patient's file "
                                                   "number (format: #-----)"
-                                                  " :\n ")
+                                                  f" :\n {Style.RESET_ALL}")
                     try:
                         # Use for loop to check data stored in Patients sheet
                         for num in patient_data:
@@ -290,7 +292,8 @@ def menu_choice():
                             raise ValueError
                     except ValueError:
                         print(f"{Fore.RED} We dont have that file no stored,"
-                              " Please add patients details first.")
+                              " Please add patients details first."
+                              f"{Style.RESET_ALL}")
                         break
 
                 elif appointment_choice == "b":
@@ -299,7 +302,8 @@ def menu_choice():
                     file_number = file_no_pattern(f"{Fore.LIGHTYELLOW_EX} "
                                                   "Enter patient's file "
                                                   "number (format: #-----)"
-                                                  " :\n ")
+                                                  " :\n "
+                                                  f"{Style.RESET_ALL}")
                     try:
                         # Check if user input matches data in appointments.
                         for f_num in appointment_data:
@@ -314,10 +318,11 @@ def menu_choice():
                             raise ValueError
                     except ValueError:
                         print(f"{Fore.RED} We dont have an "
-                              "appointment with that file no.")
+                              "appointment with that file no."
+                              f"{Style.RESET_ALL}")
                         break
                 else:
-                    print(f"{Fore.RED} Invalid option")
+                    print(f"{Fore.RED} Invalid option{Style.RESET_ALL}")
 
         elif menu == "d":
             while True:
@@ -325,7 +330,7 @@ def menu_choice():
  Please Choose between
  a - Calculate Payment Due or
  b - View prices
- :\n """)
+ :\n {Style.RESET_ALL}""")
                 clear_terminal()
                 if t_choice == "a":
                     # Calls fxn to calculate payment due
@@ -336,14 +341,14 @@ def menu_choice():
                     view_treatments()
                     break
                 else:
-                    print(f"{Fore.RED} Invalid onput")
+                    print(f"{Fore.RED} Invalid onput{Style.RESET_ALL}")
 
         elif menu == "e":
             main()
 
         else:
             print(f"{Fore.RED}You have entered an invalid option,"
-                  " Please try again")
+                  f" Please try again{Style.RESET_ALL}")
 
 
 class Patient:
