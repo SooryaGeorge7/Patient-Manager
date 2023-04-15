@@ -31,19 +31,19 @@
 
 |Choice | Input | Expected result | Response |
 |---|---|---|---|
-| Please choose from a - View patient details, b - Add patient details, c - Appointments, d - Treatments, e - Exit| a | Prompts user to enter patient's file number, If input valid file no, calls class Patient with method patient_details. | as expected |
-| Please choose from a - View patient details, b - Add patient details, c - Appointments, d - Treatments, e - Exit | b | Prompts user to enter patient name, surname, email, date of birth and file no. If valid inputs, then calls Class patient with method add_details() | as expected |
-| Please choose from a - View patient details, b - Add patient details, c - Appointments, d - Treatments, e - Exit | c | Presents user with another menu, to choose from a - add appointments, or b - view appointments | as expected | 
-| Please choose from a - View patient details, b - Add patient details, c - Appointments, d - Treatments, e - Exit | d | Presents user with another menu, to choose from a - Calculate payment due, b- View prices | as expected |
-| Please choose from a - View patient details, b - Add patient details, c - Appointments, d - Treatments, e - Exit | e | Returns user to start screen by calling main() | as expected |
-| Please choose from a - View patient details, b - Add patient details, c - Appointments, d - Treatments, e - Exit | any other key | Invalid input error message, prompts user to enter input again | as expected |
+| Please choose from a - View patient details, b - Add patient details, c - Appointments, d - Treatments, e - Exit| a | Prompts user to enter patient's file number, If input valid file no, calls class Patient with method patient_details to view patient details | As expected |
+| Please choose from a - View patient details, b - Add patient details, c - Appointments, d - Treatments, e - Exit | b | Prompts user to enter patient name, surname, email, date of birth and file no. If valid inputs, then calls Class patient with method add_details() to add patient details | As expected |
+| Please choose from a - View patient details, b - Add patient details, c - Appointments, d - Treatments, e - Exit | c | Presents user with another menu, to choose from a - add appointments, or b - view appointments | As expected | 
+| Please choose from a - View patient details, b - Add patient details, c - Appointments, d - Treatments, e - Exit | d | Presents user with another menu, to choose from a - Calculate payment due, b- View prices | As expected |
+| Please choose from a - View patient details, b - Add patient details, c - Appointments, d - Treatments, e - Exit | e | Returns user to start screen by calling main() | As expected |
+| Please choose from a - View patient details, b - Add patient details, c - Appointments, d - Treatments, e - Exit | any other key | Invalid input error message, prompts user to enter input again | As expected |
 
 ## Manual testing of user choosing "a" in main menu
 
 
 |Choice | Input | Expected result | Response |
 |---|---|---|---|
-| Enter patient's file no | file number entered in incorrect format | input is first tested in file_no_pattern() fxn, if not valid pattern, user is returned to enter file no again| as expected |
+| Enter patient's file no | File number entered in incorrect format | Input is first tested in file_no_pattern() fxn, if it is not in the valid file number pattern, user is returned to enter file number again| As expected |
 | Enter patient's file no | valid file number format, but doesn't exist in patients sheet in spread | if valid file no format is inserted, program calls patient_details method of class Patient, in the patient_details method, it takes the file number as argument and checks if the file number corresponds to a file number in patient's sheet in gspread. If file number entered is not there, then user is given error message and asked to enter patient details before returning user to menu | as expected |
 | Enter patient's file no | valid file number format that exists in patient's sheet in gspread | if valid file no format is inserted, program calls patient_details method of class Patient, in the patient_details method, it takes the file number as argument and checks if the file number corresponds to a file number in patient's sheet in gspread. If file number entered is  there, then patient details of that specific file no is displayed to user before returning user to menu | as expected | 
 
