@@ -1,6 +1,6 @@
 # Manual testing 
 
-## Manual testing of choice() in run.py 
+## Manual testing of start screen options in run.py 
 
 |Choice | Input | Expected result | Response |
 |---|---|---|---|
@@ -8,7 +8,7 @@
 | Please choose from options a - Log in, b - Register | b | Calls sign_up() fxn | as expected |
 | Please choose from options a - Log in, b - Register | any other key | invalid input message, ask user to input again | as expected | 
 
-## Manual testing of user_login() in run.py
+## Manual testing of user trying to log in 
 
 |Choice | Input | Expected result | Response |
 |---|---|---|---|
@@ -17,7 +17,7 @@
 | Asks to enter username, password  | both username and passwords are not stored in database | gives error message, prompts user to either try login again or sign up  | as expected |
 | Asks to enter username, password  | both username and passwords are stored in database | gives login successful message, calls menu_choice() | as expected |
 
-## Manual testing of sign_up() in run.py
+## Manual testing of user trying to sign up/ register.
 
 |Choice | Input | Expected result | Response |
 |---|---|---|---|
@@ -26,7 +26,7 @@
 | Asks to enter new username, new password and to confirm | password inputted to confirm doesn't match the password inputted initially | gives error message, prompts user to start sign up process again | as expected |
 | Asks to enter new username, new password and to confirm | Enters new username, password and confirms password correctly | Gives sign up successful message and calls user_login() fxn | as expected |
 
-## Manual testing of menu_choice() in run.py
+## Manual testing of the main menu 
 
 
 |Choice | Input | Expected result | Response |
@@ -38,7 +38,7 @@
 | Please choose from a - View patient details, b - Add patient details, c - Appointments, d - Treatments, e - Exit | e | Returns user to start screen by calling main() | as expected |
 | Please choose from a - View patient details, b - Add patient details, c - Appointments, d - Treatments, e - Exit | any other key | Invalid input error message, prompts user to enter input again | as expected |
 
-## Manual testing of user choosing "a" in menu_choice()
+## Manual testing of user choosing "a" in main menu
 
 
 |Choice | Input | Expected result | Response |
@@ -47,7 +47,7 @@
 | Enter patient's file no | valid file number format, but doesn't exist in patients sheet in spread | if valid file no format is inserted, program calls patient_details method of class Patient, in the patient_details method, it takes the file number as argument and checks if the file number corresponds to a file number in patient's sheet in gspread. If file number entered is not there, then user is given error message and asked to enter patient details before returning user to menu | as expected |
 | Enter patient's file no | valid file number format that exists in patient's sheet in gspread | if valid file no format is inserted, program calls patient_details method of class Patient, in the patient_details method, it takes the file number as argument and checks if the file number corresponds to a file number in patient's sheet in gspread. If file number entered is  there, then patient details of that specific file no is displayed to user before returning user to menu | as expected | 
 
-## Manual testing of user choosing "b" in menu_choice()
+## Manual testing of user choosing "b" in main menu
 
 
 |Choice | Input | Expected result | Response |
@@ -61,7 +61,7 @@
 | Enter patient's name, surname, email, DOB, file no | All inputs entered are valid | Name, surname, email, DOB and file number is first appended to a list and add_details method of class Patient is called.The method passes the new list as its argument , which allows the values in the list to be appended to a new row in Patients sheet in gspread.
 
 
-## Manual testing of user choosing "a- add appointment" after choosing option c in menu_choice()
+## Manual testing of user choosing "a- add appointment" after choosing option c in main menu.
 
 
 |Choice | Input | Expected result | Response |
@@ -75,7 +75,7 @@
 | Enter file no, appointment date, appointment time, treatment| All valid inputs| Calls add_appntmnt() method of class Scheduler, which first passes date and time in method is_available() to check if that particular slot is already booked. This is done by checking the rows of appointments sheet to see if it corresponds with given date and time already. If the inputted date and time is already present in appointments sheet, then an error message "Sorry that slot is already booked" is displayed to user before returning user to menu . If appointment date and time doesn't correspond to another patient's appointment date and time in appointments sheet in g spread, then add_appntmnt() method is called to append new appointment row to appointments sheet in gspread. The treatment option is checked with treatments sheet in gspread to store the cost of treatment to appointments sheet as well with the appointment| As expected |
 
 
-## Manual testing of user choosing "b- View appointments" after choosing option c in menu_choice()
+## Manual testing of user choosing "b- View appointments" after choosing option c in main menu
 
 
 |Choice | Input | Expected result | Response |
@@ -84,7 +84,7 @@
 | Asks for patient's file no| File number is not in appointments sheet| If valid file no format, Inputted file number is checked with file number stored in appointments sheet in gspread. If file no doesn't match to one in the sheet, then user is displayed error "We don't have an appointment with them, please add appointment" before returning user to add appointment| As expected |
 | Asks for patient's file no| Valid input| Calls view_appointment() method of class Scheduler which checks file number with file no in patients sheet, appointments sheet to be able to display user an appropriate message showing all appointment for that specific patient. The row in appointments sheet with the inputted file no, is exported to display to user the appointment patient name, surname, date, time, treatment and cost of treatment.| As expected|
 
-## Manual testing of user choosing "a"- Calculate total payment due after choosing option d in menu_choice()
+## Manual testing of user choosing "a"- Calculate total payment due after choosing option d in main menu
 
 |Choice | Input | Expected result | Response |
 |---|---|---|---|
@@ -93,18 +93,18 @@
 | Asks user to choose treatment from options, and then to keep adding or view payment due  | Valid inputs | treatment options chosen by user is added to a list which is compared to treatments in treatment sheet. If they are the same, then new list is added with the cost of treatments as integers. sum() is used to add the costs of treatment together to show payment due to user.  | As expected |
 
 
-## Manual testing of user choosing "b"- View prices after choosing option d in menu_choice()
+## Manual testing of user choosing "b"- View prices after choosing option d in main menu
 
 |Choice | Input | Expected result | Response |
 |---|---|---|---|
 | Doesn't ask any input from user |choice- b| Displays results from treatment sheet which contains the treatments and prices of each treatment in a readable manner.| As expected|
 
-## Manual testing of user choosing option e in menu_ choice()
+## Manual testing of user choosing option e in main menu
 
 | Expected result | Response |
 | Allows user to return to start screen | As expected |
 
-## Manual testing of user entering invalid input in menu_ choice()
+## Manual testing of user entering invalid input in main menu
 
 | Expected result | Response |
 | Gives error message "You have entered an invalid option, please try again" before returning user to menu again| As expected |
