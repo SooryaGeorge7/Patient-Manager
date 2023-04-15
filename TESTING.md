@@ -4,9 +4,9 @@
 
 |Choice | Input | Expected result | Response |
 |---|---|---|---|
-| Please choose from options a - Log in, b - Register | a | Calls user_login() fxn | as expected |
-| Please choose from options a - Log in, b - Register | b | Calls sign_up() fxn | as expected |
-| Please choose from options a - Log in, b - Register | any other key | invalid input message, ask user to input again | as expected | 
+| Please choose from options a - Log in, b - Register | a | Calls user_login() fxn to log in | As expected |
+| Please choose from options a - Log in, b - Register | b | Calls sign_up() fxn to sign up or register | As expected |
+| Please choose from options a - Log in, b - Register | any other key | Invalid input message, asks user to input again | As expected | 
 
 ## Manual testing of user trying to log in 
 
