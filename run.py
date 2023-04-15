@@ -667,7 +667,7 @@ def validate_fileno():
         # Cant have the same file number again as its a unique code.
         for number in patient_data:
             if file_no == number[4]:
-                print(f"{Fore.RED} This file is no is already stored."
+                print(f"{Fore.RED} This file no is already stored."
                       f"{Style.RESET_ALL}")
                 menu_choice()
                 break
