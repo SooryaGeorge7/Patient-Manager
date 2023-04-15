@@ -12,19 +12,19 @@
 
 |Choice | Input | Expected result | Response |
 |---|---|---|---|
-| Asks to enter username, password | password in database, username is not in database | gives error message, prompts user to either try login again or sign up | as expected |
-| Asks to enter username, password  | username is in database, password is not in database | gives error message, prompts user to either try login again or sign up | as expected |
-| Asks to enter username, password  | both username and passwords are not stored in database | gives error message, prompts user to either try login again or sign up  | as expected |
-| Asks to enter username, password  | both username and passwords are stored in database | gives login successful message, calls menu_choice() | as expected |
+| Asks to enter username, password | Inputted password stored in database, but username is not in database | Program gives error message, prompts user to either try log in again or sign up | As expected |
+| Asks to enter username, password  | Inputted username is stored in database,but password is not in database | Program gives error message, prompts user to either try login again or sign up | As expected |
+| Asks to enter username, password  | Both username and passwords are not stored in database | Program Gives error message, prompts user to either try login again or sign up  | As expected |
+| Asks to enter username, password  | Both username and passwords are stored in database | Program gives login successful message, calls menu_choice() to display main menu | As expected |
 
 ## Manual testing of user trying to sign up/ register.
 
 |Choice | Input | Expected result | Response |
 |---|---|---|---|
-| Asks to enter new username, new password and to confirm | Username inputted is already stored in users sheet in database | gives error message, prompts user to enter a new username again | as expected |
-| Asks to enter new username, new password and to confirm | Username or password inputted is an empty string | gives error message, prompts user to enter username or password again | as expected |
-| Asks to enter new username, new password and to confirm | password inputted to confirm doesn't match the password inputted initially | gives error message, prompts user to start sign up process again | as expected |
-| Asks to enter new username, new password and to confirm | Enters new username, password and confirms password correctly | Gives sign up successful message and calls user_login() fxn | as expected |
+| Asks to enter new username, new password and to confirm password | Username inputted is already stored in users sheet in database | Program gives error message, prompts user to enter a new username again | As expected |
+| Asks to enter new username, new password and to confirm password | Username or password inputted is an empty string | Program  gives error message, prompts user to enter username or password again | As expected |
+| Asks to enter new username, new password and to confirm password | Password inputted to confirm doesn't match the password inputted initially | Program gives error message, prompts user to start sign up process again | As expected |
+| Asks to enter new username, new password and to confirm password | Enters new username, password and confirms password correctly | Gives sign up successful display message and calls user_login() fxn to allow user to log in | As expected |
 
 ## Manual testing of the main menu 
 
