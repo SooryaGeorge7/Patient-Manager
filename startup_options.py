@@ -1,6 +1,6 @@
 from colorama import Fore, Style
 from utils import clear_terminal
-from run import user_login, sign_up
+from auth_functions import user_login, sign_up
 
 
 def logo():
