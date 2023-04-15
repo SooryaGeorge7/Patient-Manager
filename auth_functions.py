@@ -1,11 +1,7 @@
 """
 This is the file that runs the login and signup functions
 """
-# import re
-# import datetime
 import getpass
-# import gspread
-# from google.oauth2.service_account import Credentials
 from colorama import Fore, Style
 import bcrypt
 from utils import not_empty, clear_terminal

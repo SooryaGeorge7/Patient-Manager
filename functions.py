@@ -3,14 +3,9 @@ This file contains the main classes and functions that operate this application
 """
 import re
 import datetime
-# import getpass
-# import gspread
-# from google.oauth2.service_account import Credentials
 from colorama import Fore, Style
-# import bcrypt
 from google_sheets_api import patients, appointments, treatments
 from utils import clear_terminal, file_no_pattern
-# from startup_options import logo, choice
 import main_menu as menu
 
 

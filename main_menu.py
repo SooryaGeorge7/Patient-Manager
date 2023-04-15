@@ -1,16 +1,9 @@
 """
 This is the file that contains the main menu of the application
 """
-# import re
-# import datetime
-# import getpass
-# import gspread
-# from google.oauth2.service_account import Credentials
 from colorama import Fore, Style
-# import bcrypt
 from google_sheets_api import patients, appointments
 from utils import not_empty, clear_terminal, file_no_pattern
-# from startup_options import logo, choice
 from functions import Patient, validate_email, validate_birthdate
 from functions import validate_fileno, validate_app_date, validate_time
 from functions import view_treatments, Scheduler, payment_due
