@@ -1,3 +1,8 @@
+"""
+This is the file that contains the fxns that are called throughout
+the application
+"""
+
 import os
 import re
 from colorama import Fore

@@ -1,3 +1,6 @@
+"""
+This is the python file that contains fxns for the start screen
+"""
 from colorama import Fore, Style
 from utils import clear_terminal
 from auth_functions import user_login, sign_up

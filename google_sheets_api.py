@@ -1,3 +1,7 @@
+"""
+This is the file that contains google sheet API connections
+"""
+
 import gspread
 from google.oauth2.service_account import Credentials
 

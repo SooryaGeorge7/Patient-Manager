@@ -1,3 +1,6 @@
+"""
+This is the file that contains the main menu of the application
+"""
 # import re
 # import datetime
 # import getpass

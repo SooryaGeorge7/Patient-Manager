@@ -1,5 +1,5 @@
 """
-Importing libraries and data from libraries and gspread
+This is the main file that runs the patient manager application
 """
 # import re
 # import datetime

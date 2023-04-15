@@ -1,3 +1,6 @@
+"""
+This file contains the main classes and functions that operate this application
+"""
 import re
 import datetime
 # import getpass

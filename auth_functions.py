@@ -1,4 +1,6 @@
-
+"""
+This is the file that runs the login and signup functions
+"""
 # import re
 # import datetime
 import getpass
