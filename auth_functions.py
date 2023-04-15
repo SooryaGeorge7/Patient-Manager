@@ -8,6 +8,7 @@ from colorama import Fore, Style
 import bcrypt
 from utils import not_empty, clear_terminal
 from google_sheets_api import users
+import main_menu as menu
 
 
 def user_login():
@@ -44,7 +45,7 @@ def user_login():
                    bcrypt.checkpw(coded_password, hash_password):
                     print(f"{Fore.GREEN} Log in Successful!{Style.RESET_ALL}")
                     # Call menu fxn
-                    menu_choice()
+                    menu.menu_choice()
                     break
 
             else:
