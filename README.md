@@ -366,7 +366,25 @@ Once user chooses total payment due, then the user is displayed the total cost o
 ## Validation
 
 * run.py
-![Validation for run.py](documentation/pep8ci-validation.png)
+![Validation for run.py](documentation/validation/run.py-validation.png)
+
+* utils.py
+![Validation for utils.py](documentation/validation/utils.py-validation.png)
+
+* startup_options.py
+![Validation for startup_options.py](documentation/validation/startup_options.py-validation.png)
+
+* auth_functions.py
+![Validation for auth_functions.py](documentation/validation/auth_functions.py-validation.png)
+
+* main_menu.py
+![Validation for main_menu.py](documentation/validation/main_menu.py-validation.png)
+
+* functions.py
+![Validation for functions.py](documentation/validation/functions.py-validation.png)
+
+* google_sheets_api.py
+![Validation for google_sheets_api](documentation/validation/googlesheet_api.py-validation.png)
 
 [PEP8CI](https://pep8ci.herokuapp.com/) was used to validate python code. The errors that came up initially were line too long errors, trailing white spaces, blank spaces error which were all corrected
 

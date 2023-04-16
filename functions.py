@@ -8,6 +8,7 @@ from google_sheets_api import patients, appointments, treatments
 from utils import clear_terminal, file_no_pattern
 import main_menu as menu
 
+# Constant variables used in multiple fxns below
 t_headings = treatments.row_values(1)
 t_costs = treatments.row_values(2)
 file_no_col = patients.col_values(5)
