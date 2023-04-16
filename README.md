@@ -1,4 +1,4 @@
-# Dental Patient Manager
+# Patient Manager
 
 ![Program mock up](documentation/patient-manager-app.png)
 
@@ -6,11 +6,10 @@
 
 # Brief 
 
-This python project is specifically developed for a dental  private practice. 
-
+Patient manager is specifically developed for a dental private practice. 
 This is a simple patient management system that would allow users to add, view or edit  appointments, treatments and patient details. 
 
-I decided to build this project for my 3rd portfolio project for code institute having drawn inspiration from my current work life. 
+I decided to build this project for my 3rd portfolio project for code institute having drawn inspiration from my current work life in the dental environment. 
 
 I decided to challenge myself with a trying to complete a command line python application that would allow me to manage patients similarly to the applications used in a real dental private practice. 
 
@@ -18,7 +17,7 @@ I decided to challenge myself with a trying to complete a command line python ap
   - [Brief](#brief)
   - [Project](#project)
     - [Scope/ Strategy](#scope-strategy)
-    - [Site Owner Goalds](#site-owner-goals)
+    - [Site Owner Goals](#site-owner-goals)
     - [First time visitor](#first-time-visitor)
     - [Returning visitors](#returning-visitors)
   - [User Experience](#user-experience)
@@ -52,7 +51,7 @@ I decided to challenge myself with a trying to complete a command line python ap
 
 ## Scope/  Strategy
 
-I wanted to develop an application that could be used in real life. In my daily life in the dental environment, i often come across applications to manage patients.I drew inspiration from those applications.
+I wanted to develop an application that could be used in real life. In my daily life in the dental clinic, i often come across applications to manage patients.I drew inspiration from those applications.
 This patient management system allows user to log in, sign in, view patient details, add patient details , add appointments , view appointments , view treatment costs and calculate total payment due. 
 
 The strategy for this project is implemented in the following ways:
@@ -74,25 +73,27 @@ The strategy for this project is implemented in the following ways:
 * Decide what type of inputs are valid.
 
 ## First time visitor
-* As a user, I want to be able to sign in to the program.
-* As a user, I want to view a patient's details.
-* As a user, I want to add appointments for a patient.
-* As a user, I want to add a new patient's details.
-* As a user, I want to edit or view treatments. 
-* As a user, I want to find the price of treatments.
+* As a user, I want to be able to sign up to the program so i can log in succesfully .
+* As a user, I want to view a patient's details inorder to view a patient's information.
+* As a user, I want to add appointments for a patient so that appointment sheet can have data.
+* As a user, I want to add a new patient's details so that there is no confusion when looking up patient again.
+* As a user, I want to edit or view treatments so that its easy to plan patient's appointment. 
+* As a user, I want to find the price of treatments inorder to calculate total due by patient.
 
 ## Returning visitor
-* I want to be able to log in successfully. 
-* I don't want to sign up again. 
+* As a user I want to be able to log in successfully,so that i dont need to sign up again.  
+
 
 # User Experience
 
-The outputs displayed to user varies with color in the terminal for better ux. 
-For example: 
-* For errors and invalid inputs: output message would be red.
-* If user has logged in successfully : output message would be green.
-* Most other questions or statements are displayed with a shade of yellow.
-* If data is being exported from datasheet: The displayed output is a darker yellow
+1. The outputs displayed to user varies with color in the terminal for better ux. 
+  For example: 
+  * For errors and invalid inputs: output message would be red.
+  * If user has logged in successfully : output message would be green.
+  * Most other questions or statements are displayed with a shade of yellow.
+  * If data is being exported from datasheet: The displayed output is a darker yellow
+2. I also centered the heroku terminal for better visual effect for users.
+3. I added a background image which allows user to have the effect of being infront of a monitor in the reception of a dental clinic.
 
 # Logic and Features
 
