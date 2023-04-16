@@ -45,7 +45,7 @@ def choice():
  Please choose from options below(Please register if you havent before):
  a - Log in
  b - Register
- Choice:\n {Style.RESET_ALL}""")
+ Choice:\n {Style.RESET_ALL}""").lower()
         clear_terminal()
         if user_choice == "a":
             option = True

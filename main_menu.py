@@ -70,7 +70,7 @@ def menu_choice():
  Choose between:
  a - Add Appointment
  b - View Appointment
- :\n {Style.RESET_ALL}""")
+ :\n {Style.RESET_ALL}""").lower()
                 clear_terminal()
                 if appointment_choice == "a":
                     # Get all the values from patients SHEET in google sheet
@@ -143,7 +143,7 @@ def menu_choice():
  Please Choose between
  a - Calculate Payment Due or
  b - View prices
- :\n {Style.RESET_ALL}""")
+ :\n {Style.RESET_ALL}""").lower()
                 clear_terminal()
                 if t_choice == "a":
                     # Calls fxn to calculate payment due

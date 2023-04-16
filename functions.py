@@ -184,7 +184,7 @@ def payment_due():
  Choose between
  a) Add another treatment
  b) View Total Payment Due
- :\n {Style.RESET_ALL}""")
+ :\n {Style.RESET_ALL}""").lower()
                 clear_terminal()
                 if u_choice == "a":
                     # Each input is added into prices list

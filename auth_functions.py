@@ -58,7 +58,7 @@ def user_login():
  {Fore.LIGHTYELLOW_EX}
  a - Try Log in again
  b - Register
- :\n{Style.RESET_ALL} """)
+ :\n{Style.RESET_ALL} """).lower()
                 if user_option == "a":
                     clear_terminal()
                     raise ValueError

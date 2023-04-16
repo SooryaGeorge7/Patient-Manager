@@ -45,7 +45,7 @@ def file_no_pattern(user_text):
             print(f"{Fore.RED} You have not entered"
                   " file no in the correct format."
                   " Please start with # followed by"
-                  " 5 digits eg(#12345)")
+                  " 5 digits eg(#01234)")
 
 
 def clear_terminal():
