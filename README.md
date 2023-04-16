@@ -113,7 +113,7 @@ This project has a total of 4 worksheets.
 
 ![Users sheet](documentation/datasheets/users-sheet.png)
 
-[Link to Users sheet in google sheet](https://docs.google.com/spreadsheets/d/1dkCCupGQAcPjtaDc4UBFdGyKOdK8X6IkiDllRYUHD6U/edit?usp=sharing)
+[Link to Users sheet in google sheet](https://docs.google.com/spreadsheets/d/1dkCCupGQAcPjtaDc4UBFdGyKOdK8X6IkiDllRYUHD6U/edit#gid=0)
 The users sheet contains the user's username and password(hashed with bcrypt). The hashed password is stored in case if the system
 is hacked they would not be able to access passwords to log in to the program.
 This sheet is used when patient tries signing in/registering to store new username/password and when logging in to check if inputted username and password match the ones in the datasheet.
@@ -325,15 +325,16 @@ Once user chooses total payment due, then the user is displayed the total cost o
 
 * I want to add more styling to be able to mimic a real life application.  
 * Id want to user to enter more details when adding patient such as address, cell no, etc. 
-* An option to say if patient has paid for treatments or not.
-* An option to add notes for each patient.
+* Add an option to say if patient has paid for treatments or not.
+* Add an option to add notes for each patient.
 * I'd want to have a search function to be able to search for specific patient incase file number is lost.
 * I'd want to be able to print out quotations for each patient and have payment due to be included in.
-* Add implementation to include time needed for each appointment 
-* Implement a calendar system to mark out days that clinic will not be operating( public holidays)
+* Add implementation to include time needed for each appointment.
+* Implement a calendar system to mark out days that clinic will not be operating( public holidays).
 * Make application to manage patients for more than 1 dentist at a time.
-* Include more treatment options
-
+* Include more treatment options.
+* Implement forgot password? option .
+* Allow users to delete or edit appointments and patient details- If i had more time, i would have implemented this.
 
 # Technologies Used
 
@@ -409,7 +410,7 @@ Please go over to [TESTING.md](TESTING.md) for manual testing documentation.
 | 6.	When user wanted to add patient details, they could add the same file number more than once in patients datasheet.In a real life application as file number should be unique to each patient and would cause problems when trying to make appointments. |  When adding a new patient's details, user is requested to enter the patient's assigned file no. This file number is then checked with the file numbers stored in patient details using for loop. If it is already stored, error message will be displayed before user is returned back to main menu. ![File no already used](documentation/bugs/file-no-alreadyused.gif) |
 | 7.	User were able to store empty strings as values in data base when adding patient details or storing usernames and passwords. This would cause a logical error when trying to get patient details and there are no values for names or surnames| This is solved by passing inputs into function not_empty() to make sure the length of their string is not 0, If it is 0, then user is prompted with message "You've entered an empty value" before being prompted to ask for the input again. ![Empty string solution](documentation/bugs/empty-string-solution.png)|
 | 8.	User was able to enter same appointment and time for multiple patients. This would not work in real life as there can only be 1 patient booked for one slot. |  I created an is_available() method in class scheduler to pass arguments date and time which is inputted by user. This date and time is checked with the appointments sheet's stored date and time in the date / time columns ![Date and time column](documentation/bugs/date-time-datasheet.png). If both of these values correspond to a patient, then error message is shown to user saying "Sorry, that slot is already booked" before returning patient to menu.![Slot already booked](documentation/bugs/slot-booked.png) |
-| 9. While moving the application functions to different python files, when i ran the function the program gave error ImportError: cannot import name 'logo' from partially initialized module 'startup_options' (most likely due to a circular import). In which i ddnt understand what needed to be done. After searching on stackoverflow, i finally understood the problem from here [circular import problem](https://stackoverflow.com/questions/72717979/python-importerror-cannot-import-name-from-partially-initialized-module) | I realized it was because the python files imported from eachother resulting ultimately in a loop because i wanted the start screen to show again once user chose option e from main menu. I solved this by moving the import statment in into function statment like so instead of having it at the beginning of the python file. ![import solution](documentation/bugs/import-solution.png) |
+| 9. While moving the application functions to different python files, when i ran the function the program gave error ImportError: cannot import name 'logo' from partially initialized module 'startup_options' (most likely due to a circular import). In which i ddnt understand what needed to be done. After searching on stackoverflow, i finally understood the problem from here [circular import problem](https://stackoverflow.com/questions/72717979/python-importerror-cannot-import-name-from-partially-initialized-module) | I realized it was because the python files imported from eachother resulting ultimately in a loop because i wanted the start screen to show again once user chose option e from main menu. I solved this by moving the import statment into function statment like so instead of having it at the beginning of the python file. ![import solution](documentation/bugs/import-solution.png) |
 
 ## Known Bugs
 
@@ -457,10 +458,10 @@ The site was deployed to heroku with the following steps:
 
 To fork the Patient-Manager Repository:
 
-Log in or Sign up to github.
-Find the repository for this project, SooryaGeorge7/Patient-Manager
-Click the fork button on top right corner.
-How to Clone
+* Log in or Sign up to github.
+* Find the repository for this project, SooryaGeorge7/Patient-Manager
+* Click the fork button on top right corner.
+
 
 ## How To Clone
 
