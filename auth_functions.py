@@ -1,6 +1,11 @@
 """
 This is the file that runs the login and signup functions
 """
+# Learnt how to make password invisible with get pass here:
+# https://stackoverflow.com/questions/9202224/getting-a-hidden-password-input
+# Learnt how to hash passwords here:
+# https://stackoverflow.com/questions/63387149/hashing-a-password-with-bcrypt
+# https://www.youtube.com/watch?v=hNa05wr0DSA&t=679s
 import getpass
 from colorama import Fore, Style
 import bcrypt
@@ -123,6 +128,7 @@ def sign_up():
                 new_row.append(hashed_p.decode('utf-8'))
                 # Use append_row to store username and hashed password in SHEET
                 users.append_row(new_row)
+                # Calls fxn to allow user to login after signing up
                 user_login()
         except ValueError as error:
             print(error)
