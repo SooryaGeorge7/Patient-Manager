@@ -159,7 +159,6 @@ def menu_choice():
         elif menu == "e":
             import run as start
             start.main()
-            # exit()
 
         else:
             print(f"{Fore.RED}You have entered an invalid option,"

@@ -348,7 +348,6 @@ def validate_fileno():
                 print(f"{Fore.RED} This file no is already stored."
                       f"{Style.RESET_ALL}")
                 menu.menu_choice()
-                # menu_choice()
                 break
         else:
             return file_no
