@@ -24,7 +24,7 @@ I decided to challenge myself with a trying to complete a command line python ap
   - [User Experience](#user-experience)
   - [Logic and Features](#logic-and-features)
     - [Python](#python)
-    - [Database](#database)
+    - [Datasheet](#datasheet)
     - [Features](#features)
   - [Future implementation](#features-left-to-implement)
   - [Technologies Used](#technology-used)
@@ -101,6 +101,8 @@ For example:
 A flowchart was created in the start of the project to help build logic for the system.
 ![Patient Manager Flow Diagram](documentation/flow-chart/flow-chart-patient-manager.png)
 
+This flow chart was made in the beginning of the project development. I have made changes to the flow/logic of system as the development process progresseds.
+
 ## Datasheet
 
 Google Sheets were used to store data from user into spread sheet and to export data when necessary as well.
@@ -113,7 +115,7 @@ This project has a total of 4 worksheets.
 [Link to Users sheet in google sheet](https://docs.google.com/spreadsheets/d/1dkCCupGQAcPjtaDc4UBFdGyKOdK8X6IkiDllRYUHD6U/edit?usp=sharing)
 The users sheet contains the user's username and password(hashed with bcrypt). The hashed password is stored in case if the system
 is hacked they would not be able to access passwords to log in to the program.
-This sheet is user when patient tries signing in/registering to store new username/password and when logging in to check if inputted username and password match the ones in the datasheet.
+This sheet is used when patient tries signing in/registering to store new username/password and when logging in to check if inputted username and password match the ones in the datasheet.
 
 2. The patients sheet
 
@@ -129,7 +131,7 @@ This sheet is used when viewing patient details and when adding patient details.
 
 [Link to Appointments sheet in google sheet](https://docs.google.com/spreadsheets/d/1dkCCupGQAcPjtaDc4UBFdGyKOdK8X6IkiDllRYUHD6U/edit#gid=1400056105)
 The appointments sheet contains patient file no, appointment date, time, treatment and price.
-This sheet is used when adding appointments and viewing appointments. All values in the sheet are entered by user except for the values in the price column. The prices in price column is imported from treatments sheet when user enters patient's treatment for that appointment.
+This sheet is used when adding appointments and viewing appointments. All values in the sheet are entered by user except for the values in the price column. The prices in price column is exported to appointments sheet from treatments sheet when user enters patient's treatment for that appointment.
 
 4. The treatments sheet
 
