@@ -1,6 +1,8 @@
 """
 This is the file that contains the main menu of the application
 """
+# Import necessary functions from other py files
+# Import module needed for main menu
 from colorama import Fore, Style
 from google_sheets_api import patients, appointments
 from utils import not_empty, clear_terminal, file_no_pattern
@@ -8,7 +10,6 @@ from functions import Patient, validate_email, validate_birthdate
 from functions import validate_fileno, validate_app_date, validate_time
 from functions import view_treatments, Scheduler, payment_due
 from functions import validate_treatment
-# import run as start
 
 
 def menu_choice():
@@ -50,8 +51,11 @@ def menu_choice():
             surname = not_empty(f"{Fore.LIGHTYELLOW_EX} Please enter"
                                 " Patient's surname:\n "
                                 f"{Style.RESET_ALL}")
+            # validate_email fxn validates if email is in valid format
             email = validate_email()
+            # validate_birthdate checks if date is in the past
             birthday = validate_birthdate()
+            # checks if inputted file number is already
             fileno = validate_fileno()
             clear_terminal()
             # List is created with arguments which pass in add_details()
@@ -86,6 +90,7 @@ def menu_choice():
                                 reason = validate_treatment()
                                 clear_terminal()
                                 # Call add_appntmnt() method in Scheduler
+                                # Takes in the arguments above
                                 scheduler = Scheduler()
                                 scheduler.add_appntmnt(
                                     file_number,
