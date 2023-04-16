@@ -114,6 +114,7 @@ This project has a total of 4 worksheets.
 ![Users sheet](documentation/datasheets/users-sheet.png)
 
 [Link to Users sheet in google sheet](https://docs.google.com/spreadsheets/d/1dkCCupGQAcPjtaDc4UBFdGyKOdK8X6IkiDllRYUHD6U/edit#gid=0)
+
 The users sheet contains the user's username and password(hashed with bcrypt). The hashed password is stored in case if the system
 is hacked they would not be able to access passwords to log in to the program.
 This sheet is used when patient tries signing in/registering to store new username/password and when logging in to check if inputted username and password match the ones in the datasheet.
@@ -354,6 +355,7 @@ Once user chooses total payment due, then the user is displayed the total cost o
 * [Pexels](https://www.pexels.com/) - Used for background image.
 * [CI Python Linter](https://pep8ci.herokuapp.com/) - To validate python code.
 * [Text ASCII Art Generator](http://patorjk.com/software/taag/)  - For start of game logo art piece.
+* [Birme](https://www.birme.net/?target_height=1206&auto_width=true&image_format=webp) - To convert background image to webp format
 
 ## Python Libraries 
 
@@ -390,7 +392,7 @@ Once user chooses total payment due, then the user is displayed the total cost o
 * google_sheets_api.py
 ![Validation for google_sheets_api](documentation/validation/googlesheet_api.py-validation.png)
 
-[PEP8CI](https://pep8ci.herokuapp.com/) was used to validate python code. The errors that came up initially were line too long errors, trailing white spaces, blank spaces error which were all corrected
+[PEP8CI](https://pep8ci.herokuapp.com/) was used to validate python code. The errors that came up initially were line too long errors, trailing white spaces, blank spaces error which were all corrected throughout development.
 
 ## Manual Testing
 
@@ -485,10 +487,11 @@ Cloning is now completed.
 * Learnt how to use regular expressions here - https://www.geeksforgeeks.org/pattern-matching-python-regex/
 * Learnt how to use datetime here - https://stackoverflow.com/questions/16870663/how-do-i-validate-a-date-string-format-in-python, https://stackoverflow.com/questions/33076617/how-to-validate-time-format
 * Learnt how to make password invisible with get pass here - https://stackoverflow.com/questions/9202224/getting-a-hidden-password-input
+* Learnt python in depth here - https://www.youtube.com/watch?v=_uQrJ0TkZlc&t=11315s
 
 ## Content 
 
-* All content for application is written by me 
+* All content for application is written by me.
 
 ## Media
 
