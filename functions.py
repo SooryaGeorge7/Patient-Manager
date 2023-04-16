@@ -8,12 +8,16 @@ from google_sheets_api import patients, appointments, treatments
 from utils import clear_terminal, file_no_pattern
 import main_menu as menu
 
+t_headings = treatments.row_values(1)
+t_costs = treatments.row_values(2)
+
 
 class Patient:
     """
     This class represents a patients, it contains methods that views
     patient details and adds patient details to same patient
-    sheet in gspread.
+    sheet in gspread.This class is called either ehen user chooses
+    menu option a or b.
     """
     def __init__(self, file_number):
         self.file_number = file_number
@@ -82,8 +86,8 @@ class Scheduler:
         in a list. The list is appended to the appointment
         data sheet.
         """
-        treatment_prices = treatments.row_values(2)
-        treatment_names = treatments.row_values(1)
+        # treatment_prices = treatments.row_values(2)
+        # treatment_names = treatments.row_values(1)
         if self.is_available(date, time):
             self.new_appointment.append(file_number)
             self.new_appointment.append(date)
@@ -91,9 +95,9 @@ class Scheduler:
             self.new_appointment.append(reason)
             # Used for loop to check the prices in treatments sheet.
             # Use range(len())to iterate through all treatments
-            for i in range(len(treatment_names)):
-                if reason == treatment_names[i]:
-                    self.new_appointment.append(treatment_prices[i])
+            for i in range(len(t_headings)):
+                if reason == t_headings[i]:
+                    self.new_appointment.append(t_costs[i])
             appointments.append_row(self.new_appointment)
             print(f"{Fore.GREEN} Added appointment succesfully!")
 
@@ -142,8 +146,8 @@ def payment_due():
     while payment is False:
         # Get values from treatment sheet
         # Store each row values in different variable
-        headings = treatments.row_values(1)
-        costs = treatments.row_values(2)
+        # headings = treatments.row_values(1)
+        # costs = treatments.row_values(2)
         addition = False
         pt_treatment = input(f"""{Fore.LIGHTYELLOW_EX}
  Please a choose treatment for patient from the following options:
@@ -159,7 +163,7 @@ def payment_due():
  :\n {Style.RESET_ALL}""").lower()
         clear_terminal()
         # Use for loop to check if input is in headings
-        for title in headings:
+        for title in t_headings:
 
             if pt_treatment == title:
                 u_choice = input(f"""{Fore.LIGHTYELLOW_EX}
@@ -178,21 +182,21 @@ def payment_due():
                     # Last input is also added to prices list
                     prices.append(pt_treatment)
                     # Find row values of treatments sheet
-                    headings = treatments.row_values(1)
-                    costs = treatments.row_values(2)
+                    # headings = treatments.row_values(1)
+                    # costs = treatments.row_values(2)
                     addition = True
                     # Change values in costs to integer with int()
                     # Store integers in new list
-                    int_costs = [int(x) for x in costs]
+                    int_costs = [int(x) for x in t_costs]
                     i = 0
                     # Define a new list to add the chosen treatment's prices
                     final_list = []
                     # Use for loop to check if item in price is in headings
                     for i in prices:
-                        if i in headings:
+                        if i in t_headings:
                             #  Use index() to check the treatment price
                             #  Append it to final_list
-                            final_list.append(int_costs[headings.index(i)])
+                            final_list.append(int_costs[t_headings.index(i)])
                     # Use sum() to add integers in list
                     print(f"{Fore.YELLOW} Total payment due"
                           f" is {sum(final_list)}")
@@ -212,13 +216,13 @@ def view_treatments():
     Function that displays the treatments and corresponding prices in
     datasheet treatments.
     """
-    headings = treatments.row_values(1)
-    costs = treatments.row_values(2)
+    # headings = treatments.row_values(1)
+    # costs = treatments.row_values(2)
     i = 0
     print(f"{Fore.YELLOW} Treatment Prices")
     # Use for loop to print out values in treatment sheet
-    for i in range(len(headings)):
-        print(f" {Fore.YELLOW}{headings[i].title()}:{costs[i]}€")
+    for i in range(len(t_headings)):
+        print(f" {Fore.YELLOW}{t_headings[i].title()}:{t_costs[i]}€")
 
 
 def validate_email():
@@ -339,7 +343,7 @@ def validate_treatment():
     Function that validates inputed treatment to check if it is
     a treatment provided by the clinic.
     """
-    treatment_headings = treatments.row_values(1)
+    # treatment_headings = treatments.row_values(1)
     validate = False
     while validate is False:
         appointment_reason = input(f"""{Fore.LIGHTYELLOW_EX}
@@ -354,7 +358,7 @@ def validate_treatment():
  Xray
  Root Canal:\n {Style.RESET_ALL}""").lower()
         # Use forlopp to check if input is same as data in treatments
-        for i in treatment_headings:
+        for i in t_headings:
             if appointment_reason == i:
                 validate = True
                 break
