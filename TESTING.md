@@ -96,9 +96,11 @@ Manual testing was done for the entire application. The results for each step of
 ## Manual testing of user choosing option e in main menu.
 
 | Expected result | Response |
+|---|---|
 | Allows user to return to start screen | As expected |
 
 ## Manual testing of user entering invalid input in main menu.
 
 | Expected result | Response |
+|---|---|
 | Gives error message "You have entered an invalid option, please try again" before returning user to menu again| As expected |
