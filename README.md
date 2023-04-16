@@ -495,7 +495,7 @@ Cloning is now completed.
 
 ## Media
 
-[Pexels.com](https://www.pexels.com)- Used to get background image for deployed terminal
+[Background image](https://www.pexels.com/photo/simple-workspace-at-home-6476588/)- Used to get background image for deployed terminal
 
 ## Acknowledgements
 
