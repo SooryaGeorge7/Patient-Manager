@@ -10,6 +10,7 @@ import main_menu as menu
 
 t_headings = treatments.row_values(1)
 t_costs = treatments.row_values(2)
+file_no_col = patients.col_values(5)
 
 
 class Patient:
@@ -31,9 +32,7 @@ class Patient:
         displays error message.
         """
         try:
-            file_number_column = patients.col_values(5)
-            row = file_number_column.index(file_number) + 1
-
+            row = file_no_col.index(file_number) + 1
             details = patients.row_values(row)
             print(f"""{Fore.YELLOW}
               ---Patient Details---
@@ -86,8 +85,6 @@ class Scheduler:
         in a list. The list is appended to the appointment
         data sheet.
         """
-        # treatment_prices = treatments.row_values(2)
-        # treatment_names = treatments.row_values(1)
         if self.is_available(date, time):
             self.new_appointment.append(file_number)
             self.new_appointment.append(date)
@@ -110,9 +107,7 @@ class Scheduler:
         appropriate message to user.If inputed file number cant be found
         in data sheet , error message is shown.
         """
-
-        file_num_column = patients.col_values(5)
-        pt_row = file_num_column.index(file_number) + 1
+        pt_row = file_no_col.index(file_number) + 1
         pt_details = patients.row_values(pt_row)
         file_num = appointments.col_values(1)
         print(f" {Fore.YELLOW}Patient {pt_details[0].title()} "
@@ -146,8 +141,6 @@ def payment_due():
     while payment is False:
         # Get values from treatment sheet
         # Store each row values in different variable
-        # headings = treatments.row_values(1)
-        # costs = treatments.row_values(2)
         addition = False
         pt_treatment = input(f"""{Fore.LIGHTYELLOW_EX}
  Please a choose treatment for patient from the following options:
@@ -181,9 +174,6 @@ def payment_due():
                     payment = True
                     # Last input is also added to prices list
                     prices.append(pt_treatment)
-                    # Find row values of treatments sheet
-                    # headings = treatments.row_values(1)
-                    # costs = treatments.row_values(2)
                     addition = True
                     # Change values in costs to integer with int()
                     # Store integers in new list
@@ -216,8 +206,6 @@ def view_treatments():
     Function that displays the treatments and corresponding prices in
     datasheet treatments.
     """
-    # headings = treatments.row_values(1)
-    # costs = treatments.row_values(2)
     i = 0
     print(f"{Fore.YELLOW} Treatment Prices")
     # Use for loop to print out values in treatment sheet
@@ -343,7 +331,6 @@ def validate_treatment():
     Function that validates inputed treatment to check if it is
     a treatment provided by the clinic.
     """
-    # treatment_headings = treatments.row_values(1)
     validate = False
     while validate is False:
         appointment_reason = input(f"""{Fore.LIGHTYELLOW_EX}
