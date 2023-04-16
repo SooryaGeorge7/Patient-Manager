@@ -482,7 +482,7 @@ Cloning is now completed.
 * Learnt how to hash passwords here - https://stackoverflow.com/questions/63387149/hashing-a-password-with-bcrypt, https://www.youtube.com/watch?v=hNa05wr0DSA&t=679s
 * Learnt how to use regular expressions here - https://www.geeksforgeeks.org/pattern-matching-python-regex/
 * Learnt how to use datetime here - https://stackoverflow.com/questions/16870663/how-do-i-validate-a-date-string-format-in-python, https://stackoverflow.com/questions/33076617/how-to-validate-time-format
-
+* Learnt how to make password invisible with get pass here - https://stackoverflow.com/questions/9202224/getting-a-hidden-password-input
 
 ## Content 
 
@@ -494,11 +494,13 @@ Cloning is now completed.
 
 ## Acknowledgements
 
-* I want to thank code institute slack #project-portfolio-3 group for all valuable knowledge I've learnt in short space of time
+* I want to thank code institute slack #project-portfolio-3 group for all valuable knowledge I've learnt in short space of time.
 * I want to thank my mentor Brian O'hare for the support and encouragements.
 * I acknowledge the tutor support for helping me understand some concepts with regards to git and heroku. 
 * I acknowledge UCD novemeber 2022 private group for the support among fellow peers.
 * I want to thank Chris Quinn for delivering out masterclasses and facilitator sessions for python essentials.
+* I want to acknowledge fellow code institute peer Alek Kisielewicz, who shared his incredible PP3 project. I used his readme as a guide to do my readme for this project. 
+* I want to acknowledge my friends, family and especially my husband who has supported me tremendosuly throughout this course.
 
 ## Disclaimer
 
