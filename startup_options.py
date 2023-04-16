@@ -1,12 +1,10 @@
 """
 This is the python file that contains fxns for the start screen
 """
+# Import the necessary functions from other python files
 from colorama import Fore, Style
 from utils import clear_terminal
 from auth_functions import user_login, sign_up
-
-# Learnt how to use colorama here
-# https://www.geeksforgeeks.org/pattern-matching-python-regex/
 
 
 def logo():

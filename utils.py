@@ -1,7 +1,14 @@
 """
-This is the file that contains the fxns that are called throughout
-the application
+This is the file that contains the functions that
+are called throughout the application
 """
+# Import modules to clear interval, for pattern matching, text colors
+# Learnt do make function to clear terminal here:
+# https://stackoverflow.com/questions/2084508/clear-terminal-in-python
+# Learnt about pattern matching here:
+# https://www.geeksforgeeks.org/pattern-matching-python-regex/
+# Learnt how to use colorama here:
+# https://linuxhint.com/colorama-python/
 
 import os
 import re
@@ -45,6 +52,4 @@ def clear_terminal():
     """
     Function that can be called to clear terminal at any stage of the program
     """
-    # Learnt here
-    # https://stackoverflow.com/questions/4810537/how-to-clear-the-screen-in-python
     os.system('cls' if os.name == 'nt' else 'clear')
